@@ -24,15 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v4
         with:
-          path: '.'   # envia tudo o que está no repositório (index, evento1, etc.)
+          path: '.'   # envia tudo o que está no repositório
 
       - name: Deploy to GitHub Pages
         id: deployment
