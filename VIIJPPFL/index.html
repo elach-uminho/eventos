@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>VII Jornadas Princípios e Práticas de Formação em Línguas | 4 de dezembro 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+
+  <style>
+    :root {
+      --color-primary: #0069ae;
+      --color-primary-light: #3d87bb;
+      --color-accent: #73486a;
+      --color-bg: #f8f3ef;
+      --color-accent-soft: #c6909a;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar principal */
+    .navbar-main {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .navbar-main .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-main .navbar-nav .nav-link:hover,
+    .navbar-main .navbar-nav .nav-link:focus {
+      color: var(--color-accent-soft) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--color-primary);
+    }
+
+    .navbar-brand:hover {
+      color: var(--color-primary-light);
+    }
+
+    main {
+      padding-top: 4.5rem; /* compensar navbar fixa */
+    }
+
+    /* Banner full-width (com imagem) */
+    .hero-banner {
+      width: 100%;
+      min-height: 500px;
+      background-image: url("../assets/banners/vii-jppfl.png");
+      background-position: top center;
+      background-size: contain;      /* <-- garante imagem completa sempre */
+      background-repeat: no-repeat;
+      background-color: #ffffff;     /* <-- áreas vazias ficam limpas */
+    }
+
+    section {
+      padding: 2.5rem 0 1.5rem;
+      scroll-margin-top: 6.5rem; /* corrige posição do título ao clicar no separador */
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    section p {
+      font-size: 0.96rem;
+      margin-bottom: 0.6rem;
+      color: #1f2933;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3D87BB;
+      color: #e5e7eb;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .logo-slot {
+      min-height: 70px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #f8f3ef;
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    .footer-links a {
+      color: #f8f3ef;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      margin-top: 0.75rem;
+    }
+
+    .social-icons a {
+      color: #f8f3ef;
+      font-size: 1.2rem;
+      margin-right: 0.6rem;
+    }
+
+    .social-icons a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar principal -->
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        VII JPPFL 2025
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item"><a class="nav-link" href="#sobre">SOBRE</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programa">PROGRAMA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#local">LOCAL</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizacao">ORGANIZAÇÃO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Banner apenas com imagem -->
+    <section class="hero-banner" aria-label="VII Jornadas Princípios e Práticas de Formação em Línguas"></section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="section-inner">
+        <h2>Jornadas Princípios e Práticas de Formação em Línguas</h2>
+        <p>
+          As Jornadas Princípios e Práticas de Formação em Línguas (JPPFL) constituem uma iniciativa conjunta do Mestrado em Português Língua Não Materna (MPLNM), do Mestrado em Espanhol Língua Segunda/Língua Estrangeira (MELSLE) e do Mestrado em Estudos Luso-Alemães (MELA). O seu principal objetivo é criar um espaço de reflexão, partilha e debate em torno de questões teóricas e aplicadas relativas à descrição das línguas, aos processos de aquisição e aprendizagem e às múltiplas formas de operacionalização desses conhecimentos em contextos diversificados.
+        </p>
+        <p>
+          Este encontro reúne investigadores seniores, que asseguram as sessões plenárias, e estudantes de mestrado que tenham recentemente defendido as suas dissertações e projetos ou se encontrem em fase avançada de desenvolvimento dos seus trabalhos de pesquisa. As Jornadas procuram, assim, promover o diálogo entre investigação consolidada e trabalhos emergentes, contribuindo para o aprofundamento científico e para a inovação na área da formação em línguas.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section id="programa">
+      <div class="section-inner">
+        <h2>Programa</h2>
+
+        <p><strong>VII JORNADAS PRINCÍPIOS E PRÁTICAS DE FORMAÇÃO EM LÍNGUAS</strong></p>
+        <p><strong>PROGRAMA</strong></p>
+        <p><strong>DIA 4/DEZEMBRO</strong></p>
+
+        <h3>9h30-10h00 Sessão de Abertura</h3>
+        <p>
+          Micaela Ramon – Diretora do Mestrado em Português Língua Não Materna (MPLNM)<br>
+          Ana Cea –Mestrado em Espanhol Língua Segunda e Língua Estrangeira (MELSLE)<br>
+          Vítor Moura – Diretor do Centro de Estudos Humanísticos (CEHUM)<br>
+          Cristina Flores – Presidente da Escola de Letras, Artes e Ciências Humanas e Diretora do Mestrado em Estudos Luso-alemães (MELA)
+        </p>
+
+        <h3>10h00-10h30 Conferência</h3>
+        <p>
+          Moderação: Cristina Flores<br>
+          Duarte Oliveira (DEGE/ELACH, UMinho)<br>
+          “A estrutura temporal narrativa em alemão: dados de falantes monolingues, bilingues e L2”
+        </p>
+
+        <h3>10h30-11h00 Intervalo para café</h3>
+
+        <h3>11h00-12h45 Comunicações</h3>
+        <p>Moderação: Lola Lerma</p>
+        <ul>
+          <li>Bruna Faria (MELA, UMinho): “Efeitos da variabilidade no treino percetivo de vogais alemãs em aprendentes portugueses”</li>
+          <li>Marija Komić (MELSLE, UMinho): “Primeros pasos en español: integrando tradiciones festivas en la educación preescolar en Croacia"</li>
+          <li>Eden Aquino (MPLNM, UMinho): “O método Tandem como instrumento de mediação intercultural no ensino-aprendizagem de PLE e JLE”</li>
+          <li>Rômulo Sherman (MHD, UMinho): RELIA: Roteiro Empático de Leitura com Inteligência Artificial</li>
+        </ul>
+
+        <h3>12h45-14h00 Almoço</h3>
+
+        <h3>14h30-15h00 Conferência</h3>
+        <p>
+          Moderação: Micaela Ramon<br>
+          Sandra Sousa &amp; Sara Costa (BabeliUM, UMinho)<br>
+          “Multiplicidade de processos de avaliação no contexto do ensino das línguas: um olhar sobre o Português Língua Estrangeira.”
+        </p>
+
+        <h3>15h00-16h45 Comunicações</h3>
+        <p>Moderação: Ana Ribeiro</p>
+        <ul>
+          <li>Laísa Bauermeister Stelo (MELSLE, UMinho): “Exploração didática de cinco contos de escritoras hispano-americanas”</li>
+          <li>Valéria Gomes Lopes (MPLNM, UMinho): “Construções Perifrásticas em Trânsito: O Português Brasileiro na Escola Portuguesa”</li>
+          <li>Marta Ferreira (MPLNM, UMinho): “Construção e Implementação de um Curso Piloto de Preparação para o CIPLE: Desafios, Decisões e Aprendizagens”</li>
+          <li>Carolina Neves (MTCM, UMinho): “O conceito de qualidade na tradução de normas: tradução da norma ISO 24183:2024 comunicação técnica”</li>
+        </ul>
+
+        <h3>16h45-17h00 Intervalo para café</h3>
+
+        <h3>17h00-17h30 Conferência</h3>
+        <p>
+          Moderação: Mario Gradín<br>
+          Teresa Jesús Ángeles Galiano (DER/ELACH, UMinho)<br>
+          “Estudantes da UMinho a contar o presente para que se entenda o futuro em Todo con Enhe”
+        </p>
+
+        <h3>17h30-18h00 Apresentação de livro</h3>
+        <p>
+          Arsénio Cassoma et alii (Org.). <em>Didáctica da Língua Portuguesa. Enquadramentos teóricos e propostas de didactização.</em> Luanda: Editora FD-Iuris
+        </p>
+
+        <h3>18h15 Encerramento</h3>
+      </div>
+    </section>
+
+    <!-- LOCAL -->
+    <section id="local">
+      <div class="section-inner">
+        <h2>Local</h2>
+        <p>
+          Auditório da ELACH
+        </p>
+      </div>
+    </section>
+
+    <!-- ORGANIZAÇÃO -->
+    <section id="organizacao">
+      <div class="section-inner">
+        <h2>Organização</h2>
+
+        <h3>Organização</h3>
+        <ul>
+          <li>Mestrado em Espanhol Língua Segunda/Língua Estrangeira (MELSLE), Universidade do Minho.</li>
+          <li>Mestrado em Estudos Luso-Alemães (MELA), Universidade do Minho.</li>
+          <li>Mestrado em Português Língua Não Materna (MPLNM), Universidade do Minho.</li>
+          <li>Centro de Estudos Humanísticos da Universidade do Minho (CEHUM).</li>
+          <li>BabeliUM-Centro de Línguas da Universidade do Minho.</li>
+        </ul>
+
+        <p>
+          Além dos estudantes dos mestrados organizadores, participam, nas jornadas, estudantes do Mestrado em Humanidades Digitais (MHD) e do Mestrado em Tradução e Comunicação Multilingue (MTCM).
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="section-inner">
+        <h2>Contacto</h2>
+        <p>
+          Para pedidos de informação ou outras questões relacionadas com as Jornadas, utilizar o endereço: micaelar@elach.uminho.pt
+        </p>
+        
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="logos-grid">
+        <div class="logo-slot">
+          <img src="../assets/logos/babelium.png"
+               alt="ELACH - Universidade do Minho"
+               style="max-width: 250px; height: auto;">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/elach.png"
+               alt="FCT"
+               style="max-width: 250px; height: auto;">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/fct.png"
+               alt="CEHUM"
+               style="max-width: 350px; height: auto;">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/cehum.png"
+               alt="NETCULT"
+               style="max-width: 250px; height: auto;">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h6 class="text-uppercase fw-bold">VII JPPFL 2025</h6>
+          <p class="mb-1">VII Jornadas Princípios e Práticas de Formação em Línguas</p>
+          <p class="mb-0">4 de dezembro · Auditório da ELACH</p>
+        </div>
+
+        <div class="col-md-3 mb-3 footer-links">
+          <h6 class="text-uppercase fw-bold">Navegação</h6>
+          <a href="#sobre">Sobre</a>
+          <a href="#programa">Programa</a>
+          <a href="#local">Local</a>
+          <a href="#organizacao">Organização</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <h6 class="text-uppercase fw-bold">Redes</h6>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/babelium/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCdcqo4xfpUOc1P4KduqUGvA" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.facebook.com/BabeliUM" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
