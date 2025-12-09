@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>SPonMEL 2025 – Student Perspectives on Minoritized and Endangered Languages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <!-- Fonte Oswald (parecida com o cartaz) -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+
+  <style>
+    :root {
+      --color-primary: #0069ae;
+      --color-primary-light: #3d87bb;
+      --color-accent: #6b3b2a;
+      --color-bg: #f8f3ef;
+      --color-accent-soft: #b59d94;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar principal */
+    .navbar-main {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .navbar-main .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-main .navbar-nav .nav-link:hover {
+      color: var(--color-accent-soft) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--color-primary);
+    }
+
+    main {
+      padding-top: 4.5rem;
+    }
+
+    /* ============================================================
+       NOVO BANNER EM CSS (REPRODUZINDO O ESTILO DO CARTAZ)
+       ============================================================ */
+    .hero-banner {
+  width: 100%;
+  background-color: #f6e7cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 4rem; /* AQUI aumentei o padding-top */
+  text-align: center;
+  min-height: 380px; /* garante altura mínima confortável */
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.hero-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;              /* maior */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #0069ae;
+  margin-bottom: 1.4rem;
+}
+
+.hero-title-block {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #6b3b2a;
+  line-height: 1.25;
+}
+
+.hero-line {
+  display: block;
+  font-size: 2rem;           /* maior */
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+@media (min-width: 992px) {
+  .hero-line {
+    font-size: 2.7rem;       /* maior em desktop */
+  }
+}
+
+    .hero-meta {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+
+    /* Secções */
+    section {
+      padding: 2.5rem 0 1.5rem;
+      scroll-margin-top: 6.5rem;
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    /* PDF viewer */
+    .pdf-viewer {
+      width: 100%;
+      height: 700px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-viewer {
+        height: 500px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3D87BB;
+      color: #e5e7eb;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-items: center;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-slot img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    .footer-links a {
+      color: #f8f3ef;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SPonMEL 2025</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#local">Local</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizacao">Organização</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inscricao">Inscrição</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       NOVO BANNER EM CSS (SEM IMAGEM, ESTILO DO CARTAZ)
+       ============================================================ -->
+  <section class="hero-banner" aria-label="SPonMEL 2025">
+    <div class="hero-inner">
+
+      <p class="hero-subtitle">GELAM e LTE apresentam</p>
+
+      <div class="hero-title-block">
+        <span class="hero-line">Student Perspectives on</span>
+        <span class="hero-line">Minoritized and Endangered</span>
+        <span class="hero-line">Languages</span>
+      </div>
+
+      <p class="hero-meta">
+        15 e 16 de dezembro · 9:30 (GMT+0) · Evento online (Zoom)
+      </p>
+
+    </div>
+  </section>
+
+  <main>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="section-inner">
+        <h2>Sobre</h2>
+        <p>
+O Grupo de Estudos de Línguas Ameaçadas e Minorizadas (GELAM) tem o prazer de apresentar o evento Student Perspectives on Minoritized and Endangered Languages (SPonMEL), que se realizará nos dias 15 e 16 de dezembro, na modalidade online (Zoom).
+        </p>
+        <p>
+Este workshop pretende abrir espaço para a partilha de trabalhos desenvolvidos por estudantes de diferentes ciclos nas temáticas de preservação e revitalização linguística e descrição de línguas ameaçadas e/ou minorizadas, com especial enfoque na articulação entre a investigação académica e o envolvimento comunitário.
+        </p>
+        <p>
+O evento propõe-se como uma oportunidade para a troca de ideias e estímulo à colaboração entre investigadores e estudantes em diferentes níveis e áreas de formação, procurando produzir um impacto positivo tanto na academia quanto nas comunidades minorizadas.
+        </p>
+
+        <h3>Público-alvo</h3>
+        <p>
+Este workshop é aberto a todos (em Portugal e internacionalmente) que tenham interesse na problemática das línguas ameaçadas e na documentação linguística. Convidamos pesquisadores experientes e académicos em início de carreira envolvidos em pesquisas sobre línguas ameaçadas e minorizadas, bem como estudantes de pós-graduação e de licenciatura a participar no evento e a contribuir ativamente para as sessões de discussão no seguimento de cada apresentação.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section id="programa">
+      <div class="section-inner">
+        <h2>Programa</h2>
+        
+
+        <iframe src="documentos/programa-sponmel.pdf" class="pdf-viewer"></iframe>
+      </div>
+    </section>
+
+    <!-- LOCAL -->
+    <section id="local">
+      <div class="section-inner">
+        <h2>Local</h2>
+        <p>O evento será realizado em formato online via Zoom. </p>
+      </div>
+    </section>
+
+    <!-- ORGANIZAÇÃO -->
+    <section id="organizacao">
+      <div class="section-inner">
+        <h2>Organização</h2>
+
+        <ul>
+          <li>Ari Gonçalves Soares (Universidade do Minho)</li>
+          <li>Alexandra Fernandes (Universidade do Minho)</li>
+          <li>Cecília Ortiz (Universidade do Porto)</li>
+          <li>Fábio Barcellos (Universidade de Utrecht)</li>
+          <li>Glória Reis (Museu Paraense Emilio Goeldi)</li>
+          <li>Francisco Manta Rodrigues (Universidade do Porto)</li>
+          <li>Luciana da Cruz (Universidade do Minho)</li>
+          <li>Montserrat Esther Ruiz Bonet (Universidade do Minho)</li>
+          <li>Noel Gandarilla (Universidade do Minho)</li>
+          <li>Vitor Pellissari Zardo (Universidade do Porto)</li>
+        </ul>
+
+        <p>Coordenadora: Prof. Dr. Eva-Maria Roessler (LTE, CEHUM, Universidade do Minho)</p>
+      </div>
+    </section>
+
+    <!-- INSCRIÇÃO -->
+    <section id="inscricao">
+      <div class="section-inner">
+        <h2>Inscrição</h2>
+        <p>
+          <a href="https://docs.google.com/forms/d/1mHzAUo-h5LunBqqho8jmgOY-12aWxes0B79nF9DnZw4/edit"
+             target="_blank">Formulário de inscrição</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="section-inner">
+        <h2>Contacto</h2>
+        <p>Para informações adicionais, contactar: <strong>eva.roessler@elach.uminho.pt</strong></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="logos-grid">
+        <div class="logo-slot"></div>
+        <div class="logo-slot">
+          <img src="../assets/logos/elach.png" alt="ELACH">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/fct.png" alt="FCT">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/cehum.png" alt="CEHUM">
+        </div>
+      </div>
+
+      <div class="row text-center justify-content-center">
+        <div class="col-md-4 mb-3">
+          <h6 class="text-uppercase fw-bold">SPonMEL 2025</h6>
+          <p class="mb-1">Student Perspectives on Minoritized and Endangered Languages</p>
+          <p class="mb-0">15 e 16 de dezembro (online) · 9:30 (GMT+0)</p>
+        </div>
+
+        <div class="col-md-3 footer-links">
+          <h6 class="text-uppercase fw-bold">Navegação</h6>
+          <a href="#sobre">Sobre</a>
+          <a href="#programa">Programa</a>
+          <a href="#local">Local</a>
+          <a href="#organizacao">Organização</a>
+          <a href="#inscricao">Inscrição</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
