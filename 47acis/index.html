@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>47ACIS 2026 – Iberian Relations, Europeanisation and Transatlantic Exchanges</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <!-- Fonte Oswald -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+
+  <style>
+    :root {
+      --color-primary: #0069ae;
+      --color-primary-light: #3d87bb;
+      --color-accent: #6b3b2a;
+      --color-bg: #f8f3ef;
+      --color-accent-soft: #b59d94;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .navbar-main {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .navbar-main .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-main .navbar-nav .nav-link:hover {
+      color: var(--color-accent-soft) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--color-primary);
+    }
+
+    main {
+      padding-top: 4.5rem;
+    }
+
+    .hero-banner {
+      width: 100%;
+      background-color: #f6e7cf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+      min-height: 380px;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+    }
+
+    .hero-subtitle {
+      font-family: "Oswald", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #0069ae;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title-block {
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: #6b3b2a;
+      line-height: 1.25;
+    }
+
+    .hero-line {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (min-width: 992px) {
+      .hero-line {
+        font-size: 2.4rem;
+      }
+    }
+
+    .hero-meta {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+
+    section {
+      padding: 2.5rem 0 1.5rem;
+      scroll-margin-top: 6.5rem;
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .logos-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-card {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 14px;
+      padding: 1rem;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-card img {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .fees-table th, .fees-table td {
+      vertical-align: top;
+    }
+
+    footer {
+      background-color: #3D87BB;
+      color: #e5e7eb;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-items: center;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-slot img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    .footer-links a {
+      color: #f8f3ef;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">47ACIS 2026</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item"><a class="nav-link" href="#apresentacao">Presentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tematicas">Themes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizacao">Organization</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inscricao">Submission</a></li>
+          <li class="nav-item"><a class="nav-link" href="#prazos">Deadlines</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="#publicacao">Publication</a></li>-->
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#entidades">Entities</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-banner" aria-label="47ACIS 2026">
+    <div class="hero-inner">
+      <p class="hero-subtitle">Association for Contemporary Iberian Studies 47h Annual Conference</p>
+
+      <div class="hero-title-block">
+        <span class="hero-line">Iberian Relations, Europeanisation</span>
+        <span class="hero-line">and Transatlantic Exchanges</span>
+      </div>
+
+      <p class="hero-meta">University of Minho</p>
+      <p class="hero-meta">2 to 4 September 2026</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- APRESENTAÇÃO -->
+    <section id="apresentacao">
+      <div class="section-inner">
+        <h2>Presentation</h2>
+        <p>The Association will hold its <strong>47th Annual Conference at the University of Minho (Universidade do Minho)</strong> from 2 to 4 September 2026, under the theme <strong>“Iberian Relations, Europeanisation and Transatlantic Exchanges”</strong>. The event will be hosted by UMinho Galabra, Centro de Estudos Humanísticos, and coordinated by Dr. Carlos Pazos-Justo and Dr. Ana Bessa Carvalho. The conference will take place in person, with remote participation available for ACIS members residing on other continents.</p>
+        <p>You are cordially invited to offer a paper, panel or project. Proposals for individual papers as well as panels on specific themes (max. four papers per panel) are encouraged. Any proposed panel should be organised by one convenor, who will be responsible for inviting the speakers and chairing the session. You are also invited to suggest any speakers you think would be willing to offer a paper, but please note that ACIS does not normally offer a fee or expenses for speakers.</p>
+        <p>ACIS encourages proposals from postgraduate students and a small number of partial conference fee bursaries are available – please see application process details below and encourage your students to consider this.</p>
+      </div>
+    </section>
+
+    <!-- TEMÁTICAS -->
+    <section id="tematicas">
+      <div class="section-inner">
+        <h2>Themes</h2>
+        <p>Under the generic title <em>Europeanization and Iberian relations</em>, below are the suggested thematic areas for papers, panels and projects, which must advance understanding of nineteenth, twentieth and twenty-first century socio-cultural, economic and political issues and realities and relate primarily to Spain and/or Portugal and transnational issues and processes relating to the Iberian Peninsula within the wider Lusophone and Hispanic worlds. Both single-disciplinary and interdisciplinary perspectives are encouraged and the themes listed below are not exclusive.</p>
+        <ul>
+          <li>Impacts of European policies on Iberian relations</li><li>Politics, Government, International Relations, the EU, Nationalism, Regionalisms, Transnational issues and processes</li><li>Economics, Business, Labour, Social and Welfare issues</li><li>Cultural Production in all its forms (e.g. film, television, journalism, literature, media, advertising, digital communication &amp; social networking)</li><li>Social and Cultural Studies (e.g. identity, gender, ethnicity, popular culture)</li><li>Leisure, Tourism, Sport</li><li>Contemporary History</li><li>Language, Linguistics, Language Policy</li><li>Education and Pedagogy</li><li>Relationships between narratives, communities, territories</li>
+        </ul>
+        <p>The selection of panels/papers will be made by the Conference programme convenors in consultation with the Scientific committee and these decisions will be final.</p>
+      </div>
+    </section>
+
+    <!-- ORGANIZAÇÃO -->
+    <section id="organizacao">
+      <div class="section-inner">
+        <h2>Organization</h2>
+
+        <h3>•	Organizing Committee</h3>
+        <ul>
+          <li>ACIS President: Susana Rocha Relvas</li><li>Organizing Committee President: Carlos Pazos-Justo</li><li>Organizing Committee Secretary: Ana Bessa Carvalho</li><li>Álvaro Iriarte</li><li>Idalete Dias</li><li>Maria João Moreira</li><li>Elías González</li>
+        </ul>
+
+        <h3>•	Scientific committee</h3>
+        <ul>
+          <li>Anton Pujol (University of North Carolina at Charlotte)</li><li>Bernardo Sacanene (Escola Superior Pedadógica do Bengo)</li><li>Cristina Martínez Tejero (Universidade de Santiago de Compostela)</li><li>Deirdre Kelly (Technological University Dublin)</li><li>Esther Gimeno Ugalde (Universitat Pompeu Fabra)</li><li>Felisa Rodríguez Prado (Universidade de Santiago de Compostela)</li><li>Gabriel Sansano (Universitat d’Alacant)</li><li>Idalete Dias (coord.) (Universidade do Minho)</li><li>Inês Gusman (Universidade de Santiago de Compostela)</li><li>Márcia Oliveira (Universidade do Minho)</li><li>Pilar Nicolás (Universidade do Porto)</li><li>Roberto Samartim (Universidade da Corunha)</li><li>Rogelio Ponce de León (Universidade do Porto)</li><li>Santiago Pérez Isasi (Universidade de Lisboa)</li><li>Siân Edwards (Cardiff University)</li><li>Susana Rocha Relvas (Instituto Politécnico de Viseu)</li><li>Xaquín Núñez Sabarís (Universidade do Minho)</li><li>Zara Pinto Coelho (Universidade do Minho)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SUBSCRIPTION -->
+    <section id="inscricao">
+      <div class="section-inner">
+        <h2>Submission</h2>
+        <p>If you wish to offer a paper, send your proposal to the ACIS 2026 Programme Convenor Carlos Pazos-Justo and Ana Bessa Carvalho, use the form by <strong>FRIDAY, 15th MAY 2026</strong>. Informal enquiries concerning papers and topics are welcome before the deadlines [CFP]</p>
+
+        <h3>Conference Fees</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered bg-white fees-table">
+            <tbody>
+              <tr><td>Student – ACIS members /CEHUM members -Galabra members- EARLY BIRDEARLY BIRD</td><td style='white-space:nowrap'>60€</td></tr><tr><td>Student - non-members  - EARLY BIRD</td><td style='white-space:nowrap'>85€</td></tr><tr><td>Members ACIS/CEHUM members - EARLY BIRD</td><td style='white-space:nowrap'>85€</td></tr><tr><td>Non-members - EARLY BIRD</td><td style='white-space:nowrap'>100€</td></tr><tr><td>Student – ACIS members/CEHUM members– STANDARD</td><td style='white-space:nowrap'>85€</td></tr><tr><td>Student - non-members  - STANDARD</td><td style='white-space:nowrap'>90€</td></tr><tr><td>Members ACIS/ CEHUM members– STANDARD</td><td style='white-space:nowrap'>100€</td></tr><tr><td>Non-members – STANDARD</td><td style='white-space:nowrap'>120€</td></tr><tr><td>Virtual: ACIS members residing on other continents</td><td style='white-space:nowrap'>70 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Early bird payments are accepted until the deadline, <strong>SATURDAY,15th JULY 2026</strong></p>
+        <p>Standard payments are accepted until the deadline, <strong>SUNDAY, 30th JULY 2026</strong></p>
+      </div>
+    </section>
+
+    <!-- DEADLINES -->
+    <section id="prazos">
+      <div class="section-inner">
+        <h2>Deadlines</h2>
+
+        <div class="table-responsive">
+          <table class="table table-bordered bg-white">
+            <tbody>
+              <tr><td style='white-space:nowrap'>January 15-May 15</td><td>Submission of proposals</td></tr><tr><td style='white-space:nowrap'>June 15</td><td>Notification of acceptance of proposals</td></tr><tr><td style='white-space:nowrap'>June 16-July 15</td><td>Registration period</td></tr><tr><td style='white-space:nowrap'>July 30</td><td>Publication of the provisional programme</td></tr><tr><td style='white-space:nowrap'>September 2-4</td><td>Congress</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATION 
+    <section id="publicacao">
+      <div class="section-inner">
+        <h2>Publication</h2>
+      </div>
+    </section>-->
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="section-inner">
+        <h2>Contact</h2>
+        <p><strong>47acis@elach.uminho.pt</strong></p>
+      </div>
+    </section>
+
+    <!-- ENTIDADES -->
+    <section id="entidades">
+      <div class="section-inner">
+        <h2>Entities</h2>
+
+        <h3>Organizing Entities</h3>
+        <div class="logos-row mb-4">
+
+        <div class="logo-card">
+            <a href="https://www.iberianstudies.net/" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/acis.png" alt="ACIS">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://redegalabra.org/" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/galabra.png" alt="Galabra">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://www.elach.uminho.pt/pt/investigar/Centros/Paginas/CEHUM.aspx" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/cehum.png" alt="CEHUM">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://www.fct.pt" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/fct.png" alt="FCT">
+            </a>
+        </div>
+
+        </div>
+
+        <h3>Collaborating entities</h3>
+        <div class="logos-row">
+
+        <div class="logo-card">
+            <a href="https://www.educacionfpydeportes.gob.es/portugal/oficinas-y-centros/consejeria-educacion.html" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/consejeria_educacion.png" alt="Consejería de Educación">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://lisboa.cervantes.es/pt/default.shtm" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/cervantes.JPG" alt="Instituto Cervantes">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://www.xunta.gal" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/xunta_galicia.png" alt="Xunta de Galicia">
+            </a>
+        </div>
+
+        <div class="logo-card">
+            <a href="https://www.tecminho.uminho.pt" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/logos/tecminho.png" alt="TecMinho">
+            </a>
+        </div>
+
+        </div>
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="logos-grid">
+        <div class="logo-slot"></div>
+        <div class="logo-slot">
+          <img src="../assets/logos/elach.png" alt="ELACH">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/fct.png" alt="FCT">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/cehum.png" alt="CEHUM">
+        </div>
+      </div>
+
+      <div class="row text-center justify-content-center">
+        <div class="col-md-5 mb-3">
+          <h6 class="text-uppercase fw-bold">47ACIS 2026</h6>
+          <p class="mb-1">Iberian Relations, Europeanisation and Transatlantic Exchanges</p>
+          <p class="mb-0">University of Minho</p>
+          <p class="mb-0">2 to 4 September 2026</p>
+        </div>
+
+        <div class="col-md-4 footer-links">
+          <h6 class="text-uppercase fw-bold">Navigation</h6>
+          <a href="#apresentacao">Presentation</a>
+          <a href="#tematicas">Themes</a>
+          <a href="#organizacao">Organization</a>
+          <a href="#inscricao">Submission</a>
+          <a href="#prazos">Deadlines</a>
+          <!--<a href="#publicacao">Publication</a>-->
+          <a href="#contacto">Contact</a>
+          <a href="#entidades">Entities</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
