@@ -1,0 +1,290 @@
+:root {
+  --color-primary: #0069ae;
+  --color-primary-light: #3d87bb;
+  --color-accent: #6b3b2a;
+  --color-bg: #f8f3ef;
+  --color-accent-soft: #b59d94;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.navbar-main {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.navbar-main .navbar-nav .nav-link {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.navbar-main .navbar-nav .nav-link:hover {
+  color: var(--color-accent-soft) !important;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--color-primary);
+}
+
+main {
+  padding-top: 4.5rem;
+}
+
+.hero-banner {
+  width: 100%;
+  min-height: 500px;
+  background-image: var(--hero-image, none);
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #fbbb30;
+}
+
+section {
+  padding: 2.5rem 0 1.5rem;
+  scroll-margin-top: 6.5rem;
+}
+
+section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+footer {
+  background-color: #3D87BB;
+  color: #e5e7eb;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+/* FOOTER LOGOS — alinhamento centrado sem perder responsividade */
+.logos-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 0 auto 2rem;     /* centra o bloco */
+  justify-items: center;
+  align-items: center;
+
+  /* em vez de 2/4 fixo, adapta-se ao nº de logos e ao tamanho do ecrã */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* se existir um "slot" vazio (como no teu HTML), não deve ocupar coluna */
+.logos-grid .logo-slot:empty {
+  display: none;
+}
+
+/* garante centragem “real” dentro de cada célula */
+.logo-slot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* mantém o comportamento de dimensionamento que já está bom */
+.logo-slot img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.footer-links a {
+  color: #f8f3ef;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER — melhorar layout texto + navegação */
+footer .row {
+  row-gap: 1.25rem; /* melhor respiro em mobile */
+}
+
+/* Bloco de info do evento: largura e leitura */
+footer .col-md-5 {
+  max-width: 520px;
+}
+
+footer .col-md-5 p {
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+}
+
+/* Navegação em colunas */
+.footer-links {
+  text-align: left; /* em vez de “centrado”, lê melhor */
+}
+
+.footer-links a {
+  margin-bottom: 0;         /* deixa o grid controlar o espaçamento */
+  padding: 0.15rem 0;
+}
+
+/* transforma os links em grid com colunas */
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.25rem;
+  row-gap: 0.4rem;
+  align-content: start;
+}
+
+/* mantém o título a ocupar a largura toda */
+.footer-links h6 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.5rem;
+}
+
+/* em ecrãs maiores, 3 colunas */
+@media (min-width: 992px) {
+  .footer-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+.table thead th {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.table td, .table th {
+  text-align: center;
+}
+
+.table td:first-child,
+.table th:first-child {
+  text-align: left;
+}
+/* BOTÃO CEHUM PDF */
+
+.btn-cehum-pdf {
+  margin: 1rem auto 0;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.btn-cehum-pdf:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+
+/* COLAPSE PDF */
+
+.pdf-collapse {
+  margin-top: 1.5rem;
+}
+
+
+/* BOTÃO CEHUM PDF */
+
+.btn-cehum-pdf {
+  display: block;            /* 👈 isto resolve o desalinhamento */
+  margin: 1.5rem auto 0;     /* centra horizontalmente */
+  padding: 0.6rem 1.4rem;
+
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  width: fit-content;        /* 👈 impede que estique */
+}
+
+.btn-cehum-pdf:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+
+/* COLAPSE PDF */
+
+.pdf-collapse {
+  margin-top: 1.5rem;
+}
+
+
+/* ÁREA DO PDF — CENTRADA E COM LARGURA CONTROLADA */
+
+.pdf-wrapper {
+  max-width: 900px;     /* 👈 controla a largura */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+
+/* IFRAME */
+
+.pdf-viewer {
+  width: 100%;
+  height: 70vh;         /* 👈 altura confortável */
+  border: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .pdf-viewer {
+    height: 60vh;
+  }
+}
