@@ -38,14 +38,24 @@ main {
   padding-top: 4.5rem;
 }
 
-.hero-banner {
+.hero-banner{
   width: 100%;
-  min-height: 500px;
-  background-image: var(--hero-image, none);
-  background-position: top center;
-  background-size: contain;
+  background-image: var(--hero-image);
   background-repeat: no-repeat;
-  background-color: #fbbb30;
+  background-color: var(--hero-bg, #f8f3ef);
+
+  background-size: var(--hero-fit, contain);
+  background-position: var(--hero-pos, top center);
+
+  aspect-ratio: var(--hero-ratio, 16/9);
+
+  /* não definir height aqui */
+  height: auto;
+
+  /* opcional: limites para não ficar gigante/pequeno */
+  max-height: var(--hero-max-h, 620px);
+  min-height: var(--hero-min-h, 240px);
+  
 }
 
 section {
