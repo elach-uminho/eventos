@@ -13,126 +13,24 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
 
+  <!-- Estilo comum CEHUM (reutilizável) -->
+  <link rel="stylesheet" href="../assets/css/cehum-evento.css" />
+<!-- Banner do evento (configurável por variável) -->
   <style>
-    :root {
-      --color-primary: #0069ae;
-      --color-primary-light: #3d87bb;
-      --color-accent: #6b3b2a;
-      --color-bg: #f8f3ef;
-      --color-accent-soft: #b59d94;
-    }
+  :root{
+    --hero-image: url("../banners/Banner_Camonistas.png");
+    --hero-fit: contain;
+    --hero-pos: top center;
+    --hero-bg: #fbbb30;
 
-    body {
-      margin: 0;
-      background-color: var(--color-bg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      scroll-behavior: smooth;
-    }
+    --hero-ratio: 3508 / 1663;
 
-    .navbar-main {
-      background-color: #ffffff;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .navbar-main .navbar-nav .nav-link {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .navbar-main .navbar-nav .nav-link:hover {
-      color: var(--color-accent-soft) !important;
-    }
-
-    .navbar-brand {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: var(--color-primary);
-    }
-
-    main {
-      padding-top: 4.5rem;
-    }
-
-    .hero-banner {
-      width: 100%;
-      min-height: 500px;
-      background-image: url("../assets/banners/Banner_Camonistas.png");
-      background-position: top center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-color: #fbbb30;
-    }
-
-   
-
-    section {
-      padding: 2.5rem 0 1.5rem;
-      scroll-margin-top: 6.5rem;
-    }
-
-    section h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-      color: var(--color-accent);
-    }
-
-    .section-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin-top: 1.2rem;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    footer {
-      background-color: #3D87BB;
-      color: #e5e7eb;
-      padding-top: 2.5rem;
-      padding-bottom: 2rem;
-      margin-top: 2rem;
-    }
-
-    .logos-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 2rem;
-      justify-items: center;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .logos-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .logo-slot img {
-      max-width: 250px;
-      height: auto;
-    }
-
-    .footer-links a {
-      color: #f8f3ef;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.3rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
+    --hero-max-h: 560px;
+    --hero-min-h: 260px;
+    margin-top: 3.5rem;
+  }
   </style>
+ 
 </head>
 
 <body>
@@ -180,6 +78,23 @@
   <div class="section-inner">
     <h2>Programa</h2>
     <p><strong>A anunciar</strong></p>
+    <!-- COMPONENTE PDF (Bootstrap collapse) -->
+    <button class="btn-cehum-pdf"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#pdfPrograma"
+            aria-expanded="false"
+            aria-controls="pdfPrograma">
+      Ver programa
+    </button>
+
+    <div class="collapse pdf-collapse" id="pdfPrograma">
+      <div class="pdf-wrapper">
+        <iframe src="documentos/Programa IX Reunião Internacional de Camonistas.pdf"
+                class="pdf-viewer"
+                title="Programa (PDF)"></iframe>
+      </div>
+    </div>
   </div>
 </section>
 
