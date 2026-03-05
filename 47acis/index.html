@@ -206,6 +206,76 @@
     .footer-links a:hover {
       text-decoration: underline;
     }
+    /* ====== BOTÃO CEHUM PDF (igual ao original) ====== */
+    .btn-cehum-pdf {
+      display: block;
+      margin: 1.5rem auto 0;
+      padding: 0.6rem 1.4rem;
+
+      border: 2px solid var(--color-primary);
+      background-color: transparent;
+      color: var(--color-primary);
+
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      width: fit-content;
+    }
+
+    .btn-cehum-pdf:hover {
+      background-color: var(--color-primary);
+      color: #ffffff;
+    }
+
+    /* ====== COLAPSE PDF ====== */
+    .pdf-collapse {
+      margin-top: 1.5rem;
+    }
+
+    /* ====== ÁREA DO PDF ====== */
+    .pdf-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 70vh;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-viewer { height: 60vh; }
+    }
+
+    /* ====== 2 BOTÕES LADO A LADO (override só aqui) ====== */
+    #cfp .pdf-buttons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:1.5rem;
+    }
+
+    /* IMPORTANTE: neutraliza o margin:auto do botão quando está em flex */
+    #cfp .pdf-buttons .btn-cehum-pdf{
+      margin:0;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:auto;
+    }
+
   </style>
 </head>
 
@@ -224,6 +294,7 @@
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item"><a class="nav-link" href="#apresentacao">Presentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cfp">CFP</a></li>
           <li class="nav-item"><a class="nav-link" href="#tematicas">Themes</a></li>
           <li class="nav-item"><a class="nav-link" href="#organizacao">Organization</a></li>
           <li class="nav-item"><a class="nav-link" href="#inscricao">Submission</a></li>
@@ -261,7 +332,57 @@
         <p>You are cordially invited to offer a paper, panel or project. Proposals for individual papers as well as panels on specific themes (max. four papers per panel) are encouraged. Any proposed panel should be organised by one convenor, who will be responsible for inviting the speakers and chairing the session. You are also invited to suggest any speakers you think would be willing to offer a paper, but please note that ACIS does not normally offer a fee or expenses for speakers.</p>
         <p>ACIS encourages proposals from postgraduate students and a small number of partial conference fee bursaries are available – please see application process details below and encourage your students to consider this.</p>
       </div>
+
+
+      
+
+      
+
     </section>
+
+
+
+    <section id="cfp">
+  <div class="section-inner">
+    <h2>CFP</h2>
+
+    <div class="pdf-buttons">
+      <button class="btn-cehum-pdf"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#pdfEnglish"
+              aria-expanded="false"
+              aria-controls="pdfEnglish">
+        🇬🇧 English
+      </button>
+
+      <button class="btn-cehum-pdf"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#pdfPortuguese"
+              aria-expanded="false"
+              aria-controls="pdfPortuguese">
+        🇵🇹 Português
+      </button>
+    </div>
+
+    <div class="collapse pdf-collapse" id="pdfEnglish" data-bs-parent="#cfp">
+      <div class="pdf-wrapper">
+        <iframe src="documentos/CFP-english.pdf"
+                class="pdf-viewer"
+                title="CFP English PDF"></iframe>
+      </div>
+    </div>
+
+    <div class="collapse pdf-collapse" id="pdfPortuguese" data-bs-parent="#cfp">
+      <div class="pdf-wrapper">
+        <iframe src="documentos/CFP-portugues.pdf"
+                class="pdf-viewer"
+                title="CFP PDF Português"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- TEMÁTICAS -->
     <section id="tematicas">
@@ -460,6 +581,7 @@
         <div class="col-md-4 footer-links">
           <h6 class="text-uppercase fw-bold">Navigation</h6>
           <a href="#apresentacao">Presentation</a>
+          <a href="#cfp">CFP</a>
           <a href="#tematicas">Themes</a>
           <a href="#organizacao">Organization</a>
           <a href="#inscricao">Submission</a>
