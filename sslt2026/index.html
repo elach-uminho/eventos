@@ -30,6 +30,40 @@
       --hero-min-h: 260px;
       margin-top: 3.5rem;
     }
+    .logos-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-card {
+      background: rgba(255,255,255);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 14px;
+      padding: 1rem;
+      width: 100%;
+      min-height: 170px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-card img {
+      max-width: 170px;
+      max-height: 90px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
   </style>
 
   <script type="application/ld+json">
@@ -108,10 +142,16 @@
   </section>
 
   
-
+  
   <section id="cursos">
     <div class="section-inner">
       <h2>Courses</h2>
+      <section aria-label="Places available">
+          <p style="font-size: 1rem; font-weight: 700; color: #c0392b; margin-bottom: 0;">
+            Only 30 places available!
+          </p>
+       
+      </section>
       <p><em>*Note that Seminar 1 and 2 will be conducted in Portuguese and will be accredited training for teachers in Portugal by the Escola de Letras, Artes e Ciências Humanas, da Universidade do Minho. Aguardamos acreditação pelo Conselho Científico-Pedagógico de Formação Contínua (CCPFC).</em></p>
 
       <h3>SEMINAR 1. Provas justas em Português Língua Estrangeira: desenho, critérios de classificação, interpretação e atuação.</h3>
@@ -172,20 +212,61 @@
     <div class="section-inner">
       <h2>Speakers</h2>
 
-      <h3>Rui Vaz (Camões, I.P.)</h3>
-      <p>Possui mestrado em Ciências da Educação e frequência do doutoramento em Educação (Tecnologias Educativas) pela Universidade de Lisboa. É licenciado em Línguas e Literaturas Modernas (Estudos Portugueses) e possui formação educacional na área do Português. Professor efetivo desde 1996, foi também formador de professores e colaborou na elaboração e revisão de materiais para Português Língua Não Materna e Português Língua Estrangeira. Desde 2007, está ligado ao Instituto Camões, onde desempenhou várias funções de coordenação e direção. Atualmente, exerce funções como Diretor de Serviços da Língua, no Instituto da Cooperação e da Língua, I.P.</p>
+       
+      <div class="speaker-block" style="display:flex; gap:20px; align-items:stretch; margin-bottom:30px; flex-wrap:wrap;">
+        <img src="images/rui_vaz_photo.jpeg" alt="Rui Vaz"
+            style="width:180px; height:180px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+        <div style="flex:1; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="margin-top:0;">Rui Vaz (Camões, I.P.)</h3>
+          <p style="text-align:justify; margin-bottom:0;">
+            Possui mestrado em Ciências da Educação e frequência do doutoramento em Educação (Tecnologias Educativas) pela Universidade de Lisboa. É licenciado em Línguas e Literaturas Modernas (Estudos Portugueses) e possui formação educacional na área do Português. Professor efetivo desde 1996, foi também formador de professores e colaborou na elaboração e revisão de materiais para Português Língua Não Materna e Português Língua Estrangeira. Desde 2007, está ligado ao Instituto Camões, onde desempenhou várias funções de coordenação e direção. Atualmente, exerce funções como Diretor de Serviços da Língua, no Instituto da Cooperação e da Língua, I.P.
+          </p>
+        </div>
+      </div>
 
-      <h3>Fausto Caels (ESECS / Politécnico de Leiria; CELGA-ILTEC / Universidade de Coimbra)</h3>
-      <p>Doutorado em Língua e Cultura Portuguesa (Língua Estrangeira/Língua Segunda) pela Faculdade de Letras da Universidade de Lisboa. Professor Adjunto na Escola Superior de Educação e Ciências Sociais do Politécnico de Leiria (ESECS-IPLeiria) e Professor Auxiliar Convidado na Faculdade de Letras da Universidade de Lisboa. Coordena, na ESECS, o Mestrado em Didática do Português Língua Global, a Licenciatura em Tradução e Interpretação Português-Chinês e o Local para Aplicação e Promoção de Exames como Língua Estrangeira. Investigador Integrado do Centro de Estudos de Linguística Geral e Aplicada (CELGA-ILTEC) da Universidade de Coimbra, no grupo Discurso e Práticas Discursivas Académicas (DPDA). Os seus interesses de pesquisa englobam inclusão escolar de alunos de origem migrante, abordagens integradas ao ensino de língua e conteúdo, formação de professores, didática do português como L2/LE, didática da leitura e da escrita, linguística textual, pedagogia de género. Possui, adicionalmente, experiência profissional na área da tradução (neerlandês-português).</p>
+      <div class="speaker-block" style="display:flex; gap:20px; align-items:stretch; margin-bottom:30px; flex-wrap:wrap;">
+        <img src="images/Fausto-Caels_photo.webp" alt="Fausto Caels"
+            style="width:180px; height:180px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+        <div style="flex:1; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="margin-top:0;">Fausto Caels (ESECS / Politécnico de Leiria; CELGA-ILTEC / Universidade de Coimbra)</h3>
+          <p style="text-align:justify; margin-bottom:0;">
+            Doutorado em Língua e Cultura Portuguesa (Língua Estrangeira/Língua Segunda) pela Faculdade de Letras da Universidade de Lisboa. Professor Adjunto na Escola Superior de Educação e Ciências Sociais do Politécnico de Leiria (ESECS-IPLeiria) e Professor Auxiliar Convidado na Faculdade de Letras da Universidade de Lisboa. Coordena, na ESECS, o Mestrado em Didática do Português Língua Global, a Licenciatura em Tradução e Interpretação Português-Chinês e o Local para Aplicação e Promoção de Exames como Língua Estrangeira. Investigador Integrado do Centro de Estudos de Linguística Geral e Aplicada (CELGA-ILTEC) da Universidade de Coimbra, no grupo Discurso e Práticas Discursivas Académicas (DPDA). Os seus interesses de pesquisa englobam inclusão escolar de alunos de origem migrante, abordagens integradas ao ensino de língua e conteúdo, formação de professores, didática do português como L2/LE, didática da leitura e da escrita, linguística textual, pedagogia de género. Possui, adicionalmente, experiência profissional na área da tradução (neerlandês-português).
+          </p>
+        </div>
+      </div>
 
-      <h3>Jesús García Laborda (Universidad de Alcalá)</h3>
-      <p>Dr Jesús García Laborda is a Full Professor of Language and Education at the University of Alcalá and former Dean of the Faculty of Education. His work focuses on language assessment, technology-enhanced testing, and teacher education. He holds a European PhD in Language Education and has an extensive international profile, collaborating with institutions such as the British Council. His research centers on computer-based language testing, interrater reliability, and the validation of high-stakes exams, while also exploring areas such as automated assessment and AI in language evaluation. He has published over 115 articles and contributed to numerous research projects. He has co-developed online testing platforms like OPENPAU and PLEVALEX and currently serves as President of the European Association of Languages for Specific Purposes (AELFE)</p>
+      <div class="speaker-block" style="display:flex; gap:20px; align-items:stretch; margin-bottom:30px; flex-wrap:wrap;">
+        <img src="images/Jesús-García_photo.jpg" alt="Jesús García Laborda"
+            style="width:180px; height:180px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+        <div style="flex:1; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="margin-top:0;">Jesús García Laborda (Universidad de Alcalá)</h3>
+          <p style="text-align:justify; margin-bottom:0;">
+            Dr Jesús García Laborda is a Full Professor of Language and Education at the University of Alcalá and former Dean of the Faculty of Education. His work focuses on language assessment, technology-enhanced testing, and teacher education. He holds a European PhD in Language Education and has an extensive international profile, collaborating with institutions such as the British Council. His research centers on computer-based language testing, interrater reliability, and the validation of high-stakes exams, while also exploring areas such as automated assessment and AI in language evaluation. He has published over 115 articles and contributed to numerous research projects. He has co-developed online testing platforms like OPENPAU and PLEVALEX and currently serves as President of the European Association of Languages for Specific Purposes (AELFE).
+          </p>
+        </div>
+      </div>
 
-      <h3>Teresa Magal Royo (Universitat Politècnica de València)</h3>
-      <p>Dr Teresa Magal Royo is an accredited Full Professor with a PhD in Fine Arts and Associate Professor at the Universitat Politècnica de València (UPV), where she teaches Graphic Engineering, Design, and Communication. Her work combines visual communication, interface design, and educational technology, with a focus on digital learning environments. Her research centers on usability, accessibility, and user experience in educational contexts, particularly in language learning and assessment. She has co-authored over 40 publications on topics such as multimodal interfaces, listening assessment, and digital testing platforms. She has participated in numerous national and international research projects, including European initiatives, and is an experienced Erasmus+ evaluator. Her work integrates design, technology, and pedagogy to improve user-centered language assessment systems.</p>
+      <div class="speaker-block" style="display:flex; gap:20px; align-items:stretch; margin-bottom:30px; flex-wrap:wrap;">
+        <img src="images/teresa-magal_photo.avif" alt="Teresa Magal Royo"
+            style="width:180px; height:180px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+        <div style="flex:1; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="margin-top:0;">Teresa Magal Royo (Universitat Politècnica de València)</h3>
+          <p style="text-align:justify; margin-bottom:0;">
+            Dr Teresa Magal Royo is an accredited Full Professor with a PhD in Fine Arts and Associate Professor at the Universitat Politècnica de València (UPV), where she teaches Graphic Engineering, Design, and Communication. Her work combines visual communication, interface design, and educational technology, with a focus on digital learning environments. Her research centers on usability, accessibility, and user experience in educational contexts, particularly in language learning and assessment. She has co-authored over 40 publications on topics such as multimodal interfaces, listening assessment, and digital testing platforms. She has participated in numerous national and international research projects, including European initiatives, and is an experienced Erasmus+ evaluator. Her work integrates design, technology, and pedagogy to improve user-centered language assessment systems.
+          </p>
+        </div>
+      </div>
 
-      <h3>Neus Figueras Casanovas (EALTA)</h3>
-      <p>She began her career as an English teacher and spent over 20 years coordinating foreign language curricula and certification exams for adult learners in Catalonia. She has participated in numerous international research and development projects in language assessment and has taught and presented widely across Europe, Asia and the USA. She has worked as a consultant in assessment and curriculum design for several international institutions and has collaborated extensively with the Council of Europe, including co-authoring the Manual for Relating Examinations to the CEFR. She is a founding member of EALTA and currently coordinates its CEFR Special Interest Group. She has received the 2015 British Council International Assessment Award and was named an Honorary Member of Trinity College London in 2022.</p>
+      <div class="speaker-block" style="display:flex; gap:20px; align-items:stretch; margin-bottom:30px; flex-wrap:wrap;">
+        <img src="images/neus-figueras_photo.jpg" alt="Neus Figueras Casanovas"
+            style="width:180px; height:180px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+        <div style="flex:1; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="margin-top:0;">Neus Figueras Casanovas (EALTA)</h3>
+          <p style="text-align:justify; margin-bottom:0;">
+            She began her career as an English teacher and spent over 20 years coordinating foreign language curricula and certification exams for adult learners in Catalonia. She has participated in numerous international research and development projects in language assessment and has taught and presented widely across Europe, Asia and the USA. She has worked as a consultant in assessment and curriculum design for several international institutions and has collaborated extensively with the Council of Europe, including co-authoring the Manual for Relating Examinations to the CEFR. She is a founding member of EALTA and currently coordinates its CEFR Special Interest Group. She has received the 2015 British Council International Assessment Award and was named an Honorary Member of Trinity College London in 2022.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -239,11 +320,22 @@
         </table>
       </div>
 
-      <p style="margin: 20px 0;">
-        <a href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 22px;background-color:#3D87BB;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:6px;">
-           Registration
+      <div style="margin: 20px 0; display: flex; flex-wrap: wrap; gap: 12px;">
+        
+         <a href="https://forms.office.com/e/5snS62ZuMJ"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="display:inline-block;padding:14px 22px;background-color:#3D87BB;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:6px;">
+          🇵🇹 Inscrição (PT)
         </a>
-      </p>
+        <a href="https://forms.office.com/e/Z6Cg2QjcpB"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="display:inline-block;padding:14px 22px;background-color:#3D87BB;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:6px;">
+          🇬🇧 Registration (EN)
+        </a>
+       
+      </div>
     </div>
   </section>
 
@@ -251,7 +343,17 @@
     <div class="section-inner">
       <h2>Venue</h2>
       <p>The conference will take place at the University of Minho, School of Arts and Humanities (ELACH), Portugal.</p>
-      <p><strong>Map:</strong> To be updated.</p>
+      <div style="margin-top:20px;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4222.104955088116!2d-8.398035888960932!3d41.55887570170543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x753290b0d1b763f0!2sUniversidade+do+Minho+-+Campus+de+Gualtar!5e0!3m2!1spt-PT!2spt!4v1501067388491"
+          width="100%" 
+          height="400"
+          style="border:0; border-radius:12px;"
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
   </section>
 
@@ -278,6 +380,50 @@
       <p><a href="mailto:sslt25@elach.uminho.pt">sslt25@elach.uminho.pt</a></p>
     </div>
   </section>
+
+   <section id="entidades">
+      <div class="section-inner">
+        <h2>Supported by</h2>
+
+        <div class="logos-row mb-4">
+
+          <div class="logo-card">
+              <a href="https://www.elach.uminho.pt/pt/investigar/Centros/Paginas/CEHUM.aspx" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/cehum.png" alt="CEHUM">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://caple.letras.ulisboa.pt/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/logo_caple.png" alt="CEHUM">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://www.elach.uminho.pt/pt" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/elach.png" alt="CEHUM">
+              </a>
+          </div>
+
+          <div class="logo-card">
+              <a href="https://babelium.elach.uminho.pt/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/logo_babelium.png" alt="FCT">
+              </a>
+          </div>
+
+          <div class="logo-card">
+              <a href="https://www.tecminho.uminho.pt" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/tecminho.png" alt="TecMinho">
+              </a>
+          </div> 
+
+          <div class="logo-card">
+              <a href="https://www.fct.pt/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/fct.png" alt="TecMinho">
+              </a>
+          </div> 
+        </div>
+
+      </div>
+    </section>
 </main>
 
 <footer>
