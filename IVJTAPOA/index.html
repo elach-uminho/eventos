@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental | Universidade do Minho</title>
+  <meta name="description" content="Página oficial das IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental, a decorrer de 27 a 29 de Maio de 2026, na Universidade do Minho, em formato híbrido." />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental" />
+  <meta property="og:description" content="Evento interdisciplinar dedicado ao estudo das culturas, línguas, religiões, mitologias, literatura e tradições do Antigo Próximo-Oriente à Ásia Oriental." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="../assets/css/cehum-evento.css" />
+
+  <style>
+    :root {
+      --hero-image: url("../banners/banner_JTAPOA.jpg");
+      --hero-fit: contain;
+      --hero-pos: top center;
+      --hero-bg: #f8f3ef;
+      --hero-ratio: 16 / 7;
+      --hero-max-h: 560px;
+      --hero-min-h: 260px;
+      margin-top: 3.5rem;
+    }
+
+    .course-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .pdf-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-cehum-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--color-primary, #0069ae);
+      background-color: transparent;
+      color: var(--color-primary, #0069ae);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      width: auto;
+    }
+
+    .btn-cehum-pdf:hover {
+      background-color: var(--color-primary, #0069ae);
+      color: #ffffff;
+    }
+
+    .pdf-collapse {
+      margin-top: 1.5rem;
+    }
+
+    .pdf-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 70vh;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-viewer { height: 60vh; }
+    }
+
+    /* ===== CONFERENCISTAS ===== */
+
+    .conferencistas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    }
+
+    .conferencista-card {
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+    }
+
+    .conferencista-card:hover {
+    transform: translateY(-3px);
+    }
+
+    .conferencista-foto {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    }
+
+    .conferencista-info {
+    padding: 1rem;
+    }
+
+    .conferencista-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.3;
+    }
+
+    .conferencista-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.4;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental",
+    "startDate": "2026-05-27",
+    "endDate": "2026-05-29",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Auditório da Escola de Letras, Artes e Ciências Humanas (ELACH), Universidade do Minho",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PT"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "CEHUM — Centro de Estudos Humanísticos da Universidade do Minho"
+    },
+    "inLanguage": "pt",
+    "description": "Evento interdisciplinar dedicado ao estudo das culturas, línguas, religiões, mitologias, sistemas políticos, literatura e tradições do Antigo Próximo-Oriente, Mediterrâneo Antigo e Ásia Oriental."
+  }
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-main fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">IV JTAPOA 2026</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="#apresentacao">Apresentação</a></li>
+        <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#curso">Curso Pré-Jornadas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organizacao">Organização</a></li>
+        <li class="nav-item"><a class="nav-link" href="#inscricao-jornadas">Inscrições</a></li>
+        <li class="nav-item"><a class="nav-link" href="#conferencistas">Conferencistas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-banner" aria-label="IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental"></section>
+
+<main>
+  <section id="apresentacao">
+    <div class="section-inner">
+      <h2>Apresentação</h2>
+      <p><strong>27 a 29 de Maio de 2026</strong></p>
+      <p><strong>Local:</strong> Auditório da Escola de Letras, Artes e Ciências Humanas (ELACH), Universidade do Minho</p>
+      <p><strong>Modalidade:</strong> formato híbrido — presencial no Auditório da ELACH e online via Zoom.</p>
+
+      <p>As IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental constituem um espaço interdisciplinar dedicado ao estudo das culturas, línguas, religiões, mitologias, sistemas políticos, literatura e tradições do Antigo Próximo-Oriente, Mediterrâneo Antigo e Ásia Oriental.</p>
+
+      <p>O encontro reúne investigadores nacionais e internacionais das áreas dos Estudos Clássicos, Estudos Asiáticos, Egiptologia, História Antiga, Linguística, Arqueologia, Filosofia, Religião e Literatura Comparada, promovendo o diálogo transcultural entre diferentes tradições académicas e civilizacionais.</p>
+
+      <p>A edição de 2026 contará com conferências, comunicações científicas e cursos especializados dedicados a temas como línguas indo-europeias da Anatólia, Egiptologia, literatura e religião do mundo antigo, tradição bíblica e judaísmo rabínico, mitologia comparada, filosofia chinesa, redes diplomáticas e comerciais do Mediterrâneo Oriental, memória, poder e legitimidade política nas civilizações antigas.</p>
+    </div>
+  </section>
+
+  <section id="programa">
+    <div class="section-inner">
+      <h2>Programa e Livro de Resumos</h2>
+      <div class="pdf-buttons">
+        <button class="btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfPrograma" aria-expanded="false" aria-controls="pdfPrograma">
+          <i class="bi bi-file-earmark-pdf"></i> Programa final
+        </button>
+        <button class="btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfResumos" aria-expanded="false" aria-controls="pdfResumos">
+          <i class="bi bi-file-earmark-text"></i> Livro de resumos
+        </button>
+      </div>
+
+      <div class="collapse pdf-collapse" id="pdfPrograma" data-bs-parent="#programa">
+        <div class="pdf-wrapper">
+          <iframe src="documents/Programa final IV JTAPO.pdf" class="pdf-viewer" title="Programa final IV JTAPO"></iframe>
+        </div>
+      </div>
+
+      <div class="collapse pdf-collapse" id="pdfResumos" data-bs-parent="#programa">
+        <div class="pdf-wrapper">
+          <iframe src="documents/Livro de resumos.pdf" class="pdf-viewer" title="Livro de resumos"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inscricao-jornadas">
+    <div class="section-inner">
+      <h2>Inscrições nas Jornadas</h2>
+      <p>As inscrições para as IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental serão disponibilizadas em breve.</p>
+      <p style="margin:20px 0;">
+        <a href="https://forms.office.com/e/5ZBSi1i8yZ" target="_blank" rel="noopener noreferrer" class="btn-cehum-pdf">
+          <i class="bi bi-pencil-square"></i> Inscrição nas Jornadas
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section id="curso">
+    <div class="section-inner">
+      <h2>Curso Pré-Jornadas</h2>
+      <h3>As Línguas Indo-Europeias da Antiga China — Uma Breve Introdução</h3>
+      <p><strong>Formador:</strong> António de Freitas (CEHUM)</p>
+      <p><strong>Datas:</strong> 21 e 22 de Maio</p>
+      <p><strong>Horário:</strong> 18h30 — 20h00</p>
+      <p><strong>Modalidade:</strong> online — via Zoom</p>
+
+      <p style="margin:20px 0;">
+        <a href="https://forms.office.com/e/zFExqM4zJC" target="_blank" rel="noopener noreferrer" class="btn-cehum-pdf">
+          <i class="bi bi-pencil-square"></i> Inscrição no Curso Pré-Jornadas
+        </a>
+      </p>
+
+      <img src="images/CURSO_IVJTAPO.jpg" alt="Curso Pré-Jornadas: As Línguas Indo-Europeias da Antiga China" class="course-image" />
+
+      <p>O curso pré-jornadas propõe uma introdução ao estudo das línguas indo-europeias presentes na Antiga China, abordando o seu contexto histórico, linguístico e cultural.</p>
+      <p>A atividade integra a programação das IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental.</p>
+    </div>
+  </section>
+
+  <!-- CONFERENCISTAS -->
+<section id="conferencistas">
+  <div class="section-inner">
+
+    <h2>Conferencistas</h2>
+
+    <button class="btn-cehum-pdf"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#listaConferencistas"
+            aria-expanded="false"
+            aria-controls="listaConferencistas">
+      Ver conferencistas
+    </button>
+
+    <div class="collapse pdf-collapse" id="listaConferencistas">
+
+      <div class="conferencistas-grid">
+
+        <div class="conferencista-card">
+          <img src="images/fotos/ADRIANO CORDEIRO.jpg"
+               alt="Adriano Milho Cordeiro"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Adriano Milho Cordeiro</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/Alexandre SOLCA.jpg"
+               alt="Alexandre Solcà"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Alexandre Solcà</h3>
+            <p>Societas Anatolica (França)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/Alfonso F Pousada.png"
+               alt="Alfonso Fernández Pousada"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Alfonso Fernández Pousada</h3>
+            <p>Asociación Galega de Exiptoloxía (Espanha)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/ALVARO SALAZAR.jpg"
+               alt="Álvaro Salazar"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Álvaro Salazar</h3>
+            <p>Universidad Católica de Temuco (Chile)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/ALWIN.jpeg"
+               alt="Alwin Kloekhorst"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Alwin Kloekhorst</h3>
+            <p>Universiteit Leiden (Países Baixos)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/ANABELA.jpg"
+               alt="Anabela Leal de Barros"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Anabela Leal de Barros</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+      
+
+        <div class="conferencista-card">
+          <img src="images/fotos/BENJAMIN TORO.jpg"
+               alt="Benjamín Toro"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Benjamín Toro</h3>
+            <p>Universidad de Concepción; Asociación Chilena de Estudios del Próximo Oriente Antiguo (Chile)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/CLAUDIA BARROS.jpg"
+               alt="Cláudia Barros"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Cláudia Barros</h3>
+            <p>CEHUM, Universidade do Minho; Universidad Pontificia Bolivariana (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/Diego Machado.jpg"
+               alt="Diego Machado"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Diego Machado</h3>
+            <p>Unidade de Arqueologia da Universidade do Minho; LAB2PT; IN2PAST</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/ELIZABETH N.jpg"
+               alt="Elizabeth Noreña Jaramillo"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Elizabeth Noreña Jaramillo</h3>
+            <p>Universidad Pontificia Bolivariana (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/FOTO JULIANA TRIANA.jpeg"
+               alt="Juliana Triana Palomino"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Juliana Triana Palomino</h3>
+            <p>UNIMINUTO (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/INMACULADA DELAGE.jpg"
+               alt="Inmaculada Delage González"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Inmaculada Delage González</h3>
+            <p>Universidad Internacional de La Rioja (Espanha)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/JOAO MENDES.jpg"
+               alt="João Mendes"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>João Mendes</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/joaomarcelo.jpg"
+               alt="João Marcelo Martins"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>João Marcelo Martins</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/JUAN TOBON.jpg"
+               alt="Juan David Tobón Cano"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Juan David Tobón Cano</h3>
+            <p>Universidad Pontificia Bolivariana (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/LEONOR C.jpg"
+               alt="Maria Leonor Cordeiro"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Maria Leonor Cordeiro</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/LORENA MACIA.jpg"
+               alt="Lorena Miralles Maciá"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Lorena Miralles Maciá</h3>
+            <p>Universidad de Granada (Espanha)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/MARIA EDUARDA AFFONSO.png"
+               alt="Maria Eduarda Affonso"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Maria Eduarda Affonso</h3>
+            <p>CEHUM, Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/MIGUEL ANTONIO CAMELO.jpeg"
+               alt="Miguel Antonio Camelo"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Miguel Antonio Camelo</h3>
+            <p>UNIMINUTO (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/NAOKO.png"
+               alt="Naoko Yamagata"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Naoko Yamagata</h3>
+            <p>The Open University (Reino Unido)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/Santiago Pereira.jpg"
+               alt="Santiago Pereira"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Santiago Pereira</h3>
+            <p>Universidade do Minho</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/sergio ramirez.jpeg"
+               alt="Sergio Orlando Ramírez"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Sergio Orlando Ramírez</h3>
+            <p>UNIMINUTO (Colômbia)</p>
+          </div>
+        </div>
+
+        <div class="conferencista-card">
+          <img src="images/fotos/VALESKA C.jpg"
+               alt="Valeska Cariaga"
+               class="conferencista-foto">
+          <div class="conferencista-info">
+            <h3>Valeska Cariaga</h3>
+            <p>Liceo Politécnico Héroes de la Concepción; Asociación Chilena de Estudios del Próximo Oriente Antiguo (Chile)</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section id="organizacao">
+    <div class="section-inner">
+      <h2>Organização</h2>
+      <ul>
+        <li>António J. G. de Freitas (Coordenador; CEHUM-NETCULT, GELA)</li>
+        <li>Adriano Milho Cordeiro (CEHUM-NETCULT, GELA)</li>
+        <li>Anabela Leal de Barros (CEHUM-GELA)</li>
+        <li>Cláudia Barros (CEHUM-NETCULT, GELA; UPB)</li>
+        <li>Maria Leonor Cordeiro (CEHUM-NETCULT, GELA)</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="logos-grid">
+      <div class="logo-slot"></div>
+      <div class="logo-slot">
+        <img src="../assets/logos/elach.png" alt="ELACH">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/fct.png" alt="FCT">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/cehum.png" alt="CEHUM">
+      </div>
+    </div>
+
+    <div class="row text-center justify-content-center">
+      <div class="col-md-5 mb-3">
+        <h6 class="text-uppercase fw-bold">IV JTAPOA 2026</h6>
+        <p class="mb-1">IV Jornadas Transculturais do Antigo Próximo-Oriente à Ásia Oriental</p>
+        <p class="mb-0">Universidade do Minho · Braga</p>
+        <p class="mb-0">27 a 29 de Maio de 2026</p>
+      </div>
+
+      <div class="col-md-4 footer-links">
+        <h6 class="text-uppercase fw-bold">Navegação</h6>
+        <a href="#apresentacao">Apresentação</a>
+        <a href="#programa">Programa</a>
+        <a href="#curso">Curso Pré-Jornadas</a>
+        <a href="#organizacao">Organização</a>
+        <a href="#inscricao-jornadas">Inscrições</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
