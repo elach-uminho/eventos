@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>DDHUM26 — Data & Digital Humanities</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --paper: #fff;
+      --ink: #0a0d12;
+      --muted: #667085;
+      --soft: #eef1f5;
+      --line: #e4e7ec;
+      --blue: #237fac;
+      --blue-dark: #12658f;
+      --black: #000;
+      --shadow: 0 28px 70px rgba(16, 24, 40, .10);
+      --max: 1360px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65
+    }
+
+    a {
+      color: inherit
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 64px;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .header-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 28px
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      text-decoration: none;
+      gap: 9px;
+      white-space: nowrap
+    }
+
+    .brand strong {
+      font-size: 22px;
+      color: #12658f;
+      letter-spacing: -.04em
+    }
+
+    .brand span {
+      font-size: 22px;
+      color: #c3cbd6;
+      font-weight: 500;
+      letter-spacing: -.04em
+    }
+
+    .top-menu {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 30px
+    }
+
+    .top-menu a {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 800;
+      text-decoration: none;
+      color: #465064
+    }
+
+    .top-menu a:hover {
+      color: var(--blue)
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .language-select {
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 28px 0 12px;
+      background: white;
+      font-weight: 800;
+      font-size: 12px
+    }
+
+    .language-nav button {
+      display: none
+    }
+
+    .submit-btn {
+      height: 38px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      box-shadow: 0 12px 26px rgba(35, 127, 172, .25)
+    }
+
+    .language-page {
+      display: none
+    }
+
+    .language-page.active {
+      display: block
+    }
+
+    .hero {
+      height: calc(100vh - 64px);
+      min-height: 610px;
+      background: #015c89;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #015c89;
+      width: 100vw;
+      height: 100%;
+    }
+
+    .hero-video iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* Faz o vídeo ocupar toda a largura e altura do banner */
+      width: 100vw;
+      height: 56.25vw;
+      /* Garante cobertura em ecrãs mais estreitos ou altos */
+      min-width: 177.78vh;
+      min-height: 100vh;
+      transform: translate(-50%, -50%);
+      border: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(1, 92, 137, 0.52);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px),
+        radial-gradient(ellipse at 50% 30%, rgba(35, 127, 172, .18), transparent 55%);
+      background-size: 24px 24px, 100% 100%;
+      opacity: .35;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 34px 24px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      border: 1px solid rgba(255, 255, 255, .58);
+      border-radius: 999px;
+      padding: 8px 18px;
+      color: #45a4d2;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .18em;
+      margin-bottom: 22px
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 1180px;
+      line-height: .98;
+      letter-spacing: -.055em
+    }
+
+    .hero-kicker-title {
+      display: block;
+      color: #45a4d2;
+      font-size: clamp(62px, 6.4vw, 106px);
+      font-weight: 680;
+      margin-bottom: 12px;
+    }
+
+    .hero-main-title {
+      display: block;
+      color: #fff;
+      font-size: clamp(40px, 4.05vw, 66px);
+      font-weight: 620;
+      white-space: normal
+    }
+
+    .hero-subtitle-line {
+      display: block;
+      color: #6ca3c6;
+      font-size: clamp(22px, 2vw, 32px);
+      line-height: 1.16;
+      letter-spacing: -.035em;
+      font-weight: 480;
+      max-width: 1050px;
+      margin-top: 18px
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+      gap: 18px;
+      max-width: 760px;
+      margin-top: 36px
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 22px;
+      padding: 18px 22px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .22)
+    }
+
+    .meta-card span {
+      display: block;
+      color: #aab3c2;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 6px
+    }
+
+    .meta-card strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.2;
+      color: #fff
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 52px 24px
+    }
+
+    .section h2 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.065em;
+      margin: 0 0 28px;
+      font-weight: 760
+    }
+
+    .section p {
+      font-size: 19px;
+      max-width: 900px;
+      color: #344054
+    }
+
+    .axes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1050px
+    }
+
+    .axis-card,
+    .mini-panel,
+    .travel-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow)
+    }
+
+    .axis-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px
+    }
+
+    .axis-card h3,
+    .mini-panel h3,
+    .travel-card h3 {
+      font-size: 25px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -.04em
+    }
+
+    .axis-detail {
+      padding: 0;
+      overflow: hidden
+    }
+
+    .axis-detail summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 24px 28px
+    }
+
+    .axis-detail summary::-webkit-details-marker {
+      display: none
+    }
+
+    .axis-detail .axis-number {
+      margin: 0;
+      flex: 0 0 auto
+    }
+
+    .axis-detail h3 {
+      margin: 0;
+      font-size: 26px
+    }
+
+    .axis-detail .axis-toggle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--blue);
+      transition: transform .18s ease, background .18s ease
+    }
+
+    .axis-detail[open] .axis-toggle {
+      transform: rotate(45deg);
+      background: #eef7fb
+    }
+
+    .axis-detail .clean-list {
+      padding: 0 32px 28px 96px;
+      margin: 0
+    }
+
+    .axis-detail[open] {
+      border-color: #cfe8f4
+    }
+
+    .clean-list,
+    .person-list {
+      padding-left: 20px;
+      margin: 0
+    }
+
+    .clean-list li,
+    .person-list li {
+      margin: 9px 0;
+      color: #3e4756
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    .dates-list {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .dates-list li {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .dates-list time {
+      font-weight: 900;
+      color: var(--blue)
+    }
+
+    .email-box {
+      font-weight: 900;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 2px solid var(--blue)
+    }
+
+    .travel-section {
+      padding-top: 18px
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px
+    }
+
+    .travel-card.wide {
+      grid-column: 1/-1
+    }
+
+    .travel-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px
+    }
+
+    .travel-link {
+      display: inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #eef7fb;
+      color: #12658f;
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 14px
+    }
+
+    .hotel-columns {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 20px
+    }
+
+    .hotel-group {
+      background: #f7f9fc;
+      border-radius: 20px;
+      padding: 20px
+    }
+
+    .hotel-group h4 {
+      margin: 0 0 10px;
+      font-size: 16px
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 22px
+    }
+
+    .footer-note {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 20px 24px 55px;
+      color: #667085;
+      font-weight: 700
+    }
+
+    @media(max-width:980px) {
+      .hero-main-title {
+        white-space: normal
+      }
+
+      .top-menu {
+        display: none
+      }
+
+      .hero {
+        height: auto;
+        min-height: auto
+      }
+
+      .hero-inner {
+        padding-top: 64px
+      }
+
+      .axes,
+      .info-grid,
+      .travel-grid,
+      .people-grid,
+      .hotel-columns {
+        grid-template-columns: 1fr
+      }
+
+      .travel-card.wide {
+        grid-column: auto
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr
+      }
+
+      .brand span {
+        display: none
+      }
+    }
+
+    @media(max-width:640px) {
+      .header-inner {
+        padding: 0 14px
+      }
+
+      .submit-btn {
+        display: none
+      }
+
+      .section {
+        padding: 56px 18px
+      }
+
+      .hero-inner {
+        padding: 52px 18px
+      }
+
+      .hero-kicker-title {
+        font-size: 58px
+      }
+
+      .hero-main-title {
+        font-size: 42px
+      }
+    }
+
+    .registration-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      margin-top: 28px
+    }
+
+    .registration-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow)
+    }
+
+    .registration-card h3 {
+      font-size: 25px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -.04em
+    }
+
+    .steps-list {
+      margin: 0;
+      padding-left: 22px
+    }
+
+    .steps-list li {
+      margin: 12px 0;
+      color: #344054
+    }
+
+    .payment-list {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .payment-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      color: #344054
+    }
+
+    .payment-list strong {
+      display: inline-block;
+      min-width: 92px;
+      color: #0a0d12
+    }
+
+    .fees-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow)
+    }
+
+    .fees-table th,
+    .fees-table td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top
+    }
+
+    .fees-table th {
+      background: #f0f7fb;
+      color: #12658f;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .12em
+    }
+
+    .fees-table td:last-child {
+      font-weight: 900;
+      white-space: nowrap
+    }
+
+    .fees-table tr:last-child td {
+      border-bottom: 0
+    }
+
+    .form-link {
+      display: inline-flex;
+      margin-top: 12px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px
+    }
+
+    @media(max-width:980px) {
+      .registration-grid {
+        grid-template-columns: 1fr
+      }
+
+      .fees-table {
+        font-size: 14px
+      }
+
+      .fees-table th,
+      .fees-table td {
+        padding: 12px
+      }
+    }
+
+    /* Ajuste de ritmo vertical: menos espaço em branco entre blocos */
+    .section+.section {
+      padding-top: 28px;
+    }
+
+    #submission-pt,
+    #submission-en,
+    #submission-es,
+    #submission-fr,
+    #submission-it {
+      padding-top: 32px;
+    }
+
+    #registration-pt,
+    #registration-en,
+    #registration-es,
+    #registration-fr,
+    #registration-it {
+      padding-top: 32px;
+    }
+
+    #venue-pt,
+    #venue-en,
+    #venue-es,
+    #venue-fr,
+    #venue-it {
+      padding-top: 32px;
+    }
+
+    #organisation-pt,
+    #organisation-en,
+    #organisation-es,
+    #organisation-fr,
+    #organisation-it {
+      padding-top: 32px;
+    }
+
+    .info-grid {
+      margin-bottom: 0;
+    }
+
+    .mini-panel,
+    .travel-card,
+    .axis-card {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      margin-bottom: 22px;
+    }
+
+    .section p {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    @media(max-width:640px) {
+      .section {
+        padding: 40px 18px
+      }
+
+      .section+.section {
+        padding-top: 22px
+      }
+    }
+    footer {
+    background-color: #3D87BB;
+    color: #fff;
+    padding: 2.5rem 24px;
+    margin-top: 2rem;
+    }
+
+    .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    }
+
+    .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    }
+
+    .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    }
+
+    .logo-slot img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    }
+
+    .footer-info {
+    color: #fff;
+    text-align: center;
+    }
+
+    .footer-info h6 {
+    margin: 0 0 .5rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    }
+
+    .footer-info p {
+    margin: .25rem 0;
+    color: #fff;
+    font-size: 1rem;
+    }
+    .institutions-banner {
+    margin: 2rem auto 0;
+    text-align: center;
+    }
+
+    .institutions-banner img {
+    width: 100%;
+    max-width: 1400px;     /* ajusta conforme necessário */
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner"><a class="brand" href="#"><strong>DDHUM</strong><span>GHD</span></a>
+      <nav class="top-menu" aria-label="Main navigation"><a data-nav="0" href="#about-pt">Apresentação</a><a data-nav="1" href="#programme-pt">Programa</a><a data-nav="2" href="#call-pt">Chamada</a><a data-nav="3" href="#venue-pt">Local</a><a data-nav="4" href="#organisation-pt">Organização</a><a data-nav="5" href="mailto:ddhumconference@gmail.com">Contacto</a></nav>
+      <div class="header-actions">
+        <nav class="language-nav" aria-label="Language navigation"><button class="active" data-page="pt" type="button">Português</button><button data-page="en" type="button">English</button><button data-page="es" type="button">Español</button><button data-page="fr" type="button">Français</button><button data-page="it" type="button">Italiano</button><select aria-label="Choose language" class="language-select" id="languageSelect">
+            <option value="pt">PT</option>
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="fr">FR</option>
+            <option value="it">IT</option>
+          </select></nav><a class="submit-btn" id="submitBtn" href="#submission-pt">Submeter resumo</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="language-page active" id="page-pt" lang="pt">
+      <section class="hero">
+        <div class="hero-video" aria-hidden="true">
+          <iframe src="https://www.youtube.com/embed/H41fuhz_gvw?start=162&autoplay=1&mute=1&controls=0&loop=1&playlist=H41fuhz_gvw&playsinline=1&rel=0&modestbranding=1" title="DDHUM26 hero background video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="hero-inner">
+          <div class="eyebrow">Conferência híbrida</div>
+          <h1><span class="hero-kicker-title">DDHUM26</span><span class="hero-main-title">IV Conferência Internacional<br>Dados &amp; Humanidades Digitais</span><span class="hero-subtitle-line">Dados, Ciência e Comunicação Digital: Perspetivas Interdisciplinares</span></h1>
+          <div class="meta-grid">
+            <div class="meta-card"><span>Quando</span><strong>26–27 de novembro de 2026</strong></div>
+            <div class="meta-card"><span>Onde</span><strong>Universidade do Minho, Braga, Portugal</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about-pt">
+        <h2>Apresentação</h2>
+        <p>A 4.ª edição da Conferência Internacional Data & Digital Humanities (DDHUM26) inscreve-se na temática “Dados, Ciência e Comunicação Digital: Perspetivas Interdisciplinares”, explorando as intersecções contemporâneas entre práticas de dados, produção de conhecimento científico e ambientes de comunicação digital.</p>
+        <p>A conferência adota uma perspetiva interdisciplinar que reúne abordagens das Humanidades Digitais, ciência de dados, linguística computacional, estudos da comunicação, estudos dos média, ciência da informação, educação, inteligência artificial, cultura digital e comunicação de ciência. Pretende analisar de que modo os métodos digitais, as ferramentas computacionais, as práticas de comunicação e as narrativas orientadas para o público estão a reconfigurar os ecossistemas contemporâneos de conhecimento.</p>
+      </section>
+      <section class="section" id="call-pt">
+        <h2>Eixos temáticos</h2>
+        <div class="axes">
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">1</span>
+              <h3>Obter dados textuais</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>corpora científicos, culturais, mediáticos, educativos ou multilingues;</li>
+              <li>repositórios institucionais, bibliotecas digitais, arquivos e infraestruturas de Ciência Aberta;</li>
+              <li>recolha de dados em plataformas digitais, redes sociais, websites, podcasts, vídeos ou materiais multimodais;</li>
+              <li>metadados, anotação, documentação, curadoria e preservação de dados;</li>
+              <li>ética, privacidade, direitos de autor, consentimento e reutilização responsável;</li>
+              <li>dados gerados por IA, dados sintéticos e desafios de validação e rastreabilidade.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">2</span>
+              <h3>Encontrar inspiração nos dados textuais</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>análise textual computacional e linguística de corpus aplicadas a textos científicos, culturais, mediáticos, educativos ou institucionais;</li>
+              <li>análise do discurso, análise crítica e análise de enquadramentos na circulação digital da ciência e do conhecimento;</li>
+              <li>classificação e comparação de géneros textuais, como artigos científicos, comunicados de imprensa, notícias, relatórios ou materiais pedagógicos;</li>
+              <li>extração terminológica, reconhecimento de entidades e mapeamento de relações entre conceitos, instituições, públicos e plataformas;</li>
+              <li>análise de legibilidade, clareza, acessibilidade e adequação comunicativa de textos científicos ou especializados;</li>
+              <li>articulação entre métodos quantitativos, qualitativos e interpretativos nas Humanidades Digitais, na comunicação de ciência e nos estudos dos média;</li>
+              <li>uso de IA na análise, sumarização, tradução, classificação, adaptação ou simplificação de dados textuais;</li>
+              <li>validação humana, auditoria de erros, explicabilidade e transparência em processos assistidos por IA;</li>
+              <li>literacia crítica de IA, literacia de dados, autoria, integridade académica e responsabilidade científica.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">3</span>
+              <h3>Contar uma história com dados textuais</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>comunicação de ciência em ambientes digitais, com atenção à circulação, adaptação e receção do conhecimento por diferentes públicos;</li>
+              <li>circulação do conhecimento entre academia, media, plataformas digitais, instituições científicas, comunidades educativas e públicos não especializados;</li>
+              <li>jornalismo digital, jornalismo de dados e fact-checking na comunicação pública da ciência e de temas socialmente relevantes;</li>
+              <li>desinformação, má informação, confiança pública, credibilidade das fontes e validação da informação em ambientes digitais;</li>
+              <li>visualização de dados, infografias, graphical abstracts, dashboards e outros formatos visuais para comunicar resultados de investigação;</li>
+              <li>storytelling digital, multimodal e transmedia aplicado à comunicação de dados, ciência, cultura e conhecimento;</li>
+              <li>podcasts, vídeos curtos, newsletters, threads, websites e formatos nativos de plataformas para divulgação científica e comunicação pública;</li>
+              <li>tradução, localização, linguagem clara, simplificação textual e adaptação de conteúdos científicos ou especializados a diferentes públicos;</li>
+              <li>literacia de dados, literacia científica, literacia mediática e literacia crítica em IA em contextos educativos, culturais e de participação pública.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="section info-grid" id="programme-pt">
+        <div class="mini-panel">
+          <h3>Línguas de comunicação</h3>
+          <ul class="clean-list">
+            <li>Inglês</li>
+            <li>Português</li>
+            <li>Espanhol</li>
+            <li>Francês</li>
+            <li>Italiano</li>
+          </ul>
+          <p><strong>O artigo final deverá ser redigido em inglês.</strong></p>
+        </div>
+        <div class="mini-panel">
+          <h3>Datas importantes</h3>
+          <ul class="dates-list">
+            <li><time>15 de setembro de 2026</time><span>Prazo para submissão de resumos</span></li>
+            <li><time>15 de outubro de 2026</time><span>Notificação de aceitação ou rejeição</span></li>
+            <li><time>1 de novembro de 2026</time><span>Abertura das inscrições</span></li>
+            <li><time>20 de novembro de 2026</time><span>Encerramento das inscrições</span></li>
+            <li><time>26–27 de novembro de 2026</time><span>Datas da conferência</span></li>
+            <li><time>30 de janeiro de 2027</time><span>Submissão do artigo final</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="submission-pt">
+        <h2>Submissão de resumos</h2>
+        <p>Os resumos devem ter entre <strong>250 e 300 palavras</strong> e podem ser submetidos em <strong>francês, inglês, espanhol ou português</strong>.</p>
+        <p>As apresentações também poderão ser realizadas em qualquer uma destas quatro línguas.</p>
+        <p>No entanto, o artigo final deverá ser submetido em <strong>inglês</strong>.</p>
+        <p>Cada apresentação selecionada terá a duração de <strong>20 minutos</strong>, seguida de <strong>10 minutos de discussão</strong>.</p>
+      </section>
+
+      <section class="section" id="registration-pt">
+        <h2>Inscrição</h2>
+        <p>As inscrições estarão disponíveis de 1 a 20 de novembro de 2026.</p>
+        <p>Para garantir a inclusão no programa e a presença nas publicações da conferência, pelo menos um dos autores deverá estar inscrito até ao prazo indicado, como participante apresentador presencial ou virtual.</p>
+        <div class="registration-grid">
+          <article class="registration-card">
+            <h3>Como fazer a inscrição</h3>
+            <ol class="steps-list">
+              <li>Preencher o formulário de inscrição da DDHUM26: <br><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScesYksp37O6DPt5y0hlTmMbU2FYrNZWL9LHZMKTfFtbH5AVg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Abrir formulário de inscrição</a></li>
+              <li>Efetuar o pagamento da taxa de inscrição correspondente à categoria aplicável, quando for o caso.</li>
+              <li>Para finalizar a inscrição, enviar o comprovativo de pagamento por email para <a class="email-box" href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, com conhecimento para <a class="email-box" href="mailto:ddhumconference@gmail.com">ddhumconference@gmail.com</a>.</li>
+            </ol>
+            <p><strong>Assunto do email:</strong> DDHUM26 Registration</p>
+            <p>No email, incluir os seguintes dados: nome completo, morada de faturação e número de identificação fiscal (NIF).</p>
+            <p><strong>A inscrição só será considerada concluída após a receção do comprovativo de pagamento por email.</strong></p>
+          </article>
+          <article class="registration-card">
+            <h3>Dados de pagamento</h3>
+            <ul class="payment-list">
+              <li><strong>Nome:</strong> UNIVERSIDADE MINHO</li>
+              <li><strong>Conta:</strong> 0171167322630 – EUR – Conta Extracto</li>
+              <li><strong>NIB:</strong> 0035 0171 00167322630 15</li>
+              <li><strong>IBAN:</strong> PT50 0035 0171 00167322630 15</li>
+              <li><strong>BIC/SWIFT:</strong> CGDIPTPL</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Taxas de inscrição</h3>
+        <table class="fees-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inscrição com comunicação — tarifa normal</td>
+              <td>50 euros</td>
+            </tr>
+            <tr>
+              <td>Inscrição com comunicação — tarifa especial: estudantes que apresentam comunicação</td>
+              <td>30 euros</td>
+            </tr>
+            <tr>
+              <td>Inscrição com comunicação — estudantes da ELACH que apresentam comunicação</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Participação presencial como ouvinte — participantes sem comunicação</td>
+              <td>10 euros</td>
+            </tr>
+            <tr>
+              <td>Participação online como ouvinte</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Estudantes da ELACH — participantes sem comunicação</td>
+              <td>Gratuita</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <p style="font-size: 0.85rem;">Em caso especiais, existe a possibilidade de redução da inscrição.</p>
+      </section>
+      <section class="section travel-section" id="venue-pt">
+        <h2>Viagem e alojamento</h2>
+        <div class="travel-grid">
+          <article class="travel-card wide">
+            <h3>Sobre a cidade</h3>
+            <p>Braga tem mais de 2000 anos, sendo a cidade mais antiga de Portugal. Teve um papel crucial na história portuguesa e, como terceira maior cidade do país, depois de Lisboa e do Porto, manteve a sua importância ao longo dos anos. Braga acolhe uma das maiores universidades portuguesas, a Universidade do Minho, com mais de 20 000 estudantes, e é também um dos principais polos portugueses de start-ups tecnológicas.</p>
+            <div class="travel-links"><a class="travel-link" href="https://porto-north-portugal.com/braga-portugal-guide.html" target="_blank" rel="noopener noreferrer">Mais informação sobre Braga</a><a class="travel-link" href="https://www.youtube.com/watch?v=27J3xr5p9NA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Ver vídeo sobre Braga</a></div>
+          </article>
+          <article class="travel-card">
+            <h3>Viagem</h3>
+            <p>Viajar para a Universidade do Minho, em Braga, Portugal, é simples. O aeroporto internacional mais próximo fica a cerca de 50 km — Aeroporto do Porto Francisco Sá Carneiro (OPO) — e existe um serviço direto de autocarro entre o aeroporto e o centro de Braga, assegurado pela GetBus.</p>
+          </article>
+          <article class="travel-card">
+            <h3>Local da conferência</h3>
+            <p>A conferência decorrerá nos dias 26 e 27 de novembro de 2026 na Escola de Letras, Artes e Ciências Humanas da Universidade do Minho (UMinho), reconhecida pela competência e qualidade do seu corpo docente, pela excelência da investigação científica, pela diversidade da oferta formativa de graduação e pós-graduação e pelo elevado nível de interação com outras instituições.</p>
+            <div class="travel-links"><a class="travel-link" href="https://www.youtube.com/watch?v=OaaRK5EKrOw&time_continue=55&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Ver vídeo da UMinho</a></div>
+          </article>
+          <article class="travel-card wide">
+            <h3>Alojamento</h3>
+            <p>Os participantes inscritos são responsáveis pela organização do seu próprio alojamento. Seguem-se algumas sugestões de hotéis em Braga, começando pelos mais próximos do campus.</p>
+            <div class="hotel-columns">
+              <div class="hotel-group">
+                <h4>Perto do campus universitário</h4>
+                <ul>
+                  <li>B&amp;B Lamaçães Hotel (***)</li>
+                  <li>Melia Hotel (*****)</li>
+                </ul>
+              </div>
+              <div class="hotel-group">
+                <h4>Centro da cidade, a cerca de 30 minutos a pé do campus</h4>
+                <ul>
+                  <li>Ibis Budget Braga Centro Hotel (**)</li>
+                  <li>Basic Braga by Axis (**)</li>
+                  <li>Dona Sofia Hotel (***)</li>
+                  <li>Bracara Augusta Hotel (****)</li>
+                  <li>Moon &amp; Sun Hotel (****)</li>
+                  <li>Mercure Hotel (****)</li>
+                  <li>Vila Galé Collection Braga (****)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="organisation-pt">
+        <h2>Coordenação e organização</h2>
+        <div class="people-grid">
+          <div class="mini-panel">
+            <h3>Coordenadores</h3>
+            <ul class="person-list">
+              <li><strong>Sílvia Araújo</strong> — Universidade do Minho, Portugal</li>
+              <li><strong>Micaela Aguiar</strong> — Universidade do Porto, Portugal</li>
+            </ul>
+          </div>
+          <div class="mini-panel">
+            <h3>Comissão de Organização</h3>
+            <ul class="person-list">
+              <li>Álvaro Iríarte — Universidade do Minho, Portugal</li>
+              <li>Ana Cea — Universidade do Minho, Portugal</li>
+              <li>Ana Correia — Universidade do Minho, Portugal</li>
+              <li>Dalia Senvaitytė — Universidade de Vilnius, Lituânia</li>
+              <li>Diego Pablo Ruiz — Universidade de Granada, Espanha</li>
+              <li>Francisco Lopes — Universidade do Minho, Portugal</li>
+              <li>Henrique Barroso — Universidade do Minho, Portugal</li>
+              <li>Idalete Dias — Universidade do Minho, Portugal</li>
+              <li>Marcos Dieste Gracia — Universidade de Pádua, Itália</li>
+              <li>Maria Dolores Lerma Sanchis — Universidade do Minho, Portugal</li>
+              <li>Mônica Silva — Universidade Federal do Rio de Janeiro, Brasil</li>
+              <li>Pedro Dono — Universidade do Minho, Portugal</li>
+              <li>Sérgio Serra — Universidade Federal Rural do Rio de Janeiro, Brasil</li>
+              <li>Rúben Alves — Universidade de Santiago de Compostela, Espanha</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <p class="footer-note">DDHUM26 · Data & Digital Humanities · Universidade do Minho</p>
+    </section>
+    <section class="language-page" id="page-en" lang="en">
+      <section class="hero">
+        <div class="hero-video" aria-hidden="true">
+          <iframe src="https://www.youtube.com/embed/H41fuhz_gvw?start=162&autoplay=1&mute=1&controls=0&loop=1&playlist=H41fuhz_gvw&playsinline=1&rel=0&modestbranding=1" title="DDHUM26 hero background video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="hero-inner">
+          <div class="eyebrow">Hybrid conference</div>
+          <h1><span class="hero-kicker-title">DDHUM26</span><span class="hero-main-title">4th International Conference<br>Data &amp; Digital Humanities</span><span class="hero-subtitle-line">Data, Science and Digital Communication: Interdisciplinary Perspectives</span></h1>
+          <div class="meta-grid">
+            <div class="meta-card"><span>When</span><strong>26–27 November 2026</strong></div>
+            <div class="meta-card"><span>Where</span><strong>University of Minho, Braga, Portugal</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about-en">
+        <h2>Overview</h2>
+        <p>The 4th edition of the International Conference Data & Digital Humanities (DDHUM26) is framed by the theme “Data, Science and Digital Communication: Interdisciplinary Perspectives”, exploring contemporary intersections between data practices, scientific knowledge production, and digital communication environments.</p>
+        <p>The conference adopts an interdisciplinary perspective, bringing together approaches from Digital Humanities, data science, computational linguistics, communication studies, media studies, information science, education, artificial intelligence, digital culture, and science communication. It aims to examine how digital methods, computational tools, communication practices, and public-facing narratives are reshaping contemporary knowledge ecosystems.</p>
+      </section>
+      <section class="section" id="call-en">
+        <h2>Thematic axes</h2>
+        <div class="axes">
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">1</span>
+              <h3>Getting textual data</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>corpora of scientific texts, including articles, abstracts, conference papers, research reports, preprints, or science policy documents;</li>
+              <li>institutional repositories, digital libraries, scientific archives, and Open Science infrastructures;</li>
+              <li>collection of scientific texts from academic platforms, journals, databases, institutional websites, or open archives;</li>
+              <li>metadata, annotation, documentation, curation, and preservation of scientific corpora;</li>
+              <li>ethics, copyright, licences, consent, and responsible reuse of scientific texts;</li>
+              <li>AI-generated or AI-enriched scientific textual data, with attention to issues of validation and traceability.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">2</span>
+              <h3>Finding inspiration in textual data</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>computational text analysis and corpus linguistics applied to scientific texts;</li>
+              <li>analysis of scientific discourse, frames, argumentative strategies, and forms of knowledge circulation;</li>
+              <li>classification and comparison of scientific genres, such as articles, abstracts, preprints, conference papers, reports, or scientific press releases;</li>
+              <li>terminology extraction, named entity recognition, and mapping of relations between concepts, authors, institutions, disciplines, and research objects;</li>
+              <li>analysis of readability, clarity, accessibility, and communicative adequacy in scientific or specialised texts;</li>
+              <li>articulation between quantitative, qualitative, and interpretive methods in the analysis of scientific corpora;</li>
+              <li>use of AI in the analysis, summarisation, translation, classification, adaptation, or simplification of scientific corpora;</li>
+              <li>human validation, explainability, and transparency in AI-assisted corpus analysis processes;</li>
+              <li>critical AI literacy, data literacy, authorship, academic integrity, and scientific responsibility in the processing of scientific corpora.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">3</span>
+              <h3>Telling a story with textual data</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>communication of results derived from scientific corpora in digital environments;</li>
+              <li>transformation of scientific texts into accessible content for different audiences;</li>
+              <li>visualisation of textual data derived from scientific corpora, including infographics, graphical abstracts, dashboards, or concept maps;</li>
+              <li>digital, multimodal, and transmedia storytelling applied to the communication of results derived from scientific corpora;</li>
+              <li>podcasts, short videos, newsletters, threads, websites, and platform-native formats for the popularisation of scientific content;</li>
+              <li>translation, localisation, plain language, textual simplification, and adaptation of scientific or specialised texts for different audiences;</li>
+              <li>responsible communication of corpus analysis results, with attention to the risks of oversimplification, overinterpretation, or loss of rigour;</li>
+              <li>data literacy, scientific literacy, and critical AI literacy in the mediation of scientific corpora.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="section info-grid" id="programme-en">
+        <div class="mini-panel">
+          <h3>Languages of communication</h3>
+          <ul class="clean-list">
+            <li>English</li>
+            <li>Portuguese</li>
+            <li>Spanish</li>
+            <li>French</li>
+            <li>Italian</li>
+          </ul>
+          <p><strong>The final paper must be written in English.</strong></p>
+        </div>
+        <div class="mini-panel">
+          <h3>Important dates</h3>
+          <ul class="dates-list">
+            <li><time>15 September 2026</time><span>Abstract submission deadline</span></li>
+            <li><time>15 October 2026</time><span>Notification of acceptance or rejection</span></li>
+            <li><time>1 November 2026</time><span>Registration opens</span></li>
+            <li><time>20 November 2026</time><span>Registration closes</span></li>
+            <li><time>26–27 November 2026</time><span>Conference dates</span></li>
+            <li><time>30 January 2027</time><span>Final paper submission</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="submission-en">
+        <h2>Abstract submission</h2>
+        <p>Abstracts should be between <strong>250 and 300 words</strong> in length and may be submitted in <strong>French, English, Spanish, or Portuguese</strong>.</p>
+        <p>Presentations may also be delivered in any of these four languages.</p>
+        <p>However, please note that final papers must be submitted in <strong>English</strong>.</p>
+        <p>Each selected presentation will be allocated <strong>20 minutes</strong>, followed by a <strong>10-minute discussion</strong>.</p>
+      </section>
+
+      <section class="section" id="registration-en">
+        <h2>Registration</h2>
+        <p>Registration will be available from 1 to 20 November 2026.</p>
+        <p>To ensure inclusion in the programme and appearance in the conference publications, at least one author must be registered by the deadline as either an in-person or virtual presenting participant.</p>
+        <div class="registration-grid">
+          <article class="registration-card">
+            <h3>How to register</h3>
+            <ol class="steps-list">
+              <li>Fill in the DDHUM26 registration form: <br><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScesYksp37O6DPt5y0hlTmMbU2FYrNZWL9LHZMKTfFtbH5AVg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Open registration form</a></li>
+              <li>Pay the corresponding registration fee according to your registration category, if applicable.</li>
+              <li>To finalise your registration, please send proof of payment by email to <a class="email-box" href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, with cc to <a class="email-box" href="mailto:ddhumconference@gmail.com">ddhumconference@gmail.com</a>.</li>
+            </ol>
+            <p><strong>Email subject:</strong> DDHUM26 Registration</p>
+            <p>In your email, please include the following details: full name, billing address and tax identification number (NIF).</p>
+            <p><strong>Your registration will only be considered complete once we receive proof of payment by email.</strong></p>
+          </article>
+          <article class="registration-card">
+            <h3>Payment information</h3>
+            <ul class="payment-list">
+              <li><strong>Name:</strong> UNIVERSIDADE MINHO</li>
+              <li><strong>Account:</strong> 0171167322630 – EUR – Conta Extracto</li>
+              <li><strong>NIB:</strong> 0035 0171 00167322630 15</li>
+              <li><strong>IBAN:</strong> PT50 0035 0171 00167322630 15</li>
+              <li><strong>BIC/SWIFT:</strong> CGDIPTPL</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Registration fees</h3>
+        <table class="fees-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registration with paper — standard rate</td>
+              <td>50 euros</td>
+            </tr>
+            <tr>
+              <td>Registration with paper — special rate: students presenting a paper</td>
+              <td>30 euros</td>
+            </tr>
+            <tr>
+              <td>Registration with paper — ELACH students presenting a paper</td>
+              <td>Free of charge</td>
+            </tr>
+            <tr>
+              <td>Onsite participation as listener — non-presenting participants</td>
+              <td>10 euros</td>
+            </tr>
+            <tr>
+              <td>Online participation as listener</td>
+              <td>Free of charge</td>
+            </tr>
+            <tr>
+              <td>ELACH students — non-presenting participants</td>
+              <td>Free of charge</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <p style="font-size: 0.85rem;">In special cases, a reduction of the registration fee may be possible.</p>
+      </section>
+      <section class="section travel-section" id="venue-en">
+        <h2>Travel and accommodation</h2>
+        <div class="travel-grid">
+          <article class="travel-card wide">
+            <h3>About the city</h3>
+            <p>Braga is more than 2,000 years old, making it the oldest city in Portugal. It played a crucial role in Portuguese history and, as the third-largest city after Lisbon and Porto, it has retained its importance over the years. Braga is home to one of the largest universities in Portugal, the University of Minho, with over 20,000 students, and is one of Portugal’s leading tech start-up hubs.</p>
+            <div class="travel-links"><a class="travel-link" href="https://porto-north-portugal.com/braga-portugal-guide.html" target="_blank" rel="noopener noreferrer">More information about Braga</a><a class="travel-link" href="https://www.youtube.com/watch?v=27J3xr5p9NA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Watch video about Braga</a></div>
+          </article>
+          <article class="travel-card">
+            <h3>Travel</h3>
+            <p>Travelling to the University of Minho in Braga, Portugal, is easy. The nearest international airport is about 50 km away — Porto Airport (OPO) — and there is a direct bus service from the airport to downtown Braga, operated by GetBus.</p>
+          </article>
+          <article class="travel-card">
+            <h3>Venue</h3>
+            <p>The conference will be held on 26 and 27 November 2026 at the School of Letters, Arts and Human Sciences of the University of Minho (UMinho), renowned for the competence and quality of its teaching staff, excellence in scientific research, wide range of undergraduate and graduate courses, and high level of interaction with other institutions.</p>
+            <div class="travel-links"><a class="travel-link" href="https://www.youtube.com/watch?v=OaaRK5EKrOw&time_continue=55&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Watch UMinho video</a></div>
+          </article>
+          <article class="travel-card wide">
+            <h3>Accommodation</h3>
+            <p>Registrants are responsible for arranging their own accommodation. Below are some hotel suggestions in Braga, starting with those closest to the campus.</p>
+            <div class="hotel-columns">
+              <div class="hotel-group">
+                <h4>Near the university campus</h4>
+                <ul>
+                  <li>B&amp;B Lamaçães Hotel (***)</li>
+                  <li>Melia Hotel (*****)</li>
+                </ul>
+              </div>
+              <div class="hotel-group">
+                <h4>Downtown, about a 30-minute walk from campus</h4>
+                <ul>
+                  <li>Ibis Budget Braga Centro Hotel (**)</li>
+                  <li>Basic Braga by Axis (**)</li>
+                  <li>Dona Sofia Hotel (***)</li>
+                  <li>Bracara Augusta Hotel (****)</li>
+                  <li>Moon &amp; Sun Hotel (****)</li>
+                  <li>Mercure Hotel (****)</li>
+                  <li>Vila Galé Collection Braga (****)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="organisation-en">
+        <h2>Coordination and organisation</h2>
+        <div class="people-grid">
+          <div class="mini-panel">
+            <h3>Coordinators</h3>
+            <ul class="person-list">
+              <li><strong>Sílvia Araújo</strong> — University of Minho, Portugal</li>
+              <li><strong>Micaela Aguiar</strong> — University of Porto, Portugal</li>
+            </ul>
+          </div>
+          <div class="mini-panel">
+            <h3>Organising Committee</h3>
+            <ul class="person-list">
+              <li>Álvaro Iríarte — University of Minho, Portugal</li>
+              <li>Ana Cea — University of Minho, Portugal</li>
+              <li>Ana Correia — University of Minho, Portugal</li>
+              <li>Dalia Senvaitytė — Vilnius University, Lithuania</li>
+              <li>Diego Pablo Ruiz — University of Granada, Spain</li>
+              <li>Francisco Lopes — University of Minho, Portugal</li>
+              <li>Henrique Barroso — University of Minho, Portugal</li>
+              <li>Idalete Dias — University of Minho, Portugal</li>
+              <li>Marcos Dieste Gracia — University of Padua, Italy</li>
+              <li>Maria Dolores Lerma Sanchis — University of Minho, Portugal</li>
+              <li>Mônica Silva — Federal University of Rio de Janeiro, Brazil</li>
+              <li>Pedro Dono — University of Minho, Portugal</li>
+              <li>Sérgio Serra — Federal Rural University of Rio de Janeiro, Brazil</li>
+              <li>Rúben Alves — University of Santiago de Compostela, Spain</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <p class="footer-note">DDHUM26 · Data & Digital Humanities · University of Minho</p>
+    </section>
+    <section class="language-page" id="page-es" lang="es">
+      <section class="hero">
+        <div class="hero-video" aria-hidden="true">
+          <iframe src="https://www.youtube.com/embed/H41fuhz_gvw?start=162&autoplay=1&mute=1&controls=0&loop=1&playlist=H41fuhz_gvw&playsinline=1&rel=0&modestbranding=1" title="DDHUM26 hero background video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="hero-inner">
+          <div class="eyebrow">Conferencia híbrida</div>
+          <h1><span class="hero-kicker-title">DDHUM26</span><span class="hero-main-title">4.ª Conferencia Internacional<br>Datos &amp; Humanidades Digitales</span><span class="hero-subtitle-line">Datos, Ciencia y Comunicación Digital: Perspectivas Interdisciplinarias</span></h1>
+          <div class="meta-grid">
+            <div class="meta-card"><span>Cuando</span><strong>26–27 de noviembre de 2026</strong></div>
+            <div class="meta-card"><span>Donde</span><strong>Universidade do Minho <br> Braga | Portugal</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about-es">
+        <h2>Presentación</h2>
+        <p>La 4.ª edición de la Conferencia Internacional Data & Digital Humanities (DDHUM26) se inscribe en la temática “Datos, Ciencia y Comunicación Digital: Perspectivas Interdisciplinarias”, explorando las intersecciones contemporáneas entre las prácticas de datos, la producción de conocimiento científico y los entornos de comunicación digital.</p>
+        <p>La conferencia adopta una perspectiva interdisciplinaria que reúne enfoques de las Humanidades Digitales, la ciencia de datos, la lingüística computacional, los estudios de comunicación, los estudios de medios, la ciencia de la información, la educación, la inteligencia artificial, la cultura digital y la comunicación científica. Su objetivo es analizar de qué modo los métodos digitales, las herramientas computacionales, las prácticas de comunicación y las narrativas orientadas al público están reconfigurando los ecosistemas contemporáneos de conocimiento.</p>
+      </section>
+
+      <section class="section" id="call-es">
+        <h2>Ejes temáticos</h2>
+
+        <div class="axes">
+          <details class="axis-card axis-detail">
+            <summary>
+              <span class="axis-number">1</span>
+              <h3>Obtener datos textuales</h3>
+              <span class="axis-toggle">+</span>
+            </summary>
+
+            <ul class="clean-list">
+              <li>corpus de textos científicos, incluyendo artículos, resúmenes, comunicaciones, informes de investigación, <em>preprints</em> o documentos de política científica;</li>
+              <li>repositorios institucionales, bibliotecas digitales, archivos científicos e infraestructuras de Ciencia Abierta;</li>
+              <li>recopilación de textos científicos a partir de plataformas académicas, revistas, bases de datos, sitios web institucionales o archivos abiertos;</li>
+              <li>metadatos, anotación, documentación, curaduría y preservación de corpus científicos;</li>
+              <li>ética, derechos de autor, licencias, consentimiento y reutilización responsable de textos científicos;</li>
+              <li>datos textuales científicos generados o enriquecidos por IA, prestando atención a los retos de validación y trazabilidad.</li>
+            </ul>
+          </details>
+
+          <details class="axis-card axis-detail">
+            <summary>
+              <span class="axis-number">2</span>
+              <h3>Encontrar inspiración en los datos textuales</h3>
+              <span class="axis-toggle">+</span>
+            </summary>
+
+            <ul class="clean-list">
+              <li>análisis textual computacional y lingüístico de corpus aplicados a textos científicos;</li>
+              <li>análisis del discurso científico, de la contextualización, de las estrategias argumentativas y de las formas de circulación del conocimiento;</li>
+              <li>clasificación y comparación de géneros científicos, como artículos, resúmenes, <em>preprints</em>, comunicaciones, informes o comunicaciones científicas;</li>
+              <li>extracción terminológica, reconocimiento de entidades referidas y mapeo de relaciones entre conceptos, autores, instituciones, disciplinas y objetos de investigación;</li>
+              <li>análisis de la legibilidad, claridad, accesibilidad y adecuación comunicativa de textos científicos o especializados;</li>
+              <li>articulación entre métodos cuantitativos, cualitativos e interpretativos en el análisis de corpus científicos;</li>
+              <li>uso de IA en el análisis, resumen, traducción, clasificación, adaptación o simplificación de corpus científicos;</li>
+              <li>validación humana, explicabilidad y transparencia en procesos de análisis de corpus asistidos por IA;</li>
+              <li>alfabetización crítica en IA, alfabetización de datos, autoría, integridad académica y responsabilidad científica en el tratamiento de corpus científicos.</li>
+            </ul>
+          </details>
+
+          <details class="axis-card axis-detail">
+            <summary>
+              <span class="axis-number">3</span>
+              <h3>Contar una historia con datos textuales</h3>
+              <span class="axis-toggle">+</span>
+            </summary>
+
+            <ul class="clean-list">
+              <li>comunicación de resultados derivados de corpus científicos en entornos digitales;</li>
+              <li>transformación de textos científicos en contenidos accesibles para diferentes públicos;</li>
+              <li>visualización de datos textuales derivados de corpus científicos, incluyendo infografías, resúmenes gráficos, dashboards o mapas conceptuales;</li>
+              <li>storytelling digital, multimodal y transmedia aplicado a la comunicación de resultados derivados de corpus científicos;</li>
+              <li>podcasts, vídeos cortos, newsletters, hilos, sitios web y formatos nativos de plataformas para la divulgación de contenidos científicos;</li>
+              <li>traducción, localización, lenguaje claro, simplificación textual y adaptación de textos científicos o especializados a diferentes públicos;</li>
+              <li>comunicación responsable de los resultados del análisis de corpus, prestando atención a los riesgos de simplificación excesiva, sobreinterpretación o pérdida de rigor;</li>
+              <li>alfabetización de datos, alfabetización científica y alfabetización crítica en IA en la mediación de corpus científicos.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="section info-grid" id="programme-es">
+        <div class="mini-panel">
+          <h3>Lenguas de comunicación</h3>
+          <ul class="clean-list">
+            <li>Inglés</li>
+            <li>Portugués</li>
+            <li>Español</li>
+            <li>Francés</li>
+            <li>Italiano</li>
+          </ul>
+          <p><strong>El artículo final deberá estar redactado en inglés.</strong></p>
+        </div>
+        <div class="mini-panel">
+          <h3>Fechas importantes</h3>
+          <ul class="dates-list">
+            <li><time>15 de septiembre de 2026</time><span>Fecha límite para el envío de resúmenes</span></li>
+            <li><time>15 de octubre de 2026</time><span>Notificación de aceptación o rechazo</span></li>
+            <li><time>1 de noviembre de 2026</time><span>Apertura de inscripciones</span></li>
+            <li><time>20 de noviembre de 2026</time><span>Cierre de inscripciones</span></li>
+            <li><time>26–27 de noviembre de 2026</time><span>Fechas de la conferencia</span></li>
+            <li><time>30 de enero de 2027</time><span>Envío del artículo final</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="submission-es">
+        <h2>Envío de resúmenes</h2>
+        <p>Los resúmenes deberán tener una extensión de entre <strong>250 y 300 palabras</strong> y podrán enviarse en <strong>francés, inglés, español o portugués</strong>.</p>
+        <p>Las presentaciones también podrán realizarse en cualquiera de estas cuatro lenguas.</p>
+        <p>No obstante, los artículos finales deberán presentarse en <strong>inglés</strong>.</p>
+        <p>Cada presentación seleccionada dispondrá de <strong>20 minutos</strong>, seguidos de <strong>10 minutos de discusión</strong>.</p>
+      </section>
+
+      <section class="section" id="registration-es">
+        <h2>Inscripción</h2>
+        <p>La inscripción estará disponible del 1 al 20 de noviembre de 2026.</p>
+        <p>Para garantizar la inclusión en el programa y la aparición en las publicaciones de la conferencia, al menos uno de los autores deberá estar inscrito antes de la fecha límite como participante ponente, ya sea presencial o virtual.</p>
+        <div class="registration-grid">
+          <article class="registration-card">
+            <h3>Cómo inscribirse</h3>
+            <ol class="steps-list">
+              <li>Rellenar el formulario de inscripción de DDHUM26: <br><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScesYksp37O6DPt5y0hlTmMbU2FYrNZWL9LHZMKTfFtbH5AVg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Abrir formulario de inscripción</a></li>
+              <li>Pagar la tasa de inscripción correspondiente a la categoría de inscripción, si procede.</li>
+              <li>Para finalizar la inscripción, envíe el justificante de pago por correo electrónico a <a class="email-box" href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, con copia a <a class="email-box" href="mailto:ddhumconference@gmail.com">ddhumconference@gmail.com</a>.</li>
+            </ol>
+            <p><strong>Asunto del correo:</strong> DDHUM26 Registration</p>
+            <p>En el correo, incluya los siguientes datos: nombre completo, dirección de facturación y número de identificación fiscal (NIF).</p>
+            <p><strong>La inscripción solo se considerará completa cuando recibamos el justificante de pago por correo electrónico.</strong></p>
+          </article>
+          <article class="registration-card">
+            <h3>Información de pago</h3>
+            <ul class="payment-list">
+              <li><strong>Nombre:</strong> UNIVERSIDADE MINHO</li>
+              <li><strong>Cuenta:</strong> 0171167322630 – EUR – Conta Extracto</li>
+              <li><strong>NIB:</strong> 0035 0171 00167322630 15</li>
+              <li><strong>IBAN:</strong> PT50 0035 0171 00167322630 15</li>
+              <li><strong>BIC/SWIFT:</strong> CGDIPTPL</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Tasas de inscripción</h3>
+        <table class="fees-table">
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Importe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inscripción con comunicación — tarifa estándar</td>
+              <td>50 euros</td>
+            </tr>
+            <tr>
+              <td>Inscripción con comunicación — tarifa especial: estudiantes que presentan comunicación</td>
+              <td>30 euros</td>
+            </tr>
+            <tr>
+              <td>Inscripción con comunicación — estudiantes de ELACH que presentan comunicación</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Participación presencial como oyente — participantes sin comunicación</td>
+              <td>10 euros</td>
+            </tr>
+            <tr>
+              <td>Participación en línea como oyente</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Estudiantes de ELACH — participantes sin comunicación</td>
+              <td>Gratuita</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <p style="font-size: 0.85rem;">En casos especiales, puede contemplarse una reducción de la cuota de inscripción.</p>
+      </section>
+      <section class="section travel-section" id="venue-es">
+        <h2>Viaje y alojamiento</h2>
+        <div class="travel-grid">
+          <article class="travel-card wide">
+            <h3>Sobre la ciudad</h3>
+            <p>Braga tiene más de 2000 años, lo que la convierte en la ciudad más antigua de Portugal. Desempeñó un papel crucial en la historia portuguesa y, como tercera ciudad más grande del país después de Lisboa y Oporto, ha mantenido su importancia a lo largo de los años. Braga alberga una de las mayores universidades de Portugal, la Universidad del Miño, con más de 20 000 estudiantes, y es uno de los principales polos portugueses de start-ups tecnológicas.</p>
+            <div class="travel-links"><a class="travel-link" href="https://porto-north-portugal.com/braga-portugal-guide.html" target="_blank" rel="noopener noreferrer">Más información sobre Braga</a><a class="travel-link" href="https://www.youtube.com/watch?v=27J3xr5p9NA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Ver vídeo sobre Braga</a></div>
+          </article>
+          <article class="travel-card">
+            <h3>Viaje</h3>
+            <p>Viajar a la Universidade do Minho en Braga, Portugal, es sencillo. El aeropuerto internacional más cercano se encuentra a unos 50 km — el Aeropuerto de Oporto (OPO) — y existe un servicio directo de autobús entre el aeropuerto y el centro de Braga, operado por GetBus.</p>
+          </article>
+          <article class="travel-card">
+            <h3>Sede</h3>
+            <p>La conferencia se celebrará los días 26 y 27 de noviembre de 2026 en la Escuela de Letras, Artes y Ciencias Humanas de la Universidade do Minho (UMinho), reconocida por la competencia y calidad de su profesorado, la excelencia de su investigación científica, la amplia oferta de cursos de grado y posgrado y su elevado nivel de interacción con otras instituciones.</p>
+            <div class="travel-links"><a class="travel-link" href="https://www.youtube.com/watch?v=OaaRK5EKrOw&time_continue=55&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Ver vídeo de la Universidad del Miño</a></div>
+          </article>
+          <article class="travel-card wide">
+            <h3>Alojamiento</h3>
+            <p>Las personas inscritas son responsables de organizar su propio alojamiento. A continuación se presentan algunas sugerencias de hoteles en Braga, empezando por los más cercanos al campus.</p>
+            <div class="hotel-columns">
+              <div class="hotel-group">
+                <h4>Cerca del campus universitario</h4>
+                <ul>
+                  <li>B&amp;B Lamaçães Hotel (***)</li>
+                  <li>Melia Hotel (*****)</li>
+                </ul>
+              </div>
+              <div class="hotel-group">
+                <h4>Centro de la ciudad, a unos 30 minutos a pie del campus</h4>
+                <ul>
+                  <li>Ibis Budget Braga Centro Hotel (**)</li>
+                  <li>Basic Braga by Axis (**)</li>
+                  <li>Dona Sofia Hotel (***)</li>
+                  <li>Bracara Augusta Hotel (****)</li>
+                  <li>Moon &amp; Sun Hotel (****)</li>
+                  <li>Mercure Hotel (****)</li>
+                  <li>Vila Galé Collection Braga (****)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="organisation-es">
+        <h2>Coordinación y organización</h2>
+        <div class="people-grid">
+          <div class="mini-panel">
+            <h3>Coordinadoras</h3>
+            <ul class="person-list">
+              <li><strong>Sílvia Araújo</strong> — Universidade do Minho, Portugal</li>
+              <li><strong>Micaela Aguiar</strong> — Universidade do Porto, Portugal</li>
+            </ul>
+          </div>
+          <div class="mini-panel">
+            <h3>Comité Organizador</h3>
+            <ul class="person-list">
+              <li>Álvaro Iríarte — Universidade do Minho, Portugal</li>
+              <li>Ana Cea — Universidade do Minho, Portugal</li>
+              <li>Ana Correia — Universidade do Minho, Portugal</li>
+              <li>Dalia Senvaitytė — Universidad de Vilna, Lituania</li>
+              <li>Diego Pablo Ruiz — Universidad de Granada, España</li>
+              <li>Francisco Lopes — Universidade do Minho, Portugal</li>
+              <li>Henrique Barroso — Universidade do Minho, Portugal</li>
+              <li>Idalete Dias — Universidade do Minho, Portugal</li>
+              <li>Marcos Dieste Gracia — Universidad de Padua, Italia</li>
+              <li>Maria Dolores Lerma Sanchis — Universidade do Minho, Portugal</li>
+              <li>Mônica Silva — Universidad Federal de Río de Janeiro, Brasil</li>
+              <li>Pedro Dono — Universidad del Miño, Portugal</li>
+              <li>Sérgio Serra — Universidad Federal Rural de Río de Janeiro, Brasil</li>
+              <li>Rúben Alves — Universidad de Santiago de Compostela, España</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <p class="footer-note">DDHUM26 · Data & Digital Humanities · Universidad del Miño</p>
+    </section>
+    <section class="language-page" id="page-fr" lang="fr">
+      <section class="hero">
+        <div class="hero-video" aria-hidden="true">
+          <iframe src="https://www.youtube.com/embed/H41fuhz_gvw?start=162&autoplay=1&mute=1&controls=0&loop=1&playlist=H41fuhz_gvw&playsinline=1&rel=0&modestbranding=1" title="DDHUM26 hero background video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="hero-inner">
+          <div class="eyebrow">Conférence hybride</div>
+          <h1><span class="hero-kicker-title">DDHUM26</span><span class="hero-main-title">4e Conférence internationale<br>Data &amp; Digital Humanities</span><span class="hero-subtitle-line">Données, science et communication numérique : perspectives interdisciplinaires</span></h1>
+          <div class="meta-grid">
+            <div class="meta-card"><span>Quand</span><strong>26–27 novembre 2026</strong></div>
+            <div class="meta-card"><span>Où</span><strong>Université du Minho, Braga, Portugal</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about-fr">
+        <h2>Présentation</h2>
+        <p>La 4e édition de la Conférence internationale Data & Digital Humanities (DDHUM26) s’inscrit dans la thématique « Données, science et communication numérique : perspectives interdisciplinaires », en explorant les intersections contemporaines entre les pratiques liées aux données, la production de connaissances scientifiques et les environnements de communication numérique.</p>
+        <p>La conférence adopte une perspective interdisciplinaire qui réunit des approches issues des Humanités numériques, de la science des données, de la linguistique computationnelle, des sciences de l’information et de la communication, des études des médias, des sciences de l’information, de l’éducation, de l’intelligence artificielle, de la culture numérique et de la communication scientifique. Elle vise à analyser comment les méthodes numériques, les outils computationnels, les pratiques de communication et les récits destinés au public reconfigurent les écosystèmes contemporains de la connaissance.</p>
+      </section>
+      <section class="section" id="call-fr">
+        <h2>Axes thématiques</h2>
+        <div class="axes">
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">1</span>
+              <h3>Obtenir des données textuelles</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>corpus scientifiques, culturels, médiatiques, éducatifs ou multilingues ;</li>
+              <li>dépôts institutionnels, bibliothèques numériques, archives et infrastructures de Science ouverte ;</li>
+              <li>collecte de données sur des plateformes numériques, réseaux sociaux, sites web, podcasts, vidéos ou supports multimodaux ;</li>
+              <li>métadonnées, annotation, documentation, curation et préservation des données ;</li>
+              <li>éthique, vie privée, droit d’auteur, consentement et réutilisation responsable ;</li>
+              <li>données générées par IA, données synthétiques et enjeux de validation et de traçabilité.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">2</span>
+              <h3>Trouver de l’inspiration dans les données textuelles</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>analyse textuelle computationnelle et linguistique de corpus appliquées à des textes scientifiques, culturels, médiatiques, éducatifs ou institutionnels ;</li>
+              <li>analyse du discours, analyse critique et analyse des cadrages dans la circulation numérique de la science et du savoir ;</li>
+              <li>classification et comparaison de genres textuels ;</li>
+              <li>extraction terminologique, reconnaissance d’entités et cartographie des relations ;</li>
+              <li>analyse de la lisibilité, de la clarté, de l’accessibilité et de l’adéquation communicationnelle ;</li>
+              <li>utilisation de l’IA dans l’analyse, le résumé, la traduction, la classification, l’adaptation ou la simplification de données textuelles ;</li>
+              <li>validation humaine, audit des erreurs, explicabilité et transparence dans les processus assistés par IA.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">3</span>
+              <h3>Raconter une histoire avec des données textuelles</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>communication scientifique dans les environnements numériques ;</li>
+              <li>circulation du savoir entre université, médias, plateformes numériques, institutions scientifiques et publics non spécialisés ;</li>
+              <li>journalisme numérique, journalisme de données et vérification des faits ;</li>
+              <li>visualisation de données, infographies, résumés graphiques et tableaux de bord ;</li>
+              <li>storytelling numérique, multimodal et transmédia ;</li>
+              <li>podcasts, vidéos courtes, newsletters, fils de discussion, sites web et formats natifs des plateformes ;</li>
+              <li>traduction, localisation, langage clair, simplification textuelle et adaptation des contenus.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="section info-grid" id="programme-fr">
+        <div class="mini-panel">
+          <h3>Langues de communication</h3>
+          <ul class="clean-list">
+            <li>Anglais</li>
+            <li>Portugais</li>
+            <li>Espagnol</li>
+            <li>Français</li>
+            <li>Italien</li>
+          </ul>
+          <p><strong>L’article final devra être rédigé en anglais.</strong></p>
+        </div>
+        <div class="mini-panel">
+          <h3>Dates importantes</h3>
+          <ul class="dates-list">
+            <li><time>15 septembre 2026</time><span>Date limite de soumission des résumés</span></li>
+            <li><time>15 octobre 2026</time><span>Notification d’acceptation ou de refus</span></li>
+            <li><time>1er novembre 2026</time><span>Ouverture des inscriptions</span></li>
+            <li><time>20 novembre 2026</time><span>Clôture des inscriptions</span></li>
+            <li><time>26–27 novembre 2026</time><span>Dates de la conférence</span></li>
+            <li><time>30 janvier 2027</time><span>Soumission de l’article final</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="submission-fr">
+        <h2>Soumission des résumés</h2>
+        <p>Les résumés doivent compter entre <strong>250 et 300 mots</strong> et peuvent être soumis en <strong>français, anglais, espagnol ou portugais</strong>.</p>
+        <p>Les présentations pourront également être faites dans l’une de ces quatre langues.</p>
+        <p>Toutefois, les articles finaux devront être soumis en <strong>anglais</strong>.</p>
+        <p>Chaque présentation sélectionnée disposera de <strong>20 minutes</strong>, suivies de <strong>10 minutes de discussion</strong>.</p>
+      </section>
+
+      <section class="section" id="registration-fr">
+        <h2>Inscription</h2>
+        <p>Les inscriptions seront ouvertes du 1er au 20 novembre 2026.</p>
+        <p>Afin de garantir l’inclusion dans le programme et la présence dans les publications de la conférence, au moins un auteur devra être inscrit avant la date limite comme participant présentant une communication, en présentiel ou à distance.</p>
+        <div class="registration-grid">
+          <article class="registration-card">
+            <h3>Comment s’inscrire</h3>
+            <ol class="steps-list">
+              <li>Remplir le formulaire d’inscription DDHUM26 : <br><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScesYksp37O6DPt5y0hlTmMbU2FYrNZWL9LHZMKTfFtbH5AVg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Ouvrir le formulaire d’inscription</a></li>
+              <li>Régler les frais d’inscription correspondant à votre catégorie, le cas échéant.</li>
+              <li>Pour finaliser l’inscription, veuillez envoyer le justificatif de paiement par email à <a class="email-box" href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, avec copie à <a class="email-box" href="mailto:ddhumconference@gmail.com">ddhumconference@gmail.com</a>.</li>
+            </ol>
+            <p><strong>Objet de l’email :</strong> DDHUM26 Registration</p>
+            <p>Dans votre email, veuillez indiquer les informations suivantes : nom complet, adresse de facturation et numéro d’identification fiscale (NIF).</p>
+            <p><strong>L’inscription ne sera considérée comme complète qu’après réception du justificatif de paiement par email.</strong></p>
+          </article>
+          <article class="registration-card">
+            <h3>Informations de paiement</h3>
+            <ul class="payment-list">
+              <li><strong>Nom :</strong> UNIVERSIDADE MINHO</li>
+              <li><strong>Compte :</strong> 0171167322630 – EUR – Conta Extracto</li>
+              <li><strong>NIB :</strong> 0035 0171 00167322630 15</li>
+              <li><strong>IBAN :</strong> PT50 0035 0171 00167322630 15</li>
+              <li><strong>BIC/SWIFT :</strong> CGDIPTPL</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Frais d’inscription</h3>
+        <table class="fees-table">
+          <thead>
+            <tr>
+              <th>Catégorie</th>
+              <th>Montant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inscription avec communication — tarif standard</td>
+              <td>50 euros</td>
+            </tr>
+            <tr>
+              <td>Inscription avec communication — tarif spécial : étudiants présentant une communication</td>
+              <td>30 euros</td>
+            </tr>
+            <tr>
+              <td>Inscription avec communication — étudiants de l’ELACH présentant une communication</td>
+              <td>Gratuite</td>
+            </tr>
+            <tr>
+              <td>Participation en présentiel comme auditeur — participants sans communication</td>
+              <td>10 euros</td>
+            </tr>
+            <tr>
+              <td>Participation en ligne comme auditeur</td>
+              <td>Gratuite</td>
+            </tr>
+            <tr>
+              <td>Étudiants de l’ELACH — participants sans communication</td>
+              <td>Gratuite</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <p style="font-size: 0.85rem;">Dans certains cas particuliers, une réduction des frais d’inscription peut être envisagée.</p>
+      </section>
+      <section class="section travel-section" id="venue-fr">
+        <h2>Voyage et hébergement</h2>
+        <div class="travel-grid">
+          <article class="travel-card wide">
+            <h3>À propos de la ville</h3>
+            <p>Braga a plus de 2000 ans, ce qui en fait la plus ancienne ville du Portugal. Elle a joué un rôle crucial dans l’histoire portugaise et, en tant que troisième plus grande ville du pays après Lisbonne et Porto, elle a conservé son importance au fil du temps. Braga accueille l’une des plus grandes universités du Portugal, l’Université du Minho, avec plus de 20 000 étudiants, et constitue l’un des principaux pôles portugais de start-ups technologiques.</p>
+            <div class="travel-links"><a class="travel-link" href="https://porto-north-portugal.com/braga-portugal-guide.html" target="_blank" rel="noopener noreferrer">Plus d’informations sur Braga</a><a class="travel-link" href="https://www.youtube.com/watch?v=27J3xr5p9NA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Voir la vidéo sur Braga</a></div>
+          </article>
+          <article class="travel-card">
+            <h3>Voyage</h3>
+            <p>Se rendre à l’Université du Minho, à Braga, Portugal, est simple. L’aéroport international le plus proche se trouve à environ 50 km — l’aéroport de Porto (OPO) — et un service direct d’autobus relie l’aéroport au centre-ville de Braga, assuré par GetBus.</p>
+          </article>
+          <article class="travel-card">
+            <h3>Lieu de la conférence</h3>
+            <p>La conférence se tiendra les 26 et 27 novembre 2026 à l’École des Lettres, Arts et Sciences Humaines de l’Université du Minho (UMinho), reconnue pour la compétence et la qualité de son corps enseignant, l’excellence de sa recherche scientifique, la diversité de son offre de formation de premier et deuxième cycles, ainsi que son haut niveau d’interaction avec d’autres institutions.</p>
+            <div class="travel-links"><a class="travel-link" href="https://www.youtube.com/watch?v=OaaRK5EKrOw&time_continue=55&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Voir la vidéo de l’Université du Minho</a></div>
+          </article>
+          <article class="travel-card wide">
+            <h3>Hébergement</h3>
+            <p>Les personnes inscrites sont responsables de l’organisation de leur propre hébergement. Vous trouverez ci-dessous quelques suggestions d’hôtels à Braga, en commençant par les plus proches du campus.</p>
+            <div class="hotel-columns">
+              <div class="hotel-group">
+                <h4>Près du campus universitaire</h4>
+                <ul>
+                  <li>B&amp;B Lamaçães Hotel (***)</li>
+                  <li>Melia Hotel (*****)</li>
+                </ul>
+              </div>
+              <div class="hotel-group">
+                <h4>Centre-ville, à environ 30 minutes à pied du campus</h4>
+                <ul>
+                  <li>Ibis Budget Braga Centro Hotel (**)</li>
+                  <li>Basic Braga by Axis (**)</li>
+                  <li>Dona Sofia Hotel (***)</li>
+                  <li>Bracara Augusta Hotel (****)</li>
+                  <li>Moon &amp; Sun Hotel (****)</li>
+                  <li>Mercure Hotel (****)</li>
+                  <li>Vila Galé Collection Braga (****)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="organisation-fr">
+        <h2>Coordination et organisation</h2>
+        <div class="people-grid">
+          <div class="mini-panel">
+            <h3>Coordinatrices</h3>
+            <ul class="person-list">
+              <li><strong>Sílvia Araújo</strong> — Université du Minho, Portugal</li>
+              <li><strong>Micaela Aguiar</strong> — Université de Porto, Portugal</li>
+            </ul>
+          </div>
+          <div class="mini-panel">
+            <h3>Comité d’organisation</h3>
+            <ul class="person-list">
+              <li>Álvaro Iríarte — Université du Minho, Portugal</li>
+              <li>Ana Cea — Université du Minho, Portugal</li>
+              <li>Ana Correia — Université du Minho, Portugal</li>
+              <li>Dalia Senvaitytė — Université de Vilnius, Lituanie</li>
+              <li>Diego Pablo Ruiz — Université de Grenade, Espagne</li>
+              <li>Francisco Lopes — Université du Minho, Portugal</li>
+              <li>Henrique Barroso — Université du Minho, Portugal</li>
+              <li>Idalete Dias — Université du Minho, Portugal</li>
+              <li>Marcos Dieste Gracia — Université de Padoue, Italie</li>
+              <li>Maria Dolores Lerma Sanchis — Université du Minho, Portugal</li>
+              <li>Mônica Silva — Université fédérale de Rio de Janeiro, Brésil</li>
+              <li>Pedro Dono — Université du Minho, Portugal</li>
+              <li>Sérgio Serra — Université fédérale rurale de Rio de Janeiro, Brésil</li>
+              <li>Rúben Alves — Université de Saint-Jacques-de-Compostelle, Espagne</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <p class="footer-note">DDHUM26 · Data & Digital Humanities · Université du Minho</p>
+    </section>
+    <section class="language-page" id="page-it" lang="it">
+      <section class="hero">
+        <div class="hero-video" aria-hidden="true">
+          <iframe src="https://www.youtube.com/embed/H41fuhz_gvw?start=162&autoplay=1&mute=1&controls=0&loop=1&playlist=H41fuhz_gvw&playsinline=1&rel=0&modestbranding=1" title="DDHUM26 hero background video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="hero-inner">
+          <div class="eyebrow">Conferenza in formato ibrido</div>
+          <h1><span class="hero-kicker-title">DDHUM26</span><span class="hero-main-title">4ª Conferenza Internazionale<br>Data &amp; Digital Humanities</span><span class="hero-subtitle-line">Dati, Scienza e Comunicazione Digitale: Prospettive Interdisciplinari</span></h1>
+          <div class="meta-grid">
+            <div class="meta-card"><span>Quando</span><strong>26–27 novembre 2026</strong></div>
+            <div class="meta-card"><span>Dove</span><strong>Università del Minho, Braga, Portogallo</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about-it">
+        <h2>Presentazione</h2>
+        <p>La 4ª edizione della Conferenza Internazionale Data & Digital Humanities (DDHUM26) si inserisce nel tema “Dati, Scienza e Comunicazione Digitale: Prospettive Interdisciplinari”, esplorando le intersezioni contemporanee tra pratiche legate ai dati, produzione della conoscenza scientifica e ambienti di comunicazione digitale.</p>
+        <p>La conferenza adotta una prospettiva interdisciplinare che riunisce approcci provenienti dalle Digital Humanities, dalla scienza dei dati, dalla linguistica computazionale, dagli studi sulla comunicazione, dagli studi sui media, dalla scienza dell’informazione, dall’educazione, dall’intelligenza artificiale, dalla cultura digitale e dalla comunicazione della scienza. Mira ad analizzare in che modo i metodi digitali, gli strumenti computazionali, le pratiche comunicative e le narrazioni rivolte al pubblico stiano riconfigurando gli ecosistemi contemporanei della conoscenza.</p>
+      </section>
+      <section class="section" id="call-it">
+        <h2>Assi tematici</h2>
+        <div class="axes">
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">1</span>
+              <h3>Ottenere dati testuali</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>corpora scientifici, culturali, mediatici, educativi o multilingui;</li>
+              <li>repository istituzionali, biblioteche digitali, archivi e infrastrutture di Scienza Aperta;</li>
+              <li>raccolta di dati da piattaforme digitali, social network, siti web, podcast, video o materiali multimodali;</li>
+              <li>metadati, annotazione, documentazione, curatela e conservazione dei dati;</li>
+              <li>etica, privacy, diritto d’autore, consenso e riutilizzo responsabile;</li>
+              <li>dati generati dall’IA, dati sintetici e sfide di validazione e tracciabilità.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">2</span>
+              <h3>Trovare ispirazione nei dati testuali</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>analisi testuale computazionale e linguistica dei corpora applicate a testi scientifici, culturali, mediatici, educativi o istituzionali;</li>
+              <li>analisi del discorso, analisi critica e analisi dei frame nella circolazione digitale della scienza e della conoscenza;</li>
+              <li>classificazione e comparazione di generi testuali;</li>
+              <li>estrazione terminologica, riconoscimento di entità e mappatura delle relazioni;</li>
+              <li>analisi della leggibilità, chiarezza, accessibilità e adeguatezza comunicativa;</li>
+              <li>uso dell’IA nell’analisi, sintesi, traduzione, classificazione, adattamento o semplificazione dei dati testuali;</li>
+              <li>validazione umana, audit degli errori, spiegabilità e trasparenza nei processi assistiti dall’IA.</li>
+            </ul>
+          </details>
+          <details class="axis-card axis-detail">
+            <summary><span class="axis-number">3</span>
+              <h3>Raccontare una storia con i dati testuali</h3><span class="axis-toggle">+</span>
+            </summary>
+            <ul class="clean-list">
+              <li>comunicazione della scienza in ambienti digitali;</li>
+              <li>circolazione della conoscenza tra accademia, media, piattaforme digitali, istituzioni scientifiche e pubblici non specialistici;</li>
+              <li>giornalismo digitale, data journalism e fact-checking;</li>
+              <li>visualizzazione dei dati, infografiche, abstract grafici e dashboard;</li>
+              <li>storytelling digitale, multimodale e transmediale;</li>
+              <li>podcast, video brevi, newsletter, thread, siti web e formati nativi delle piattaforme;</li>
+              <li>traduzione, localizzazione, linguaggio chiaro, semplificazione testuale e adattamento dei contenuti.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="section info-grid" id="programme-it">
+        <div class="mini-panel">
+          <h3>Lingue della comunicazione</h3>
+          <ul class="clean-list">
+            <li>Inglese</li>
+            <li>Portoghese</li>
+            <li>Spagnolo</li>
+            <li>Francese</li>
+            <li>Italiano</li>
+          </ul>
+          <p><strong>L’articolo finale dovrà essere redatto in inglese.</strong></p>
+        </div>
+        <div class="mini-panel">
+          <h3>Date importanti</h3>
+          <ul class="dates-list">
+            <li><time>15 settembre 2026</time><span>Scadenza per l’invio degli abstract</span></li>
+            <li><time>15 ottobre 2026</time><span>Notifica di accettazione o rifiuto</span></li>
+            <li><time>1º novembre 2026</time><span>Apertura delle iscrizioni</span></li>
+            <li><time>20 novembre 2026</time><span>Chiusura delle iscrizioni</span></li>
+            <li><time>26–27 novembre 2026</time><span>Date della conferenza</span></li>
+            <li><time>30 gennaio 2027</time><span>Invio dell’articolo finale</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="submission-it">
+        <h2>Invio degli abstract</h2>
+        <p>Gli abstract devono avere una lunghezza compresa tra <strong>250 e 300 parole</strong> e possono essere inviati in <strong>francese, inglese, spagnolo o portoghese</strong>.</p>
+        <p>Le presentazioni potranno essere tenute in una qualsiasi di queste quattro lingue.</p>
+        <p>Tuttavia, gli articoli finali dovranno essere presentati in <strong>inglese</strong>.</p>
+        <p>Ogni presentazione selezionata avrà a disposizione <strong>20 minuti</strong>, seguiti da <strong>10 minuti di discussione</strong>.</p>
+      </section>
+
+      <section class="section" id="registration-it">
+        <h2>Registrazione</h2>
+        <p>Le registrazioni saranno disponibili dal 1º al 20 novembre 2026.</p>
+        <p>Per garantire l’inclusione nel programma e la presenza nelle pubblicazioni della conferenza, almeno uno degli autori deve essere registrato entro la scadenza come partecipante relatore in presenza o online.</p>
+        <div class="registration-grid">
+          <article class="registration-card">
+            <h3>Come registrarsi</h3>
+            <ol class="steps-list">
+              <li>Compilare il modulo di registrazione DDHUM26: <br><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScesYksp37O6DPt5y0hlTmMbU2FYrNZWL9LHZMKTfFtbH5AVg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Apri il modulo di registrazione</a></li>
+              <li>Pagare la quota di registrazione corrispondente alla propria categoria, se applicabile.</li>
+              <li>Per finalizzare la registrazione, inviare la prova del pagamento via email a <a class="email-box" href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, con copia a <a class="email-box" href="mailto:ddhumconference@gmail.com">ddhumconference@gmail.com</a>.</li>
+            </ol>
+            <p><strong>Oggetto dell’email:</strong> DDHUM26 Registration</p>
+            <p>Nell’email, includere i seguenti dati: nome completo, indirizzo di fatturazione e numero di identificazione fiscale (NIF).</p>
+            <p><strong>La registrazione sarà considerata completa solo dopo la ricezione della prova di pagamento via email.</strong></p>
+          </article>
+          <article class="registration-card">
+            <h3>Informazioni di pagamento</h3>
+            <ul class="payment-list">
+              <li><strong>Nome:</strong> UNIVERSIDADE MINHO</li>
+              <li><strong>Conto:</strong> 0171167322630 – EUR – Conta Extracto</li>
+              <li><strong>NIB:</strong> 0035 0171 00167322630 15</li>
+              <li><strong>IBAN:</strong> PT50 0035 0171 00167322630 15</li>
+              <li><strong>BIC/SWIFT:</strong> CGDIPTPL</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Quote di registrazione</h3>
+        <table class="fees-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Quota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registrazione con comunicazione — tariffa standard</td>
+              <td>50 euros</td>
+            </tr>
+            <tr>
+              <td>Registrazione con comunicazione — tariffa speciale: studenti che presentano una comunicazione</td>
+              <td>30 euros</td>
+            </tr>
+            <tr>
+              <td>Registrazione con comunicazione — studenti ELACH che presentano una comunicazione</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Partecipazione in presenza come uditore — partecipanti senza comunicazione</td>
+              <td>10 euros</td>
+            </tr>
+            <tr>
+              <td>Partecipazione online come uditore</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Studenti ELACH — partecipanti senza comunicazione</td>
+              <td>Gratuita</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <p style="font-size: 0.85rem;">In casi particolari, è possibile prevedere una riduzione della quota di iscrizione.</p>
+      </section>
+      <section class="section travel-section" id="venue-it">
+        <h2>Viaggio e alloggio</h2>
+        <div class="travel-grid">
+          <article class="travel-card wide">
+            <h3>La città</h3>
+            <p>Braga ha più di 2000 anni, il che la rende la città più antica del Portogallo. Ha svolto un ruolo cruciale nella storia portoghese e, in quanto terza città più grande del Paese dopo Lisbona e Porto, ha mantenuto la sua importanza nel corso degli anni. Braga ospita una delle più grandi università del Portogallo, l’Università del Minho, con oltre 20 000 studenti, ed è uno dei principali poli portoghesi per le start-up tecnologiche.</p>
+            <div class="travel-links"><a class="travel-link" href="https://porto-north-portugal.com/braga-portugal-guide.html" target="_blank" rel="noopener noreferrer">Maggiori informazioni su Braga</a><a class="travel-link" href="https://www.youtube.com/watch?v=27J3xr5p9NA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Guarda il video su Braga</a></div>
+          </article>
+          <article class="travel-card">
+            <h3>Viaggio</h3>
+            <p>Raggiungere l’Università del Minho a Braga, in Portogallo, è semplice. L’aeroporto internazionale più vicino si trova a circa 50 km — Aeroporto di Porto (OPO) — e un servizio diretto di autobus collega l’aeroporto al centro di Braga, gestito da GetBus.</p>
+          </article>
+          <article class="travel-card">
+            <h3>Sede</h3>
+            <p>La conferenza si terrà il 26 e 27 novembre 2026 presso la Scuola di Lettere, Arti e Scienze Umane dell’Università del Minho (UMinho), riconosciuta per la competenza e la qualità del personale docente, l’eccellenza della ricerca scientifica, l’ampia offerta di corsi di laurea e post-laurea e l’elevato livello di interazione con altre istituzioni.</p>
+            <div class="travel-links"><a class="travel-link" href="https://www.youtube.com/watch?v=OaaRK5EKrOw&time_continue=55&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fceh.elach.uminho.pt%2F" target="_blank" rel="noopener noreferrer">Guarda il video dell’Università del Minho</a></div>
+          </article>
+          <article class="travel-card wide">
+            <h3>Alloggio</h3>
+            <p>I partecipanti iscritti sono responsabili della prenotazione del proprio alloggio. Di seguito sono riportati alcuni suggerimenti di hotel a Braga, a partire da quelli più vicini al campus.</p>
+            <div class="hotel-columns">
+              <div class="hotel-group">
+                <h4>Vicino al campus universitario</h4>
+                <ul>
+                  <li>B&amp;B Lamaçães Hotel (***)</li>
+                  <li>Melia Hotel (*****)</li>
+                </ul>
+              </div>
+              <div class="hotel-group">
+                <h4>Centro città, a circa 30 minuti a piedi dal campus</h4>
+                <ul>
+                  <li>Ibis Budget Braga Centro Hotel (**)</li>
+                  <li>Basic Braga by Axis (**)</li>
+                  <li>Dona Sofia Hotel (***)</li>
+                  <li>Bracara Augusta Hotel (****)</li>
+                  <li>Moon &amp; Sun Hotel (****)</li>
+                  <li>Mercure Hotel (****)</li>
+                  <li>Vila Galé Collection Braga (****)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="organisation-it">
+        <h2>Coordinamento e organizzazione</h2>
+        <div class="people-grid">
+          <div class="mini-panel">
+            <h3>Coordinatrici</h3>
+            <ul class="person-list">
+              <li><strong>Sílvia Araújo</strong> — Università del Minho, Portogallo</li>
+              <li><strong>Micaela Aguiar</strong> — Università di Porto, Portogallo</li>
+            </ul>
+          </div>
+          <div class="mini-panel">
+            <h3>Comitato organizzatore</h3>
+            <ul class="person-list">
+              <li>Álvaro Iríarte — Università del Minho, Portogallo</li>
+              <li>Ana Cea — Università del Minho, Portogallo</li>
+              <li>Ana Correia — Università del Minho, Portogallo</li>
+              <li>Dalia Senvaitytė — Università di Vilnius, Lituania</li>
+              <li>Diego Pablo Ruiz — Università di Granada, Spagna</li>
+              <li>Francisco Lopes — Università del Minho, Portogallo</li>
+              <li>Henrique Barroso — Università del Minho, Portogallo</li>
+              <li>Idalete Dias — Università del Minho, Portogallo</li>
+              <li>Marcos Dieste Gracia — Università di Padova, Italia</li>
+              <li>Maria Dolores Lerma Sanchis — Università del Minho, Portogallo</li>
+              <li>Mônica Silva — Università Federale di Rio de Janeiro, Brasile</li>
+              <li>Pedro Dono — Università del Minho, Portogallo</li>
+              <li>Sérgio Serra — Università Federale Rurale di Rio de Janeiro, Brasile</li>
+              <li>Rúben Alves — Università di Santiago de Compostela, Spagna</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <p class="footer-note">DDHUM26 · Data & Digital Humanities · Università del Minho</p>
+      
+    </section>
+    <div class="institutions-banner">
+        <img src="organizers/institutions.png"
+            alt="Participating Institutions">
+    </div>
+    <footer>
+        <div class="footer-inner">
+
+            <div class="footer-content">
+
+            <div class="logos-grid">
+                <div class="logo-slot">
+                <img src="../assets/logos/elach.png" alt="ELACH">
+                </div>
+
+                <div class="logo-slot">
+                <img src="../assets/logos/fct.png" alt="FCT">
+                </div>
+
+                <div class="logo-slot">
+                <img src="../assets/logos/cehum.png" alt="CEHUM">
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <h6>DDHUM26</h6>
+                <p>Data &amp; Digital Humanities</p>
+                <p>University of Minho · Braga, Portugal</p>
+                <p>26–27 November 2026</p>
+            </div>
+
+            </div>
+
+        </div>
+    </footer>
+  </main>
+  <script>
+    const labels = {
+      "pt": {
+        "nav": ["Apresentação", "Programa", "Chamada", "Local", "Organização", "Contacto"],
+        "submit": "Submeter resumo"
+      },
+      "en": {
+        "nav": ["Overview", "Programme", "Call for Papers", "Venue", "Organisation", "Contact"],
+        "submit": "Submit abstract"
+      },
+      "es": {
+        "nav": ["Presentación", "Programa", "Convocatoria", "Sede", "Organización", "Contacto"],
+        "submit": "Enviar resumen"
+      },
+      "fr": {
+        "nav": ["Présentation", "Programme", "Appel à communications", "Lieu", "Organisation", "Contact"],
+        "submit": "Soumettre un résumé"
+      },
+      "it": {
+        "nav": ["Presentazione", "Programma", "Call for Papers", "Sede", "Organizzazione", "Contatti"],
+        "submit": "Invia abstract"
+      }
+    };
+    const buttons = document.querySelectorAll('[data-page]');
+    const pages = document.querySelectorAll('.language-page');
+    const select = document.getElementById('languageSelect');
+    const navLinks = document.querySelectorAll('[data-nav]');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showPage(code) {
+      pages.forEach(page => page.classList.toggle('active', page.id === `page-${code}`));
+      buttons.forEach(button => button.classList.toggle('active', button.dataset.page === code));
+      if (select) select.value = code;
+      document.documentElement.lang = code;
+      navLinks.forEach(link => {
+        const index = Number(link.dataset.nav);
+        link.textContent = labels[code].nav[index];
+        const targets = ['about', 'programme', 'call', 'venue', 'organisation'];
+        if (index < 5) link.href = `#${targets[index]}-${code}`;
+      });
+      submitBtn.textContent = labels[code].submit;
+      submitBtn.href = `#submission-${code}`;
+      window.history.replaceState(null, '', `#${code}`);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    buttons.forEach(button => button.addEventListener('click', () => showPage(button.dataset.page)));
+    if (select) select.addEventListener('change', event => showPage(event.target.value));
+    const initial = window.location.hash.replace('#', '');
+    showPage(['pt', 'en', 'es', 'fr', 'it'].includes(initial) ? initial : 'pt');
+  </script>
+</body>
+
+</html>
