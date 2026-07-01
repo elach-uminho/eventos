@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XXVIII Autumn Colloquium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+
+  <style>
+    :root {
+      --color-primary: #0069ae;
+      --color-primary-light: #3d87bb;
+      --color-accent: #6b3b2a;
+      --color-bg: #f8f3ef;
+      --color-accent-soft: #b59d94;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .navbar-main {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .navbar-main .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-main .navbar-nav .nav-link:hover {
+      color: var(--color-accent-soft) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--color-primary);
+    }
+
+    main {
+      padding-top: 0;
+    }
+
+    .hero-banner {
+      width: 100%;
+      min-height: 520px;
+      margin-top: 3.5rem;
+      background-color: #f8f3ef;
+      background-image: url("../assets/banners/Imagem_Cartaz.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+
+    section {
+      padding: 2.5rem 0 1.5rem;
+      scroll-margin-top: 6.5rem;
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .logos-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-card {
+      background: rgba(255,255,255);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 14px;
+      padding: 1rem;
+      width: 100%;
+      min-height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-card img {
+      max-width: 170px;
+      max-height: 90px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* fine adjustment for vertical logos */
+    .logo-card img[alt="Instituto Cervantes"] {
+      max-height: 110px;
+    }
+
+    .logo-card img[alt="Galabra"] {
+      max-height: 95px;
+    }
+
+    .logo-card img[alt="FCT"] {
+      max-height: 65px;
+    }
+
+    .fees-table th, .fees-table td {
+      vertical-align: top;
+    }
+
+    footer {
+      background-color: #3D87BB;
+      color: #e5e7eb;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-items: center;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .logo-slot img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    .footer-links a {
+      color: #f8f3ef;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    
+    /* ====== CEHUM PDF BUTTON ====== */
+    .btn-cehum-pdf {
+      display: block;
+      margin: 1.5rem auto 0;
+      padding: 0.6rem 1.4rem;
+
+      border: 2px solid var(--color-primary);
+      background-color: transparent;
+      color: var(--color-primary);
+
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      width: fit-content;
+    }
+
+    .btn-cehum-pdf:hover {
+      background-color: var(--color-primary);
+      color: #ffffff;
+    }
+
+    /* ====== COLLAPSE PDF ====== */
+    .pdf-collapse {
+      margin-top: 1.5rem;
+    }
+
+    /* ====== PDF AREA ====== */
+    .pdf-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 70vh;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-viewer { height: 60vh; }
+    }
+
+    /* ====== 2 BUTTONS SIDE BY SIDE ====== */
+    #cfp .pdf-buttons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:1.5rem;
+    }
+
+    #cfp .pdf-buttons .btn-cehum-pdf{
+      margin:0;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:auto;
+    }
+
+    /* ====== BOTÃO DE IDIOMA EM LINHA PRETA ====== */
+    .nav-btn-lang {
+      border: 1px solid #000000 !important;
+      color: #000000 !important;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem !important;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-btn-lang:hover {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="coloquiosEN.html">XXVIII Autumn Colloquium</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto text-center align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#apresentacao">Narrative</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cfp">Fields</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tematicas">Approaches</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizacao">Information</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inscricao">Timeline</a></li>
+          <li class="nav-item"><a class="nav-link" href="#prazos">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="#entidades">Contacts</a></li>
+          <li class="nav-item"><a class="nav-link" href="#org">Organization</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="coloquios.html">PT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-banner" aria-label="Hero Banner"></section>
+
+  <main>
+
+    <section id="apresentacao">
+  <div class="section-inner">
+  <h2>Transcultural Narratives and Representations of Love</h2>
+  
+  <p>Recent studies have placed questions of affect and emotion back at the center of humanistic research. Studies on love, in particular, are now based on two complementary orientations — affect theory (which historicizes and politicizes sentiment) and affective science itself (which considers empirical, cognitive, and physiological dimensions) — and treat love both as an individual or intimate experience and as a socially mediated phenomenon.</p>
+  
+  <p>Love, being simultaneously universal and culturally specific, has also taken on a transcultural and historical plurality, subject to economic, social, and technological changes (including digital media) that reshape the way love is narrated and practiced (cyberlove, human-machine relationships).</p>
+  
+  <p>Love is not merely private: it is embedded in ideological formations and emotional communities that mobilize shared values. Feminist, queer, anti-racist, and disability studies have long highlighted affect as something political; love can function both as an instrument of domination and as a resource for criticism and solidarity.</p>
+  
+  <p>In short, the concept of love transcends cultural, linguistic, and temporal boundaries, expressing itself in distinct yet interconnected ways across human societies. From ancient mythologies and classical philosophies to contemporary digital cultures, love has been narrated, theorized, embodied, and represented in ways that reveal universal impulses and culturally specific meanings.</p>
+  
+  <p>In this XXVIII edition of the Autumn Colloquium, scholars from all backgrounds and fields are invited to explore transcultural narratives and representations of love, from Ancient Civilizations to the 21st century, with a particular interest in how love is conceptualized, translated, and represented across different cultures, historical periods, and media.</p>
+  
+  <p>The main objective is to promote interdisciplinary dialogues that illuminate the intersections of love with questions of identity, power, migration, media, and artistic representation. By examining how love travels – across borders, genres, and technologies – we seek to understand how it becomes a space for negotiation, resistance, imagination, and transformation.</p>
+  
+  <p>We therefore invite the submission of proposals for papers and/or panels that investigate love as a personal, transcultural, historical, and political phenomenon.</p>
+  
+  <p>Contributions that combine theoretical analysis with empirical or textual specificities and address, among other possible topics, the following questions are welcome:</p>
+
+  <ul>
+    <li>How have the concepts and practices of love transformed across different historical periods and cultural contexts?</li>
+    <li>In what ways do affect theory and affective science complement or oppose each other in the study of love?</li>
+    <li>How do gender, race, class, sexuality, religion, and coloniality shape representations and performances of love?</li>
+    <li>How do migration, diaspora, and transnational media reconfigure intimate bonds and affective communities?</li>
+    <li>What are the ethical and political potentials of love, specifically its capacity to promote emancipation, solidarity, or domination?</li>
+    <li>How do new technologies (dating apps, virtual companions, AI) transform the experience and discourse of love?</li>
+  </ul>
+
+  <p>We particularly encourage interdisciplinary proposals that historicize love, consider embodied and mediated practices, and expand the canon beyond Western paradigms.</p>
+</div>
+    </section>
+
+ <section id="cfp">
+  <div class="section-inner">
+    <h2>Research Fields</h2>
+    
+    <p>1. Literary and Cultural Studies</p>
+    <ul>
+      <li>Comparative literature: intercultural narratives of love</li>
+      <li>World literature: circulation of love tropes across continents</li>
+      <li>Classical studies: eros, philia, agape, storge</li>
+      <li>Medieval and early modern studies: courtly love, mystical love</li>
+      <li>Post-colonial studies: love in the imperial context, hybridity, resistance</li>
+    </ul>
+
+    <p>2. Philosophy and Ethics</p>
+    <ul>
+      <li>Philosophical theories of love in: Plato, Aristotle, Augustine, Spinoza, Beauvoir, etc.</li>
+      <li>Affective ethics: care, responsibility, relationality</li>
+      <li>Transcultural ethics</li>
+    </ul>
+
+    <p>3. Anthropology and Sociology</p>
+    <ul>
+      <li>Anthropology of emotion: kinship, ritual, marriage, sexuality</li>
+      <li>Sociology of intimacy: modernity, globalization, digital intimacy</li>
+      <li>Migration studies: transnational families, diasporic affect</li>
+    </ul>
+
+    <p>4. Media, Cinema, and Digital Studies</p>
+    <ul>
+      <li>Love in global cinema</li>
+      <li>Digital love: dating apps, virtual romance, AI companionship</li>
+      <li>Transmedia narratives</li>
+    </ul>
+
+    <p>5. Gender, Sexuality, and Queer Studies</p>
+    <ul>
+      <li>Queer transcultural love</li>
+      <li>Feminist theories of love</li>
+      <li>Intersectional approaches: race, class, disability</li>
+    </ul>
+
+    <p>6. Performance Studies and Visual Arts</p>
+    <ul>
+      <li>Performances of love: theater, dance, ritual</li>
+      <li>Embodied love: gesture, touch, corporality</li>
+      <li>Visual cultures: painting, photography, installation</li>
+    </ul>
+
+    <p>7. Religious and Mythological Studies</p>
+    <ul>
+      <li>Sacred love: divine-human relationships</li>
+      <li>Mythologies of love: archetypes, cosmologies, transcultural motifs</li>
+    </ul>
+  </div>
+</section>
+
+   <section id="tematicas">
+  <div class="section-inner">
+    <h2>Possible Theoretical Approaches</h2>
+
+    <p><strong>A. Affect and Emotion Theory</strong></p>
+    <ul>
+      <li>Love as affect, emotion, attachment, or political force</li>
+      <li>Reference authors: Sara Ahmed, Lauren Berlant, Sianne Ngai</li>
+    </ul>
+
+    <p><strong>B. Transcultural and Post-colonial Theory</strong></p>
+    <ul>
+      <li>Love as translation, creolization, hybridization</li>
+      <li>Reference authors: Homi Bhabha, Gayatri Spivak, Édouard Glissant</li>
+    </ul>
+
+    <p><strong>C. Feminist and Queer Theory</strong></p>
+    <ul>
+      <li>Love as resistance, relationality, queer kinship</li>
+      <li>Reference authors: bell hooks, Judith Butler, Eve Sedgwick</li>
+    </ul>
+
+    <p><strong>D. Phenomenology and Embodiment</strong></p>
+    <ul>
+      <li>Love as lived experience, gesture, corporality</li>
+      <li>Reference authors: Merleau-Ponty, Judith Butler, Sara Ahmed</li>
+    </ul>
+
+    <p><strong>E. Narrative Theory and Intermediality</strong></p>
+    <ul>
+      <li>How love is narrated across media and genres</li>
+      <li>Reference authors: Gérard Genette, Mieke Bal, Marie-Laure Ryan</li>
+    </ul>
+
+    <p><strong>F. Performance Theories</strong></p>
+    <ul>
+      <li>Love as staging, ritual, embodied practice</li>
+      <li>Reference authors: Richard Schechner, Diana Taylor</li>
+    </ul>
+
+    <p><strong>G. Digital and Media Theory</strong></p>
+    <ul>
+      <li>Algorithmic intimacy, mediated affect</li>
+      <li>Reference authors: Sherry Turkle, Henry Jenkins</li>
+    </ul>
+  </div>
+</section>
+
+   <section id="organizacao">
+  <div class="section-inner">
+    <h2>Important Information</h2>
+    
+    <p><strong>Submission Guidelines:</strong></p>
+    <ul>
+      <li>Colloquium languages: Portuguese, English, Spanish, French.</li>
+      <li>It is required to indicate the language of presentation in the abstract.</li>
+      <li>Paper proposals (20 minutes), with a maximum of 200 words, must be accompanied by a biographical note of no more than 100 words (in Portuguese and English).</li>
+      <li>All proposals must be submitted through the online form available on the colloquium website:<a href="#">online form</a></li>
+    </ul>
+
+    <p><strong>Publication:</strong></p>
+    <p>A selection of contributions, which must be written in English, is scheduled for peer-reviewed publication. Editorial guidelines and submission deadlines will be provided after the colloquium.</p>
+  </div>
+</section>
+
+   <section id="inscricao">
+  <div class="section-inner">
+    <h2>Timeline</h2>
+    
+    <ul>
+      <li><strong>October 1, 2026:</strong> Deadline for submitting paper proposals (20 min.) or panel proposals (3 to 4 papers)</li>
+      <li><strong>October 15, 2026:</strong> Deadline for notification of acceptance</li>
+      <li><strong>October 31, 2026:</strong> Deadline for registration and fee transfer</li>
+      <li><strong>November 14, 2026:</strong> Publication of the final program</li>
+      <li><strong>November 18 and 19, 2026:</strong> In-person Colloquium in Braga, University of Minho, School of Arts and Humanities, ELACH Auditorium</li>
+    </ul>
+  </div>
+</section>
+
+    <section id="prazos">
+  <div class="section-inner">
+    <h2>Registration</h2>
+    
+    <div class="table-responsive">
+      <table class="table table-bordered bg-white border-dark" style="background-color: #ffffff;">
+        <thead>
+          <tr class="border-dark">
+            <th class="border-dark bg-white text-dark">Registration</th>
+            <th class="border-dark bg-white text-dark" style="width: 25%;">Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-dark">
+            <td class="border-dark bg-white">CEHUM/ELACH Members</td>
+            <td class="border-dark bg-white fw-bold">Free</td>
+          </tr>
+          <tr class="border-dark">
+            <td class="border-dark bg-white">External participants with presentation</td>
+            <td class="border-dark bg-white">50 euros</td>
+          </tr>
+          <tr class="border-dark">
+            <td class="border-dark bg-white">External postgraduate students with presentation</td>
+            <td class="border-dark bg-white">25 euros</td>
+          </tr>
+          <tr class="border-dark">
+            <td class="border-dark bg-white">External participants without presentation</td>
+            <td class="border-dark bg-white">30 euros</td>
+          </tr>
+          <tr class="border-dark">
+            <td class="border-dark bg-white">External students without presentation</td>
+            <td class="border-dark bg-white">15 euros</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="section-inner">
+    <h2>Payment Details</h2>
+    
+
+    <p>
+      Name: UNIVERSIDADE MINHO<br>
+      Account: 0171167322630 - EUR - Statement Account<br>
+      NIB: 0035 0171 00167322630 15<br>
+      IBAN: PT50 0035 0171 00167322630 15<br>
+      BIC SWIFT: CGDIPTPL
+    </p>
+
+    <p>Send the proof of payment to Dr. Ana Maria Pereira, via email <a href="mailto:apereira@elach.uminho.pt">apereira@elach.uminho.pt</a>, along with the tax identification number (NIF), address, and participant's name, indicating “Autumn Colloquium 2026 Payment” in the email subject line.</p>
+  </div>
+</section>
+
+ <section id="entidades">
+  <div class="section-inner">
+    <h2>Contacts</h2>
+    
+    <p><strong>Colloquium Contact(s):</strong></p>
+    <p>
+      Mário Matos (<a href="mailto:matos@elach.uminho.pt">matos@elach.uminho.pt</a>)<br>
+      Jaime Costa (<a href="mailto:jaco@elach.uminho.pt">jaco@elach.uminho.pt</a>)<br>
+      Paula Guimarães (<a href="mailto:paulag@elach.uminho.pt">paulag@elach.uminho.pt</a>)
+    </p>
+  </div>
+</section>
+ 
+<section id="org">
+  <div class="section-inner">
+    <h2>Organization</h2>
+    
+    <p><strong>Organizing Committee</strong></p>
+    <ul>
+      <li>Mário Matos (UM/ELACH/CEHUM/NETCult)</li>
+      <li>Jaime Costa (UM/ELACH/CEHUM/NETCult)</li>
+      <li>Paula Guimarães (UM/ELACH/CEHUM/NETCult)</li>
+      <li>Inês Tadeu (UMadeira/CEHUM/NETCult)</li>
+      <li>Viviane de Almeida (CEHUM/NETCult)</li>
+      <li>Cláudia Barros (CEHUM/NETCult)</li>
+    </ul>
+
+    <p><strong>Scientific Committee</strong></p>
+    <ul>
+      <li>Adriano Cordeiro (CEHUM/NETCult)</li>
+      <li>Alexandra Abranches (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>Amélia Carvalho (UMinho/ELACH/CEHUM/GAPS)</li>
+      <li>Ana Bessa Carvalho (UMinho/ELACH/CEHUM/GAPS)</li>
+      <li>Ana Gabriela Macedo (UMinho/ELACH/CEHUM/GAPS)</li>
+      <li>Ana Ribeiro (UMinho/ELACH/CEHUM/PLP)</li>
+      <li>Ângelo Martingo (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>António Freitas (CEHUM/NETCult)</li>
+      <li>Bernardo Vasconcelos (UMadeira/CEHUM/NETCult)</li>
+      <li>Cristina Álvares (UMinho/ELACH/CEHUM)</li>
+      <li>Filipe Couto (Universidade Nacional Timor-Lorosae/CEHUM/NETCult)</li>
+      <li>Francesca Rayner (UMinho/ELACH/CEHUM/GIARTES)</li>
+      <li>Georgina Abreu (CEHUM/NETCult)</li>
+      <li>Inês Tadeu (UMadeira/CEHUM/NETCult)</li>
+      <li>Jaime Costa (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>João Marcelo Martins (UMinho/ELACH/CEHUM/GELA)</li>
+      <li>Katarzyna Anna Pisarska (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>Luís Pimenta Lopes (UMadeira/CEHUM/EHUM2M)</li>
+      <li>Margarida Pereira (UMinho/ELACH/CEHUM/GAPS)</li>
+      <li>Mário Matos (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>Nadejda Machado (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>Orlando Grossegesse (UMinho/ELACH/CEHUM/EHUM2M)</li>
+      <li>Paula Guimarães (UMinho/ELACH/CEHUM/NETCult)</li>
+      <li>Sérgio Sousa (U. Macau/CEHUM/PLP)</li>
+      <li>Vítor Moura (UMinho/ELACH/CEHUM)</li>
+      <li>Xaquín Núñez Sabarís (UMinho/ELACH/CEHUM/GRUPO2I)</li>
+    </ul>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+          <div class="logos-grid">
+        <div class="logo-slot"></div>
+        <div class="logo-slot">
+          <img src="../assets/logos/elach.png" alt="ELACH">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/fct.png" alt="FCT">
+        </div>
+        <div class="logo-slot">
+          <img src="../assets/logos/cehum.png" alt="CEHUM">
+        </div>
+      </div>
+
+        <div class="row text-center justify-content-center">
+        <div class="col-md-5 mb-3">
+          <h6 class="text-uppercase fw-bold">XXVIII Autumn Colloquium</h6>
+          <p class="mb-1">Transcultural Narratives and Representations of Love</p>
+          <p class="mb-0">University of Minho</p>
+          <p class="mb-0">November 18 and 19, 2026 </p>
+        </div>
+
+        <div class="col-md-4 footer-links">
+          <h6 class="text-uppercase fw-bold">Navigation</h6>
+          <a href="#apresentacao">Narrative</a>
+          <a href="#cfp">Fields</a>
+          <a href="#tematicas">Approaches</a>
+          <a href="#organizacao">Information</a>
+          <a href="#inscricao">Timeline</a>
+          <a href="#prazos">Registration</a>
+          <a href="#contacto">Details</a>
+          <a href="#entidades">Contacts</a> 
+          <a href="#org">Organization</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -231,7 +231,7 @@
       .pdf-viewer { height: 60vh; }
     }
 
-    /* ====== 2 BOTÕES LADO A LADO (override só aqui) ====== */
+    /* ====== 2 BOTÕES LADO A LADO ====== */
     #cfp .pdf-buttons{
       display:flex;
       justify-content:center;
@@ -241,13 +241,27 @@
       margin-top:1.5rem;
     }
 
-    /* IMPORTANTE: neutraliza o margin:auto do botão quando está em flex */
     #cfp .pdf-buttons .btn-cehum-pdf{
       margin:0;
       display:inline-flex;
       align-items:center;
       gap:8px;
       width:auto;
+    }
+
+    /* ====== BOTÃO DE IDIOMA EM LINHA PRETA ====== */
+    .nav-btn-lang {
+      border: 1px solid #000000 !important;
+      color: #000000 !important;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem !important;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-btn-lang:hover {
+      background-color: #000000 !important;
+      color: #ffffff !important;
     }
   </style>
 </head>
@@ -256,7 +270,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-main fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">XXVIII Colóquio de Outonos</a>
+      <a class="navbar-brand" href="coloquios.html">XXVIII Colóquio de Outonos</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#mainNavbar">
@@ -264,7 +278,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto text-center">
+        <ul class="navbar-nav mx-auto text-center align-items-center">
           <li class="nav-item"><a class="nav-link" href="#apresentacao">Narrativa</a></li>
           <li class="nav-item"><a class="nav-link" href="#cfp">Campos</a></li>
           <li class="nav-item"><a class="nav-link" href="#tematicas">abordagens</a></li>
@@ -274,6 +288,7 @@
           <li class="nav-item"><a class="nav-link" href="#contacto">Dados</a></li>
           <li class="nav-item"><a class="nav-link" href="#entidades">Contactos</a></li>
           <li class="nav-item"><a class="nav-link" href="#org">Organização</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="coloquiosEN.html">EN</a></li>
         </ul>
       </div>
     </div>
@@ -287,7 +302,7 @@
   <div class="section-inner">
   <h2>Narrativas e Representações Transculturais do Amor</h2>
   
-  <p>Estudos recentes recolocaram as questões do afeto e da emoção no centro da investigação humanística. Os estudos sobre o amor, em particular, assentam agora em duas orientações complementares — a teoria dos afetos (que historiciza e politiza o sentimento) e a ciência afetiva propriamente dita (que considera as dimensões empíricas, cognitivas e fisiológicas) — e tratam o amor tanto como uma experiência individual ou íntima como um fenómeno que é mediado socialmente.</p>
+  <p>Estudos recentes recolocaram as questões do afeto e da emoção no centro da investigação humanística. Os estudos sobre o amor, in particular, assentam agora em duas orientações complementares — a teoria dos afetos (que historiciza e politiza o sentimento) e a ciência afetiva propriamente dita (que considera as dimensões empíricas, cognitivas e fisiológicas) — e tratam o amor tanto como uma experiência individual ou íntima como um fenómeno que é mediado socialmente.</p>
   
   <p>O amor, sendo simultaneamente universal e culturalmente específico, tem assumido igualmente uma pluralidade transcultural e histórica, sujeito a mudanças económicas, sociais e tecnológicas (incluindo os meios digitais) que remodelam a forma como o amor é narrado e praticado (ciberamor, relações humano-máquina).</p>
   
@@ -339,7 +354,7 @@
     <p>3. Antropologia e Sociologia</p>
     <ul>
       <li>Antropologia da emoção: parentesco, ritual, casamento, sexualidade</li>
-      <li>Sociologia da intimidade: modernidade, globalização, intimidade digital</li>
+      <li>Sociologia da intimidade: modernidade, globalization, intimidade digital</li>
       <li>Estudos migratórios: famílias transnacionais, afeto diaspórico</li>
     </ul>
 
