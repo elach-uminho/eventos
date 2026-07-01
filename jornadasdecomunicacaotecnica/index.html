@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jornadas de Comunicação Técnica em Portugal | APCOMTEC 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            apcom: {
+              dark: '#333333',
+              green: '#27ae60',
+              darkgreen: '#145a32',
+              lightgreen: '#2ecc71'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Efeito de sobreposição verde semelhante à imagem */
+    .green-banner-bg {
+      background: linear-gradient(135deg, #145a32 0%, #27ae60 50%, #2ecc71 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .green-banner-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 120%;
+      height: 200%;
+      background: rgba(0, 0, 0, 0.1);
+      transform: rotate(-5deg);
+      pointer-events: none;
+    }
+
+    .green-banner-bg::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 120%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.05);
+      transform: rotate(3deg);
+      pointer-events: none;
+    }
+
+    /* Estilo personalizado para scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #27ae60;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #145a32;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+  <!-- Navegação -->
+  <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20">
+        <div class="flex items-center">
+
+        </div>
+        <!-- Menu Desktop -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#sobre" class="text-gray-600 hover:text-apcom-green font-medium transition">Apresentação</a>
+          <a href="#programa" class="text-gray-600 hover:text-apcom-green font-medium transition">Programa</a>
+          <a href="#cfp" class="text-gray-600 hover:text-apcom-green font-medium transition">Chamada para comunicações</a>
+          <a href="#comissoes" class="text-gray-600 hover:text-apcom-green font-medium transition">Comissões</a>
+          <a href="https://forms.office.com/e/guqjTuJwgs" target="_blank" class="bg-apcom-green hover:bg-apcom-darkgreen text-white px-5 py-2 rounded-full font-medium transition shadow-lg">Inscrever / Submeter</a>
+        </div>
+        <!-- Menu Mobile (Hamburguer) -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-apcom-green focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <a href="#sobre" class="block px-4 py-3 text-gray-600 hover:bg-gray-50">O Evento</a>
+      <a href="#programa" class="block px-4 py-3 text-gray-600 hover:bg-gray-50">Programa</a>
+      <a href="#cfp" class="block px-4 py-3 text-gray-600 hover:bg-gray-50">Chamada para comunicações</a>
+      <a href="#comissoes" class="block px-4 py-3 text-gray-600 hover:bg-gray-50">Comissões</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-20 h-[600px] flex items-center justify-center text-center">
+    <!-- Imagem de fundo com overlay escuro (usando placeholder estilo escritório) -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Fundo Conferência" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
+    </div>
+
+    <div class="relative z-10 px-4 max-w-5xl mx-auto">
+      <p class="text-apcom-lightgreen font-bold tracking-widest uppercase mb-2">Entre indústria e investigação científica</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Jornadas de Comunicação Técnica em Portugal</h1>
+      <h2 class="text-xl md:text-3xl text-gray-300 mb-8 font-light">APCOMTEC 2026: 20 anos a construir conhecimento</h2>
+
+      <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 mb-8">
+        <p class="text-2xl text-white font-semibold flex items-center justify-center gap-2">
+          <svg class="w-6 h-6 text-apcom-lightgreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          3 e 4 de Dezembro 2026
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Faixa Verde Inspirada na Imagem -->
+  <div class="green-banner-bg py-10 shadow-inner">
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <p class="text-xl md:text-2xl text-white font-medium leading-relaxed">
+        As Jornadas de Comunicação Técnica em Portugal assinalam duas décadas de promoção e divulgação da área, reunindo profissionais, investigadores e estudantes numa reflexão conjunta sobre o presente e o futuro.
+      </p>
+    </div>
+  </div>
+
+  <!-- O Evento & Local -->
+  <section id="sobre" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Descrição -->
+        <div class="lg:col-span-2 space-y-6 text-gray-700 text-lg leading-relaxed">
+          <h2 class="text-3xl font-bold text-apcom-dark mb-6 flex items-center">
+            <span class="w-8 h-1 bg-apcom-green mr-4 rounded"></span>
+            Apresentação das Jornadas
+          </h2>
+
+          <p>As Jornadas de Comunicação Técnica assinalam duas décadas de promoção e divulgação da Comunicação Técnica em Portugal, reunindo profissionais, investigadores e estudantes, numa reflexão conjunta sobre o presente e o futuro da área.</p>
+
+          <p>A Comunicação Técnica é um domínio interdisciplinar dedicado à produção, organização e disseminação de conhecimento especializado, com o objetivo de facilitar a utilização segura, eficiente e informada de produtos, sistemas e serviços. Presente em setores como a indústria, a tecnologia, a saúde e a investigação científica, materializa-se em diversos géneros e formatos, incluindo documentação de software e APIs, manuais técnicos, sistemas de ajuda, conteúdos de UX Writing, relatórios, tutoriais e interfaces digitais. A sua crescente relevância reflete a complexidade dos atuais ecossistemas produtivos e o papel estratégico da informação técnica na experiência do utilizador e na competitividade das organizações.</p>
+
+          <p>O campo enfrenta atualmente desafios relacionados com a integração da inteligência artificial nos processos de documentação, a gestão de terminologia multilingue, a adaptação a novos paradigmas de interação humano-máquina e a necessidade de garantir transparência, sustentabilidade e acessibilidade nos sistemas de documentação técnica. A par das crescentes necessidades industriais, robustece-se o enquadramento teórico e académico da comunicação técnica, que estabelece laços próximos com a tradução, a terminologia, a ontologia, a semiótica, a gestão da informação, a engenharia, entre outras áreas do saber.</p>
+
+          <p>Ao longo de dois dias, o evento propõe, por conseguinte, um diálogo entre a visão empresarial e científica da comunicação técnica e a sua aplicação prática em contextos reais, com especial foco na indústria, na documentação de software e de APIs, nas estratégias de criação de conteúdo e na evolução da profissão no contexto nacional e europeu.</p>
+
+          <p>O programa inclui comunicações científicas selecionadas através de chamada pública, apresentação de estudos de caso, análises de práticas profissionais fundamentadas e momentos de diálogo entre investigadores, profissionais e organizações, promovendo a circulação de conhecimento entre investigação científica e contexto profissional.
+
+          <p class="font-semibold text-apcom-green">A língua de trabalho será o português.</p>
+        </div>
+
+        <!-- Info Sidebar (Local, Contacto) -->
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm h-fit">
+          <h3 class="text-xl font-bold text-apcom-dark mb-6 border-b pb-4">Informações Práticas</h3>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 flex items-center mb-2">
+                <svg class="w-5 h-5 mr-2 text-apcom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Local
+              </h4>
+              <p class="text-gray-600 text-sm">Escola de Letras, Artes e Ciências Humanas da Universidade do Minho (ELACH)</p>
+              <p class="text-gray-600 text-sm mt-1 font-medium">Sala: Auditório ELACH, Piso 0</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900 flex items-center mb-2">
+                <svg class="w-5 h-5 mr-2 text-apcom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Contacto
+              </h4>
+              <a href="mailto:apcomtec@gmail.com" class="text-apcom-green hover:underline text-sm font-medium">apcomtec@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Temas da Conferência -->
+  <section class="py-16 bg-gray-50 border-t border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-apcom-dark mb-4">Temas da Conferência</h2>
+        <p class="text-gray-600">Convidam-se submissões que abordem, entre outros, os seguintes tópicos (não exclusivos):</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tema Cards -->
+
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Comunicação técnica em contexto empresarial e industrial</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Desafios presentes e futuros da profissão</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Documentação como produto</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Documentação de software e APIs</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Estratégias de criação de conteúdo técnico</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Gestão de stakeholders e colaboração Agile</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Gestão de terminologia e da tradução técnica</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Incorporação da IA no processo de criação</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Inovação e investigação em comunicação técnica</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Questões de ética no uso IA</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Sistemas de autoria e ferramentas de automação</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">UX Writing e usabilidade em documentação</div>
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-apcom-green hover:shadow-md transition">Visão nacional e europeia da comunicação técnica</div>
+
+      </div>
+      <div class="mt-10 bg-white border-l-4 border-apcom-green rounded-lg shadow-sm p-6">
+
+        <p class="text-gray-700 leading-relaxed"> As propostas submetidas deverão apresentar um enquadramento científico claro, podendo incluir estudos empíricos, estudos de caso, análises metodológicas, reflexões teóricas, desenvolvimentos tecnológicos ou contributos aplicados devidamente fundamentados.
+
+        </p>
+
+      </div>
+  </section>
+
+  <!-- Programa -->
+  <section id="programa" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-apcom-dark mb-16 flex justify-center items-center">
+        <span class="w-12 h-1 bg-apcom-green mr-4 rounded"></span>
+        Programa
+        <span class="w-12 h-1 bg-apcom-green ml-4 rounded"></span>
+      </h2>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+        <div class="p-10 text-center">
+
+          <p class="text-gray-700 text-lg">
+            O programa provisório será disponibilizado em breve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  ```
+
+  <!-- Call for Papers -->
+  <section id="cfp" class="py-20 bg-gray-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Info CFP -->
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-apcom-lightgreen">Chamada para comunicações</h2>
+          <p class="mb-6 text-gray-300 leading-relaxed">
+            A APCOMTEC convida investigadores, profissionais e estudantes da área a submeter propostas de comunicação para as Jornadas de Comunicação Técnica em Portugal. Assinalando os 20 anos da associação, estas jornadas pretendem reforçar o diálogo entre academia e indústria.
+          </p>
+
+          <h4 class="text-xl font-semibold mb-3 text-white">Tipos de Submissão</h4>
+          <ul class="space-y-2 mb-8 text-gray-300">
+            <li class="flex items-start">
+              <span class="text-apcom-green mr-2">✓</span>
+              <span><strong>I Comunicações científicas:</strong> investigação original finalizada ou em progresso</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-apcom-green mr-2">✓</span>
+              <span><strong>II Comunicações de projeto:</strong> trabalhos em progresso e finalizados de alunos de mestrado e doutoramento</span>
+            </li>
+          </ul>
+
+          <h4 class="text-xl font-semibold mb-3 text-white">Requisitos da Proposta</h4>
+          <p class="text-gray-300 mb-2">As propostas (em <span class="text-white font-medium">Português</span>) deverão incluir:</p>
+          <ul class="list-disc pl-5 mb-8 text-gray-300 space-y-1">
+            <li>Título</li>
+            <li>Resumo (máx. 300 palavras)</li>
+            <li>3 a 5 palavras-chave</li>
+            <li>Nota biográfica do(s) autor(es) (máx. 100 palavras)</li>
+          </ul>
+
+          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 mb-8">
+            <h4 class="font-semibold text-apcom-lightgreen mb-2">Formato </h4>
+            <p class="text-sm text-gray-300">Apresentações presenciais de 15–20 minutos + 5 min de discussão.</p>
+          </div>
+
+          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 mb-8">
+            <h4 class="font-semibold text-apcom-lightgreen mb-2">Publicação</h4>
+            <p class="text-sm text-gray-300">Os participantes serão convidados a apresentar versões desenvolvidas das suas comunicações para eventual integração num volume temático, publicado em formato impresso e digital, no âmbito das comemorações dos 20 anos da APCOMTEC.</p>
+          </div>
+
+          <a href="https://forms.office.com/e/guqjTuJwgs" target="_blank" class="inline-block bg-apcom-green hover:bg-apcom-lightgreen text-white font-bold py-4 px-8 rounded-lg transition shadow-[0_0_15px_rgba(39,174,96,0.5)] text-lg">
+            Submeter Proposta Aqui
+          </a>
+        </div>
+
+        <!-- Datas Importantes -->
+        <div class="lg:mt-12">
+          <div class="bg-white rounded-xl shadow-2xl p-8 text-gray-800 relative">
+            <!-- Ornamento de design -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-apcom-green rounded-full opacity-20 blur-xl"></div>
+            <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-apcom-darkgreen rounded-full opacity-10 blur-xl"></div>
+
+            <h3 class="text-2xl font-bold text-apcom-dark mb-8 flex items-center relative z-10">
+              <svg class="w-8 h-8 mr-3 text-apcom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Datas Importantes
+            </h3>
+
+            <div class="space-y-6 relative z-10">
+              <div class="flex items-center p-4 rounded-lg bg-gray-50 border-l-4 border-apcom-darkgreen">
+                <div class="font-bold text-xl w-32 text-apcom-darkgreen">15 Set</div>
+                <div class="text-gray-700 font-medium">Submissão de propostas</div>
+              </div>
+
+              <div class="flex items-center p-4 rounded-lg bg-gray-50 border-l-4 border-apcom-green">
+                <div class="font-bold text-xl w-32 text-apcom-green">15 Out</div>
+                <div class="text-gray-700 font-medium">Notificação de aceitação</div>
+              </div>
+
+              <div class="flex items-center p-4 rounded-lg bg-gray-50 border-l-4 border-apcom-lightgreen">
+                <div class="font-bold text-xl w-32 text-apcom-lightgreen">15 Nov</div>
+                <div class="text-gray-700 font-medium">Inscrição</div>
+              </div>
+
+              <div class="flex items-center p-4 rounded-lg bg-gray-50 border-l-4 border-gray-400">
+                <div class="font-bold text-xl w-32 text-gray-600">Nov 2026</div>
+                <div class="text-gray-700 font-medium">Programa final</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comissões -->
+  <section id="comissoes" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-apcom-dark mb-16">Comissões</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Científica -->
+        <div>
+          <h3 class="text-xl font-bold text-apcom-green mb-6 uppercase tracking-wider border-b-2 border-gray-100 pb-2">Comissão Científica</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li><span class="font-medium">Álvaro Iriarte</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho)</span></li>
+            <li><span class="font-medium">Adalberto Fernandes</span> <span class="text-sm text-gray-500">(Instituto Superior de Contabilidade e Administração do Porto)</span></li>
+            <li><span class="font-medium">Alexandra Albuquerque</span> <span class="text-sm text-gray-500">(Instituto Superior de Contabilidade e Administração do Porto)</span></li>
+            <li><span class="font-medium">Ana Rita Remígio</span> <span class="text-sm text-gray-500">(Keenfinity S.A.)</span></li>
+            <li><span class="font-medium">Ana Salgado</span> <span class="text-sm text-gray-500">(Faculdade de Letras da Universidade do Porto)</span></li>
+            <li><span class="font-medium">Célio Conceição</span> <span class="text-sm text-gray-500">(Universidade do Algarve)</span></li>
+            <li><span class="font-medium">Cláudia Martins</span> <span class="text-sm text-gray-500">(Instituto Politécnico de Bragança)</span></li>
+            <li><span class="font-medium">Joana Fernandes</span> <span class="text-sm text-gray-500">(Instituto Superior de Contabilidade e Administração do Porto)</span></li>
+            <li><span class="font-medium">Raquel Silva</span> <span class="text-sm text-gray-500">(Centro de Linguística da Universidade NOVA de Lisboa)</span></li>
+            <li><span class="font-medium">Sara Carvalho</span> <span class="text-sm text-gray-500">(Universidade de Aveiro)</span></li>
+          </ul>
+        </div>
+
+        <!-- Organizadora -->
+        <div>
+          <h3 class="text-xl font-bold text-apcom-green mb-6 uppercase tracking-wider border-b-2 border-gray-100 pb-2">Comissão Organizadora</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li><span class="font-medium">Alexandra Albuquerque</span> <span class="text-sm text-gray-500">(Associação Portuguesa de Comunicação Técnica)</span></li>
+            <li><span class="font-medium">Ana Rita Remígio</span> <span class="text-sm text-gray-500">(Associação Portuguesa de Comunicação Técnica)</span></li>
+            <li><span class="font-medium">Carlos Pazos-Justo</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho)</span></li>
+            <li><span class="font-medium">Clara Setas</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho; Associação Portuguesa de Comunicação Técnica)</span></li>
+            <li><span class="font-medium">Idalete Dias</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho)</span></li>
+            <li><span class="font-medium">Joaquim Baptista</span> <span class="text-sm text-gray-500">(Associação Portuguesa de Comunicação Técnica)</span></li>
+            <li><span class="font-medium">Maria Conceição Varela</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho)</span></li>
+            <li><span class="font-medium">Ricardo Campos</span> <span class="text-sm text-gray-500">(Associação Portuguesa de Comunicação Técnica)</span></li>
+            <li><span class="font-medium">Sílvia Araújo</span> <span class="text-sm text-gray-500">(Escola de Letras, Artes e Ciências Humanas da Universidade do Minho)</span></li>
+            <li><span class="font-medium">Verónica Schmitter</span> <span class="text-sm text-gray-500">(Associação Portuguesa de Comunicação Técnica)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-12 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16 mb-8">
+        <!-- Logótipo da ELACH comemorativo de 50 anos -->
+        <img src="data:image/jpeg;base64,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" class="h-20 md:h-24 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80';">
+
+        <!-- Logótipo a partir do RepositóriUM -->
+        <img src="https://repositorium.uminho.pt/server/api/core/bitstreams/8a4e38c6-8d3a-41bd-97fd-168cd186f4cf/content" alt="Logótipo CEHUM" class="h-24 md:h-28 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80';">
+
+        <!-- Logótipo FCT -->
+
+        <img src="https://drive.google.com/thumbnail?id=1b4PwVBg-ApHw5S9wUp3qQ7D1o5ZSS2p1&sz=w1000" alt="Logótipo" class="h-20 md:h-24 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80';">
+
+        <!-- Logótipo oficial da APCOMTEC -->
+        <img src="https://apcomtec.org/wp-content/uploads/2020/07/apcomtec.png" alt="Logótipo APCOMTEC" class="h-16 md:h-20 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80';">
+      </div>
+
+      <div class="text-center border-t border-gray-300 pt-8">
+        <p class="text-gray-600">Contacto: <a href="mailto:apcomtec@gmail.com" class="text-apcom-green hover:underline">apcomtec@gmail.com</a></p>
+        <p class="text-sm text-gray-500 mt-2">Centro de Estudos Humanísticos | Associação Portuguesa para a Comunicação Técnica</p>
+        <p class="text-sm text-gray-400 mt-1">&copy; 2026 CEHUM | APCOMTEC. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica Simples para o Menu Mobile -->
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    // Fechar menu ao clicar num link
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+
+</html>
