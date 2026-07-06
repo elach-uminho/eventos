@@ -53,15 +53,22 @@
     }
 
     .hero-banner {
-      width: 100%;
-      min-height: 520px;
-      margin-top: 3.5rem;
-      background-color: #f8f3ef;
-      background-image: url("imagens/Banner (1).png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
-    }
+  width: 100%;
+  min-height: 200px; /* Altura reduzida para telemóveis */
+  margin-top: 3.5rem;
+  background-color: #f8f3ef;
+  background-image: url("imagens/Banner (1).png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/* A partir de tablets/desktops, a altura volta aos 520px */
+@media (min-width: 768px) {
+  .hero-banner {
+    min-height: 520px;
+  }
+}
     #narratives {
   padding-top: 5rem; /* Aumenta o espaço especificamente no topo desta secção */
     }
@@ -151,13 +158,15 @@
     }
 
     .logos-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 2rem;
-      justify-items: center;
-      align-items: center;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Podes apagar a media query @media (min-width: 768px) referente ao .logos-grid, o flexbox trata de tudo automaticamente */
 
     @media (min-width: 768px) {
       .logos-grid {
@@ -656,7 +665,6 @@
   <footer>
     <div class="container">
       <div class="logos-grid">
-        <div class="logo-slot"></div>
         <div class="logo-slot">
           <img src="../assets/logos/elach.png" alt="ELACH">
         </div>
