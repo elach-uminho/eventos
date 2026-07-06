@@ -11,7 +11,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
 
-  <style>
+ <style>
     :root {
       --color-primary: #0069ae;
       --color-primary-light: #3d87bb;
@@ -27,7 +27,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Bloqueio de segurança contra cortes laterais */
     html, body {
       max-width: 100%;
       overflow-x: hidden;
@@ -60,8 +59,8 @@
 
     .hero-banner {
       width: 100%;
-      min-height: 200px;
-      margin-top: 5.5rem;
+      min-height: 200px; 
+      margin-top: 5.5rem; /* AUMENTADO de 3.5rem para 5.5rem para acomodar as 2 linhas do menu */
       background-color: #f8f3ef;
       background-image: url("imagens/Banner (1).png");
       background-repeat: no-repeat;
@@ -69,35 +68,13 @@
       background-size: contain;
     }
 
-    @media (min-width: 768px) {
-    .hero-banner {
-      min-height: 520px;
-    }
+/* A partir de tablets/desktops, a altura volta aos 520px */
+@media (min-width: 768px) {
+  .hero-banner {
+    min-height: 520px;
+  }
 }
-
-/* Footer centrado */
-.logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* PDF Wrapper sem colar às bordas */
-.pdf-wrapper {
-   max-width: 900px;
-    margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-   width: 90%;
-}
-
-   #narratives {
+    #narratives {
   padding-top: 5rem; /* Aumenta o espaço especificamente no topo desta secção */
     }
     section {
@@ -115,10 +92,10 @@
     }
 
     .section-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* ADICIONA ESTA LINHA: Garante espaço nas laterais */
+}
 
     h3 {
       font-size: 1rem;
@@ -161,7 +138,7 @@
       object-fit: contain;
     }
 
-    /* fine adjustment for vertical logos */
+    /* ajuste fino para logos verticais */
     .logo-card img[alt="Instituto Cervantes"] {
       max-height: 110px;
     }
@@ -187,13 +164,15 @@
     }
 
     .logos-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 2rem;
-      justify-items: center;
-      align-items: center;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Podes apagar a media query @media (min-width: 768px) referente ao .logos-grid, o flexbox trata de tudo automaticamente */
 
     @media (min-width: 768px) {
       .logos-grid {
@@ -218,7 +197,7 @@
       text-decoration: underline;
     }
     
-    /* ====== CEHUM PDF BUTTON ====== */
+    /* ====== BOTÃO CEHUM PDF (igual ao original) ====== */
     .btn-cehum-pdf {
       display: block;
       margin: 1.5rem auto 0;
@@ -243,12 +222,12 @@
       color: #ffffff;
     }
 
-    /* ====== COLLAPSE PDF ====== */
+    /* ====== COLAPSE PDF ====== */
     .pdf-collapse {
       margin-top: 1.5rem;
     }
 
-    /* ====== PDF AREA ====== */
+    /* ====== ÁREA DO PDF ====== */
     .pdf-wrapper {
       max-width: 900px;
       margin: 0 auto;
@@ -257,6 +236,7 @@
       border: 1px solid #e2e8f0;
       background: #ffffff;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      width: 90%
     }
 
     .pdf-viewer {
@@ -269,8 +249,8 @@
       .pdf-viewer { height: 60vh; }
     }
 
-    /* ====== 2 BUTTONS SIDE BY SIDE ====== */
-    .pdf-buttons{
+    /* ====== 2 BOTÕES LADO A LADO ====== */
+    #fields .pdf-buttons{
       display:flex;
       justify-content:center;
       align-items:center;
@@ -279,7 +259,7 @@
       margin-top:1.5rem;
     }
 
-    .pdf-buttons .btn-cehum-pdf{
+    #fields .pdf-buttons .btn-cehum-pdf{
       margin:0;
       display:inline-flex;
       align-items:center;
@@ -327,7 +307,7 @@
           <li class="nav-item"><a class="nav-link" href="#payment">Payment</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
           <li class="nav-item"><a class="nav-link" href="#organization">Organization</a></li>
-          <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="index.html">PT</a></li>
+          <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="index.html">PT 🇵🇹</a></li>
         </ul>
       </div>
     </div>
