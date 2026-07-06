@@ -58,15 +58,15 @@
     }
 
     .hero-banner {
-  width: 100%;
-  min-height: 200px; /* Altura reduzida para telemóveis */
-  margin-top: 3.5rem;
-  background-color: #f8f3ef;
-  background-image: url("imagens/Banner (1).png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
+      width: 100%;
+      min-height: 200px; 
+      margin-top: 5.5rem; /* AUMENTADO de 3.5rem para 5.5rem para acomodar as 2 linhas do menu */
+      background-color: #f8f3ef;
+      background-image: url("imagens/Banner (1).png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
 
 /* A partir de tablets/desktops, a altura volta aos 520px */
 @media (min-width: 768px) {
@@ -286,32 +286,34 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-xxl navbar-main fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">XXVIII Colóquio de Outono</a>
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">XXVIII Colóquio de Outono</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#mainNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto text-center align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#narratives">Descritivo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#fields">Campos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#approaches">abordagens</a></li>
-          <li class="nav-item"><a class="nav-link" href="#information">Informações</a></li>
-          <li class="nav-item"><a class="nav-link" href="#proposal">Chamada</a></li>
-          <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
-          <li class="nav-item"><a class="nav-link" href="#registration">Inscrição</a></li>
-          <li class="nav-item"><a class="nav-link" href="#payment">Pagamento</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacts">Contactos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#organization">Organização</a></li>
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="index_en.html">EN</a></li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto text-center align-items-center flex-wrap justify-content-center" style="row-gap: 0.5rem; column-gap: 0.5rem;">
+        
+        <li class="nav-item"><a class="nav-link" href="#narratives">Descritivo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#fields">Campos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#approaches">abordagens</a></li>
+        <li class="nav-item"><a class="nav-link" href="#information">Informações</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proposal">Chamada</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
+        <li class="nav-item"><a class="nav-link" href="#registration">Inscrição</a></li>
+        <li class="nav-item"><a class="nav-link" href="#payment">Pagamento</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacts">Contactos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organization">Organização</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="index_en.html">EN</a></li>
+        
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <section class="hero-banner" aria-label="Hero Banner"></section>
 
