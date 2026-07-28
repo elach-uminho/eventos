@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Identidade e Comunidades Musicais | 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+
+  <style>
+    :root {
+      --color-primary: #0069ae;
+      --color-primary-light: #3d87bb;
+      --color-accent: #73486a;
+      --color-bg: #f8f3ef;
+      --color-accent-soft: #c6909a;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 60%, var(--color-accent) 100%);
+      color: #f9fafb;
+      font-size: 0.85rem;
+      padding: 0.45rem 0;
+    }
+
+    .top-bar a {
+      color: #f9fafb;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .top-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar principal */
+    .navbar-main {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .navbar-main .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-main .navbar-nav .nav-link:hover,
+    .navbar-main .navbar-nav .nav-link:focus {
+      color: var(--color-accent-soft) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--color-primary);
+    }
+
+    .navbar-brand:hover {
+      color: var(--color-primary-light);
+    }
+
+    main {
+      padding-top: 4.5rem; /* compensar navbar fixa */
+    }
+
+    /* Banner full-width */
+    .hero-banner {
+      width: 100%;
+      min-height: 260px;
+      background: #d6d3ce; /* substitui por imagem se quiseres */
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 105, 174, 0.75),
+        rgba(115, 72, 106, 0.7)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 2.5rem 0 1.5rem;
+      scroll-margin-top: 6.5rem; /* corrige posição do título ao clicar no separador */
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    section p {
+      font-size: 0.96rem;
+      margin-bottom: 0.6rem;
+      color: #1f2933;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3D87BB;
+      color: #e5e7eb;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .logo-slot {
+      min-height: 70px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #f8f3ef;
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    .footer-links a {
+      color: #f8f3ef;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      margin-top: 0.75rem;
+    }
+
+    .social-icons a {
+      color: #f8f3ef;
+      font-size: 1.2rem;
+      margin-right: 0.6rem;
+    }
+
+    .social-icons a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+ 
+
+  <!-- Navbar principal -->
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ICM 2025
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item"><a class="nav-link" href="#sobre">SOBRE</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programa">PROGRAMA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#chamada">CHAMADAS PARA TRABALHOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#local">LOCAL</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizacao">ORGANIZAÇÃO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+        </ul>
+
+        <!-- Dropdown de língua com ícones -->
+        <div class="ms-lg-3 text-center text-lg-end">
+          <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle text-light" type="button"
+                    style="background-color: var(--color-accent); border-color: var(--color-accent-soft);"
+                    id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              🇵🇹 PT
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item active" href="index.html">🇵🇹 Português (PT)</a></li>
+              <li><a class="dropdown-item" href="en.html">🇬🇧 English (EN)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Banner -->
+    <section class="hero-banner">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Identidade e Comunidades Musicais | 2025</h1>
+        <div class="hero-subtitle">Universidade do Minho [online] | 15.12.2025</div>
+        <div class="hero-meta">Colóquio sobre identidade, comunidades e práticas musicais.</div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="section-inner">
+        <h2>Sobre</h2>
+        <p>
+          Na diversidade e especificidade cultural em que é praticada, a música — erudita ou não erudita, escrita ou de tradição oral — constitui, na sua teorização, produção e receção, um fator de construção e negociação de identidades individuais e coletivas.
+        </p>
+        <p>
+         Acolhendo contributos da diversidade dos domínios de investigação musicológica, pretende-se, com o encontro, apresentar uma reflexão em torno da investigação artística, da performance e do impacto comunitário da música.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section id="programa">
+      <div class="section-inner">
+        <h2>Programa</h2>
+        <p>
+          O programa detalhado do colóquio será divulgado oportunamente.
+        </p>
+      </div>
+    </section>
+
+    <!-- CHAMADAS PARA TRABALHOS -->
+    <section id="chamada">
+      <div class="section-inner">
+        <h2>Chamadas para trabalhos</h2>
+        <p>
+          Convida-se à apresentação de propostas de comunicação (ca. 15 minutos) ou painéis (3 participantes, 30 minutos) em português, castelhano, ou inglês.
+        </p>
+        <p>
+          As propostas, contendo o título, resumo (ca. 250 palavras), 5 palavras-chave, e afiliação e nota biográfica dos proponentes (ca. 150 palavras), para o endereço coloquio.mic@gmail.com até 30 de novembro. A comunicação de aceitação decorrerá até 5 de dezembro.
+        </p>
+      </div>
+    </section>
+
+    <!-- LOCAL -->
+    <section id="local">
+      <div class="section-inner">
+        <h2>Local</h2>
+        <p>
+          O colóquio tem lugar online e o registo é gratuito mediante aceitação da comunicação.
+        </p>
+      </div>
+    </section>
+
+    <!-- ORGANIZAÇÃO -->
+    <section id="organizacao">
+      <div class="section-inner">
+        <h2>Organização</h2>
+
+        <h3>Registo e participação</h3>
+        <p>
+          O colóquio tem lugar online e o registo é gratuito mediante aceitação da comunicação.
+        </p>
+
+        <h3>Datas a reter</h3>
+        <p>Submissão de propostas: 30 de novembro de 2025</p>
+        <p>Notificação dos autores: 5 de dezembro de 2025</p>
+        <p>Colóquio: 15 de dezembro de 2025</p>
+
+        <h3>Coordenação</h3>
+        <p>Ângelo Martingo</p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="section-inner">
+        <h2>Contacto</h2>
+        <p>
+          Para envio de propostas e pedidos de informação, utilizar o endereço:
+        </p>
+        <p><strong>coloquio.mic@gmail.com</strong></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="logos-grid">
+        <div class="logo-slot">
+            <img src="../assets/logos/elach.png"
+                alt="ELACH - Universidade do Minho"
+                style="max-width: 250px; height: auto;">
+        </div>
+        <div class="logo-slot">
+            
+            <img src="../assets/logos/fct.png"
+                alt="FCT"
+                style="max-width: 250px; height: auto;">
+
+        </div>
+        <div class="logo-slot">
+            
+            <img src="../assets/logos/cehum.png"
+                alt="CEHUM"
+                style="max-width: 350px; height: auto;">
+
+
+        </div>
+        <div class="logo-slot">
+             <img src="../assets/logos/netcult.png"
+                alt="NETCULT"
+                style="max-width: 250px; height: auto;">
+
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h6 class="text-uppercase fw-bold">ICM 2025</h6>
+          <p class="mb-1">Identidade e Comunidades Musicais | 2025</p>
+          <p class="mb-0">Universidade do Minho [online]</p>
+        </div>
+
+        <div class="col-md-3 mb-3 footer-links">
+          <h6 class="text-uppercase fw-bold">Navegação</h6>
+          <a href="#sobre">Sobre</a>
+          <a href="#programa">Programa</a>
+          <a href="#chamada">Chamadas para trabalhos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <h6 class="text-uppercase fw-bold">Contacto</h6>
+          <p class="mb-1">
+            <i class="bi bi-envelope"></i>
+            <a href="mailto:coloquio.mic@gmail.com" class="text-decoration-none text-light">
+              coloquio.mic@gmail.com
+            </a>
+          </p>
+       
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase fw-bold">Siga-nos</h6>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/departamento_musica/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCdcqo4xfpUOc1P4KduqUGvA" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.facebook.com/departamentomusicaminho/?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
