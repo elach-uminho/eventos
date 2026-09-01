@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
   <!-- Fonte Oswald -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
 
   <style>
     :root {
@@ -64,8 +63,6 @@
       background-position: center center;
       background-size: contain;
     }
-
-  
 
     section {
       padding: 2.5rem 0 1.5rem;
@@ -183,7 +180,8 @@
     .footer-links a:hover {
       text-decoration: underline;
     }
-    /* ====== BOTÃO CEHUM PDF (igual ao original) ====== */
+
+    /* ====== BOTÃO CEHUM PDF ====== */
     .btn-cehum-pdf {
       display: block;
       margin: 1.5rem auto 0;
@@ -234,8 +232,8 @@
       .pdf-viewer { height: 60vh; }
     }
 
-    /* ====== 2 BOTÕES LADO A LADO (override só aqui) ====== */
-    #cfp .pdf-buttons{
+    /* ====== BOTÕES LADO A LADO ====== */
+    .pdf-buttons {
       display:flex;
       justify-content:center;
       align-items:center;
@@ -245,14 +243,13 @@
     }
 
     /* IMPORTANTE: neutraliza o margin:auto do botão quando está em flex */
-    #cfp .pdf-buttons .btn-cehum-pdf{
+    .pdf-buttons .btn-cehum-pdf {
       margin:0;
       display:inline-flex;
       align-items:center;
       gap:8px;
       width:auto;
     }
-  
 
   </style>
 </head>
@@ -273,11 +270,12 @@
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item"><a class="nav-link" href="#apresentacao">Presentation</a></li>
           <li class="nav-item"><a class="nav-link" href="#cfp">CFP</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programme">Programme</a></li>
+          <li class="nav-item"><a class="nav-link" href="#book-of-abstracts">Abstracts</a></li>
           <li class="nav-item"><a class="nav-link" href="#tematicas">Themes</a></li>
           <li class="nav-item"><a class="nav-link" href="#organizacao">Organization</a></li>
           <li class="nav-item"><a class="nav-link" href="#inscricao">Submission</a></li>
           <li class="nav-item"><a class="nav-link" href="#prazos">Deadlines</a></li>
-          <!--<li class="nav-item"><a class="nav-link" href="#publicacao">Publication</a></li>-->
           <li class="nav-item"><a class="nav-link" href="#contacto">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#entidades">Entities</a></li>
         </ul>
@@ -308,59 +306,103 @@
           rel="noopener noreferrer">
           APPLICATION FOR ACIS POSTGRADUATE BURSARY
         </a>
-            
       </div>
-
-
-      
-
-      
-
     </section>
 
-
-
+    <!-- CALL FOR PAPERS -->
     <section id="cfp">
-  <div class="section-inner">
-    <h2>Calls For Papers (CFP) </h2>
+      <div class="section-inner">
+        <h2>Calls For Papers (CFP) </h2>
 
-    <div class="pdf-buttons">
-      <button class="btn-cehum-pdf"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#pdfEnglish"
-              aria-expanded="false"
-              aria-controls="pdfEnglish">
-        🇬🇧 English
-      </button>
+        <div class="pdf-buttons">
+          <button class="btn-cehum-pdf"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#pdfEnglish"
+                  aria-expanded="false"
+                  aria-controls="pdfEnglish">
+            🇬🇧 English
+          </button>
 
-      <button class="btn-cehum-pdf"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#pdfPortuguese"
-              aria-expanded="false"
-              aria-controls="pdfPortuguese">
-        🇵🇹 Português
-      </button>
-    </div>
+          <button class="btn-cehum-pdf"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#pdfPortuguese"
+                  aria-expanded="false"
+                  aria-controls="pdfPortuguese">
+            🇵🇹 Português
+          </button>
+        </div>
 
-    <div class="collapse pdf-collapse" id="pdfEnglish" data-bs-parent="#cfp">
-      <div class="pdf-wrapper">
-        <iframe src="documentos/CFP-english.pdf"
-                class="pdf-viewer"
-                title="CFP English PDF"></iframe>
+        <div class="collapse pdf-collapse" id="pdfEnglish" data-bs-parent="#cfp">
+          <div class="pdf-wrapper">
+            <iframe src="documentos/CFP-english.pdf"
+                    class="pdf-viewer"
+                    title="CFP English PDF"></iframe>
+          </div>
+        </div>
+
+        <div class="collapse pdf-collapse" id="pdfPortuguese" data-bs-parent="#cfp">
+          <div class="pdf-wrapper">
+            <iframe src="documentos/CFP-portugues.pdf"
+                    class="pdf-viewer"
+                    title="CFP PDF Português"></iframe>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="collapse pdf-collapse" id="pdfPortuguese" data-bs-parent="#cfp">
-      <div class="pdf-wrapper">
-        <iframe src="documentos/CFP-portugues.pdf"
-                class="pdf-viewer"
-                title="CFP PDF Português"></iframe>
+    <!-- PROGRAMME -->
+    <section id="programme">
+      <div class="section-inner">
+        <h2>Programme</h2>
+
+        <div class="pdf-buttons">
+          <button class="btn-cehum-pdf"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#pdfProgramme"
+                  aria-expanded="false"
+                  aria-controls="pdfProgramme">
+            📄 Open Programme
+          </button>
+        </div>
+
+        <div class="collapse pdf-collapse" id="pdfProgramme" data-bs-parent="#programme">
+          <div class="pdf-wrapper">
+            <iframe src="documentos/Programme_ACIS47_2026.pdf"
+                    class="pdf-viewer"
+                    title="Programme PDF"></iframe>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <!-- BOOK OF ABSTRACTS -->
+    <section id="book-of-abstracts">
+      <div class="section-inner">
+        <h2>Book Of Abstracts</h2>
+
+        <div class="pdf-buttons">
+          <button class="btn-cehum-pdf"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#pdfAbstracts"
+                  aria-expanded="false"
+                  aria-controls="pdfAbstracts">
+            📄 Open Book of Abstracts
+          </button>
+        </div>
+
+        <div class="collapse pdf-collapse" id="pdfAbstracts" data-bs-parent="#book-of-abstracts">
+          <div class="pdf-wrapper">
+            <iframe src="documentos/Book_of_Abstracts_47ACIS_2026.pdf"
+                    class="pdf-viewer"
+                    title="Book of Abstracts PDF"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- TEMÁTICAS -->
     <section id="tematicas">
@@ -379,14 +421,14 @@
       <div class="section-inner">
         <h2>Organization</h2>
 
-        <h3>•	Organizing Committee</h3>
+        <h3>• Organizing Committee</h3>
         <ul>
           <li>ACIS President: Susana Rocha Relvas</li><li>Organizing Committee President: Carlos Pazos-Justo</li><li>Organizing Committee Secretary: Ana Bessa Carvalho</li><li>Álvaro Iriarte</li><li>Idalete Dias</li><li>Maria João Moreira</li><li>Elías González</li>
         </ul>
 
-        <h3>•	Scientific committee</h3>
+        <h3>• Scientific committee</h3>
         <ul>
-          <li>Anton Pujol (University of North Carolina at Charlotte)</li><li>Bernardo Sacanene (Escola Superior Pedadógica do Bengo)</li><li>Cristina Martínez Tejero (Universidade de Santiago de Compostela)</li><li>Deirdre Kelly (Technological University Dublin)</li><li>Esther Gimeno Ugalde (Universitat Pompeu Fabra)</li><li>Felisa Rodríguez Prado (Universidade de Santiago de Compostela)</li><li>Gabriel Sansano (Universitat d’Alacant)</li><li>Idalete Dias (coord.) (Universidade do Minho)</li><li>Inês Gusman (Universidade de Santiago de Compostela)</li><li>Márcia Oliveira (Universidade do Minho)</li><li>Pilar Nicolás (Universidade do Porto)</li><li>Roberto Samartim (Universidade da Corunha)</li><li>Rogelio Ponce de León (Universidade do Porto)</li><li>Santiago Pérez Isasi (Universidade de Lisboa)</li><li>Siân Edwards (Cardiff University)</li><li>Susana Rocha Relvas (Instituto Politécnico de Viseu)</li><li>Xaquín Núñez Sabarís (Universidade do Minho)</li><li>Zara Pinto Coelho (Universidade do Minho)</li>
+          <li>Anton Pujol (University of North Carolina at Charlotte)</li><li>Blanca Gómez Garcia (University College London)</li><li>Bernardo Sacanene (Escola Superior Pedadógica do Bengo)</li><li>Cristina Martínez Tejero (Universidade de Santiago de Compostela)</li><li>Deirdre Kelly (Technological University Dublin)</li><li>Esther Gimeno Ugalde (Universitat Pompeu Fabra)</li><li>Felisa Rodríguez Prado (Universidade de Santiago de Compostela)</li><li>Gabriel Sansano (Universitat d’Alacant)</li><li>Idalete Dias (coord.) (Universidade do Minho)</li><li>Inês Gusman (Universidade de Santiago de Compostela)</li><li>Márcia Oliveira (Universidade do Minho)</li><li>Pilar Nicolás (Universidade do Porto)</li><li>Roberto Samartim (Universidade da Corunha)</li><li>Rogelio Ponce de León (Universidade do Porto)</li><li>Santiago Pérez Isasi (Universidade de Lisboa)</li><li>Siân Edwards (Cardiff University)</li><li>Susana Rocha Relvas (Instituto Politécnico de Viseu)</li><li>Xaquín Núñez Sabarís (Universidade do Minho)</li><li>Zara Pinto Coelho (Universidade do Minho)</li>
         </ul>
       </div>
     </section>
@@ -444,13 +486,6 @@
       </div>
     </section>
 
-    <!-- PUBLICATION 
-    <section id="publicacao">
-      <div class="section-inner">
-        <h2>Publication</h2>
-      </div>
-    </section>-->
-
     <!-- CONTACTO -->
     <section id="contacto">
       <div class="section-inner">
@@ -466,78 +501,63 @@
 
         <h3>Organizing Entities</h3>
         <div class="logos-row mb-4">
-
-        <div class="logo-card">
-            <a href="https://www.iberianstudies.net/" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/acis.png" alt="ACIS">
-            </a>
-        </div>
-
-        <div class="logo-card">
-            <a href="https://redegalabra.org/" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/galabra.png" alt="Galabra">
-            </a>
-        </div>
-
-        <div class="logo-card">
-            <a href="https://www.elach.uminho.pt/pt/investigar/Centros/Paginas/CEHUM.aspx" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/cehum.png" alt="CEHUM">
-            </a>
-        </div>
-
-        <div class="logo-card">
-            <a href="https://www.fct.pt" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/fct.png" alt="FCT">
-            </a>
-        </div>
-
+          <div class="logo-card">
+              <a href="https://www.iberianstudies.net/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/acis.png" alt="ACIS">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://redegalabra.org/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/galabra.png" alt="Galabra">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://www.elach.uminho.pt/pt/investigar/Centros/Paginas/CEHUM.aspx" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/cehum.png" alt="CEHUM">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://www.fct.pt" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/fct.png" alt="FCT">
+              </a>
+          </div>
         </div>
 
         <h3>Collaborating entities</h3>
         <div class="logos-row">
-
-        <div class="logo-card">
-            <a href="https://www.educacionfpydeportes.gob.es/portugal/oficinas-y-centros/consejeria-educacion.html" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/consejeria_educacion.png" alt="Consejería de Educación">
-            </a>
+          <div class="logo-card">
+              <a href="https://www.educacionfpydeportes.gob.es/portugal/oficinas-y-centros/consejeria-educacion.html" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/consejeria_educacion.png" alt="Consejería de Educación">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://lisboa.cervantes.es/pt/default.shtm" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/logo_cervantes.png" alt="Instituto Cervantes">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://www.xunta.gal" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/xunta_galicia.png" alt="Xunta de Galicia">
+              </a>
+          </div>
+          <div class="logo-card">
+              <a href="https://www.tecminho.uminho.pt" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/tecminho.png" alt="TecMinho">
+              </a>
+          </div> 
+          <div class="logo-card">
+              <a href="https://ceg.elach.uminho.pt/" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/logos/ELACH-CEG.png" alt="TecMinho">
+              </a>
+          </div>
         </div>
-
-        <div class="logo-card">
-            <a href="https://lisboa.cervantes.es/pt/default.shtm" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/logo_cervantes.png" alt="Instituto Cervantes">
-            </a>
-        </div>
-
-        <div class="logo-card">
-            <a href="https://www.xunta.gal" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/xunta_galicia.png" alt="Xunta de Galicia">
-            </a>
-        </div>
-
-        <div class="logo-card">
-            <a href="https://www.tecminho.uminho.pt" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/tecminho.png" alt="TecMinho">
-            </a>
-        </div> 
-
-        <div class="logo-card">
-            <a href="https://ceg.elach.uminho.pt/" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/logos/ELACH-CEG.png" alt="TecMinho">
-            </a>
-        </div>
-
-        </div>
-
-
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-
       <div class="logos-grid">
         <div class="logo-slot"></div>
         <div class="logo-slot">
@@ -563,16 +583,16 @@
           <h6 class="text-uppercase fw-bold">Navigation</h6>
           <a href="#apresentacao">Presentation</a>
           <a href="#cfp">CFP</a>
+          <a href="#programme">Programme</a>
+          <a href="#book-of-abstracts">Book of Abstracts</a>
           <a href="#tematicas">Themes</a>
           <a href="#organizacao">Organization</a>
           <a href="#inscricao">Submission</a>
           <a href="#prazos">Deadlines</a>
-          <!--<a href="#publicacao">Publication</a>-->
           <a href="#contacto">Contact</a>
           <a href="#entidades">Entities</a>
         </div>
       </div>
-
     </div>
   </footer>
 
