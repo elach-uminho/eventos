@@ -503,8 +503,35 @@
 
     .people-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr;
       gap: 22px
+    }
+
+    .people-grid .person-list {
+      columns: 3;
+      column-gap: 40px
+    }
+
+    .people-grid .mini-panel:first-child .person-list {
+      columns: 2
+    }
+
+    .people-grid .person-list li {
+      break-inside: avoid;
+      margin: 0 0 14px
+    }
+
+    @media(max-width:980px) {
+      .people-grid .person-list {
+        columns: 2
+      }
+    }
+
+    @media(max-width:640px) {
+      .people-grid .person-list,
+      .people-grid .mini-panel:first-child .person-list {
+        columns: 1
+      }
     }
 
     .footer-note {
