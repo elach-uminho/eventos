@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colóquio Internacional Tomaz de Figueiredo — 125 anos do nascimento | 80 anos de A Toca do Lobo | Universidade do Minho</title>
+  <meta name="description" content="Colóquio Internacional «Terra minha pela Memória e pelo Amor». Tomaz de Figueiredo: 125 anos do nascimento | 80 anos de A Toca do Lobo. Arcos de Valdevez, Casa das Artes, 20 e 21 de maio de 2027.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Colóquio Internacional Tomaz de Figueiredo: 125 anos do nascimento | 80 anos de A Toca do Lobo">
+  <meta property="og:description" content="«Terra minha pela Memória e pelo Amor». Arcos de Valdevez, Casa das Artes, 20 e 21 de maio de 2027. Call for Papers aberto até 28 de fevereiro de 2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+
+  <link rel="alternate" hreflang="pt" href="index.html">
+  <link rel="alternate" hreflang="en" href="index_en.html">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/cehum-evento.css">
+
+  <style>
+    :root {
+      --hero-image: url("../banners/banner_TFigueiredo.jpg");
+      --hero-fit: contain;
+      --hero-pos: top center;
+      --hero-bg: #f8f3ef;
+      --hero-ratio: 16 / 7;
+      --hero-max-h: 560px;
+      --hero-min-h: 160px;
+      margin-top: 3.5rem;
+    }
+
+
+    .section-inner { padding: 0 1rem; }
+
+    .subtitulo-evento {
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .info-evento p { margin-bottom: 0.35rem; }
+
+    .section-inner p { text-align: justify; hyphens: auto; }
+    .section-inner .info-evento p,
+    .section-inner .datas-grid p { text-align: left; }
+
+    /* ===== EIXOS TEMÁTICOS ===== */
+    .eixos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .eixo-card {
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .eixo-card h3 { margin-top: 0; line-height: 1.35; }
+    .eixo-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.93rem; color: #334155; }
+    .eixo-card li { margin-bottom: 0.2rem; }
+
+    /* ===== DATAS IMPORTANTES ===== */
+    .datas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .data-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .data-card .data {
+      display: block;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.35rem;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .data-card .desc { font-size: 0.9rem; color: #475569; }
+
+    .email-destaque {
+      background: #ffffff;
+      border: 1px dashed var(--color-primary);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      margin: 1.5rem auto;
+      max-width: 640px;
+    }
+
+    .email-destaque a { font-weight: 600; word-break: break-all; }
+
+    /* ===== ORADORES ===== */
+    .oradores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .orador-card {
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .orador-card i { font-size: 2rem; color: var(--color-accent-soft); }
+    .orador-card h3 { margin-top: 0.5rem; margin-bottom: 0.35rem; }
+    .orador-card p { margin: 0; font-size: 0.9rem; color: #475569; text-align: center; }
+
+    /* ===== COMISSÕES ===== */
+    .comissao-lista { list-style: none; padding-left: 0; }
+    .comissao-lista li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+    .comissao-lista li span { color: #475569; font-size: 0.92rem; }
+
+    .creditos-imagem { font-size: 0.8rem; color: #64748b; text-align: center; margin-top: 2rem; }
+    .creditos-imagem a { color: inherit; }
+
+    .logos-grid .logo-slot img.logo-parceiro { max-width: 170px; background: #ffffff; border-radius: 8px; padding: 6px; }
+
+    /* ====== BOTÃO DE IDIOMA (igual aos outros eventos) ====== */
+    .nav-btn-lang {
+      border: 1px solid #000000 !important;
+      color: #000000 !important;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem !important;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .nav-btn-lang:hover {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "«Terra minha pela Memória e pelo Amor» — Tomaz de Figueiredo: 125 anos do nascimento | 80 anos de A Toca do Lobo. Colóquio Internacional",
+    "startDate": "2027-05-20",
+    "endDate": "2027-05-21",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Casa das Artes de Arcos de Valdevez",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Arcos de Valdevez",
+        "addressCountry": "PT"
+      }
+    },
+    "organizer": [
+      { "@type": "Organization", "name": "CEHUM — Centro de Estudos Humanísticos da Universidade do Minho" },
+      { "@type": "Organization", "name": "Câmara Municipal de Arcos de Valdevez" },
+      { "@type": "Organization", "name": "Centro de Literatura Portuguesa da Universidade de Coimbra" }
+    ],
+    "inLanguage": "pt",
+    "description": "Colóquio internacional por ocasião dos 125 anos do nascimento de Tomaz de Figueiredo e dos 80 anos da publicação de A Toca do Lobo, propondo uma reflexão crítica sobre a obra e o lugar do escritor na literatura portuguesa do século XX."
+  }
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-main fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Tomaz de Figueiredo 2027</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="#apresentacao">Apresentação</a></li>
+        <li class="nav-item"><a class="nav-link" href="#eixos">Eixos Temáticos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#submissao">Call for Papers</a></li>
+        <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organizacao">Organização</a></li>
+        <li class="nav-item"><a class="nav-link" href="#publicacao">Publicação</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-btn-lang" href="index_en.html">EN 🇬🇧</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-banner" aria-label="Colóquio Internacional Tomaz de Figueiredo — 125 anos do nascimento | 80 anos de A Toca do Lobo"></section>
+
+<main>
+  <section id="apresentacao">
+    <div class="section-inner">
+      <h2>Apresentação</h2>
+      <p class="subtitulo-evento">«Terra minha pela Memória e pelo Amor»<br>
+        Tomaz de Figueiredo: 125 anos do nascimento | 80 anos de <em>A Toca do Lobo</em></p>
+
+      <div class="info-evento">
+        <p><strong>Colóquio Internacional</strong></p>
+        <p><strong>Datas:</strong> 20 e 21 de maio de 2027</p>
+        <p><strong>Local:</strong> Casa das Artes, Arcos de Valdevez</p>
+      </div>
+
+      <p class="mt-3">Por ocasião dos 125 anos do nascimento de Tomaz de Figueiredo e dos 80 anos da publicação de <em>A Toca do Lobo</em>, este encontro propõe uma reflexão crítica sobre a obra e o lugar do escritor na literatura portuguesa do século XX.</p>
+
+      <p>Autor de uma produção diversificada, que inclui romance, novela e conto bem como poesia, teatro, crónica e memorialismo, Tomaz de Figueiredo construiu uma escrita profundamente marcada pela memória, pelo território e pela relação entre o indivíduo e o mundo social e histórico. <em>A Toca do Lobo</em>, publicada em 1946, constitui um momento particularmente significativo dessa produção e, ao mesmo tempo, de maior visibilidade no polissistema literário do Estado Novo (Prémio Eça de Queiroz). Indo além deste romance que aliás constitui o início de um projeto épico maior só parcialmente realizado, o encontro pretende promover uma leitura abrangente da escrita e do pensamento do autor.</p>
+
+      <p>Neste contexto, interessa igualmente interrogar o lugar de Tomaz de Figueiredo na história e no cânone da literatura portuguesa. A marginalização da sua obra suscita questões sobre os processos de seleção, legitimação, transmissão e esquecimento que participam na construção do cânone literário, bem como sobre a necessidade de revisitar autores e obras afastados das narrativas dominantes da historiografia literária.</p>
+    </div>
+  </section>
+
+  <section id="eixos">
+    <div class="section-inner">
+      <h2>Eixos Temáticos</h2>
+      <p>O encontro acolhe propostas de abordagem interdisciplinar e comparatista que contribuam para novas leituras de Tomaz de Figueiredo e para uma reflexão mais ampla sobre a literatura portuguesa do século XX, o seu cânone e as suas margens.</p>
+      <p>Entre outras possibilidades, serão bem-vindas propostas que abordem:</p>
+
+      <div class="eixos-grid">
+        <div class="eixo-card">
+          <h3>1. Tomaz de Figueiredo e o cânone da literatura portuguesa</h3>
+          <ul>
+            <li>processos de canonização, marginalização e esquecimento;</li>
+            <li>historiografia literária e construção do cânone;</li>
+            <li>reavaliação crítica de autores e obras fora das narrativas dominantes;</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>2. <em>A Toca do Lobo</em> e a obra de Tomaz de Figueiredo</h3>
+          <ul>
+            <li>novas leituras de <em>A Toca do Lobo</em>;</li>
+            <li>relações entre <em>A Toca do Lobo</em> e outras obras do autor;</li>
+            <li>receção, circulação e fortuna crítica da obra.</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>3. Literatura, território, memória e identidade</h3>
+          <ul>
+            <li>o Alto Minho e a representação literária do território;</li>
+            <li>paisagem, lugar e pertença;</li>
+            <li>memória individual, familiar e coletiva;</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>4. Natureza, paisagem e mundo rural</h3>
+          <ul>
+            <li>representações da natureza e da paisagem;</li>
+            <li>ruralidade, tradição e transformação social;</li>
+            <li>relações entre literatura e ecologia;</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>5. Literatura, história e ideologia</h3>
+          <ul>
+            <li>Tomaz de Figueiredo e o contexto político e cultural do Estado Novo;</li>
+            <li>literatura, poder e resistência;</li>
+            <li>tradição, modernidade e conflito social;</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>6. Estética, linguagem e formas literárias</h3>
+          <ul>
+            <li>estilo, linguagem e construção narrativa;</li>
+            <li>ironia, sátira, grotesco e outras estratégias de representação;</li>
+            <li>diálogos intertextuais e interartísticos.</li>
+          </ul>
+        </div>
+        <div class="eixo-card">
+          <h3>7. Tomaz de Figueiredo em diálogo</h3>
+          <ul>
+            <li>perspetivas comparatistas com autores, movimentos, tradições;</li>
+            <li>diálogos com literaturas e culturas de outras geografias;</li>
+            <li>Tomaz de Figueiredo e as redes intelectuais e literárias do seu tempo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-4">Mais do que uma celebração, este encontro pretende constituir um espaço de debate e de releitura crítica, tomando a obra de Tomaz de Figueiredo como ponto de partida para repensar a literatura portuguesa, os seus cânones e as suas margens.</p>
+    </div>
+  </section>
+
+  <section id="submissao">
+    <div class="section-inner">
+      <h2>Call for Papers — Submissão de propostas</h2>
+      <p>Convidam-se investigadores/as, docentes, estudantes de pós-graduação e demais interessados/as a apresentar propostas de comunicação (20 minutos) relacionadas com os eixos temáticos do encontro.</p>
+
+      <h3>As propostas deverão incluir:</h3>
+      <ul>
+        <li><strong>título da comunicação</strong>;</li>
+        <li><strong>resumo</strong>, com cerca de 200 palavras;</li>
+        <li><strong>nome do/a autor/a</strong>;</li>
+        <li><strong>afiliação institucional</strong>;</li>
+        <li><strong>nota biográfica</strong>, com cerca de 100 palavras;</li>
+        <li><strong>contacto de email</strong>.</li>
+      </ul>
+
+      <div class="email-destaque">
+        <p class="mb-1">As propostas deverão ser enviadas para</p>
+        <p class="mb-1"><i class="bi bi-envelope"></i>
+          <a href="mailto:coloquio.figueiredo@tutamail.com?subject=Call%20for%20Papers%20%E2%80%93%20Tomaz%20de%20Figueiredo">coloquio.figueiredo@tutamail.com</a></p>
+        <p class="mb-0" style="font-size:0.9rem;">indicando no assunto <em>Call for Papers – Tomaz de Figueiredo</em></p>
+      </div>
+
+      <a class="btn-cehum-pdf" href="mailto:coloquio.figueiredo@tutamail.com?subject=Call%20for%20Papers%20%E2%80%93%20Tomaz%20de%20Figueiredo" style="text-decoration:none;">
+        <i class="bi bi-send"></i> Enviar proposta
+      </a>
+
+      <h3 class="mt-4">Datas importantes</h3>
+      <div class="datas-grid">
+        <div class="data-card">
+          <span class="data">28 fev. 2027</span>
+          <span class="desc">Prazo para envio de propostas</span>
+        </div>
+        <div class="data-card">
+          <span class="data">21 mar. 2027</span>
+          <span class="desc">Comunicação da aceitação</span>
+        </div>
+        <div class="data-card">
+          <span class="data">20–21 mai. 2027</span>
+          <span class="desc">Colóquio · Casa das Artes, Arcos de Valdevez</span>
+        </div>
+      </div>
+
+      <p>As propostas serão objeto de avaliação pela comissão científica do encontro. A aceitação das comunicações será comunicada até 21 de março de 2027.</p>
+    </div>
+  </section>
+
+  <section id="programa">
+    <div class="section-inner">
+      <h2>Programa</h2>
+      <h3>Oradores confirmados</h3>
+      <div class="oradores-grid">
+        <div class="orador-card">
+          <i class="bi bi-mic"></i>
+          <h3>Prof. Carlos Reis</h3>
+          <p>CLP, Universidade de Coimbra</p>
+        </div>
+        <div class="orador-card">
+          <i class="bi bi-pen"></i>
+          <h3>Mário Cláudio</h3>
+          <p>Escritor</p>
+        </div>
+        <div class="orador-card">
+          <i class="bi bi-mic"></i>
+          <h3>Prof. Sérgio Guimarães Sousa</h3>
+          <p>Universidade de Macau</p>
+        </div>
+      </div>
+
+      <h3 class="mt-4">Programa dos dois dias</h3>
+      <p>A grelha do programa (20 e 21 de maio de 2027), com sessões, horários e comunicações, será publicada brevemente.</p>
+      <!-- Quando o programa estiver pronto: pôr aqui a grelha (tabela) ou um PDF com os botões .btn-cehum-pdf, como no IVJTAPOA -->
+    </div>
+  </section>
+
+  <section id="organizacao">
+    <div class="section-inner">
+      <h2>Organização</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3>Comissão Organizadora</h3>
+          <ul class="comissao-lista">
+            <li>Dr.ª Svera Dantas <br><span>PLP / CEHUM, Universidade do Minho</span></li>
+            <li>Dr.ª Emilia Cerdeira <br><span>C.M. dos Arcos de Valdevez; Vereadora do Pelouro da Cultura</span></li>
+            <li>Dr. Nuno Soares <br><span>C.M. dos Arcos de Valdevez; Dir. Casa das Artes</span></li>
+            <li>Prof. Duarte Drumond Braga <br><span>Coord. PLP / CEHUM, Universidade do Minho</span></li>
+            <li>Prof.ª Maria Helena Santana <br><span>Dir. CLP, Universidade de Coimbra</span></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3>Comissão Científica</h3>
+          <ul class="comissao-lista">
+            <li>Prof. Carlos Reis <br><span>CLP, Universidade de Coimbra</span></li>
+            <li>Prof. Giorgio de Marchis <br><span>Università Roma Tre</span></li>
+            <li>Prof.ª Micaela Ramon <br><span>CEHUM, Universidade do Minho</span></li>
+            <li>Prof. Sérgio Guimarães Sousa <br><span>Universidade de Macau</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publicacao">
+    <div class="section-inner">
+      <h2>Publicação</h2>
+      <p>Está prevista a publicação de uma seleção dos contributos, com revisão por pares. As normas editoriais e datas de submissão serão indicadas oportunamente.</p>
+
+      <p class="creditos-imagem">Imagem do cabeçalho: retrato estilizado de Tomaz de Figueiredo; vista de Arcos de Valdevez — foto de Carlos Cunha,
+        <a href="https://commons.wikimedia.org/wiki/File:Arcos_de_Valdevez_-_panoramio_(2)_edited.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+        licença <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.pt" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="logos-grid">
+      <div class="logo-slot">
+        <img src="../assets/logos/elach.png" alt="ELACH">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/fct.png" alt="FCT">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/cehum.png" alt="CEHUM">
+      </div>
+      <div class="logo-slot">
+        <img class="logo-parceiro" src="../assets/logos/municipio_arcos_de_valdevez.png" alt="Município de Arcos de Valdevez">
+      </div>
+      <div class="logo-slot">
+        <img class="logo-parceiro" src="../assets/logos/clp_coimbra.png" alt="Centro de Literatura Portuguesa — Universidade de Coimbra">
+      </div>
+    </div>
+
+    <div class="row text-center justify-content-center">
+      <div class="col-md-5 mb-3">
+        <h6 class="text-uppercase fw-bold">Tomaz de Figueiredo 2027</h6>
+        <p class="mb-1">«Terra minha pela Memória e pelo Amor» — Colóquio Internacional</p>
+        <p class="mb-0">Casa das Artes · Arcos de Valdevez</p>
+        <p class="mb-0">20 e 21 de maio de 2027</p>
+      </div>
+
+      <div class="col-md-4 footer-links">
+        <h6 class="text-uppercase fw-bold">Navegação</h6>
+        <a href="#apresentacao">Apresentação</a>
+        <a href="#eixos">Eixos Temáticos</a>
+        <a href="#submissao">Call for Papers</a>
+        <a href="#programa">Programa</a>
+        <a href="#organizacao">Organização</a>
+        <a href="#publicacao">Publicação</a>
+        <a href="index_en.html" lang="en">English</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
