@@ -249,6 +249,21 @@
       .pdf-viewer { height: 60vh; }
     }
 
+    /* ====== BOTÕES DOS DOCUMENTOS (Programa + Livro de Resumos) ====== */
+    .doc-buttons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:2.5rem;
+    }
+
+    .doc-buttons .btn-cehum-pdf{
+      margin:0;
+      width:auto;
+    }
+
     /* ====== 2 BOTÕES LADO A LADO ====== */
     #fields .pdf-buttons{
       display:flex;
@@ -321,10 +336,20 @@
       <div class="section-inner">
         <h2 class="text-center">Transcultural Narratives and Representations of Love</h2>
 
-        <button class="btn btn-cehum-pdf" style="margin-bottom: 2.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#pdfPrograma" aria-expanded="false" aria-controls="pdfPrograma">Conference Programme (PDF)</button>
-        <div class="collapse pdf-collapse" id="pdfPrograma" style="margin-top: 0; margin-bottom: 2.5rem;">
-          <div class="pdf-wrapper">
-            <iframe src="documents/programa-coloquio-amor-2026.pdf" class="pdf-viewer" title="Conference Programme"></iframe>
+        <div class="doc-buttons">
+          <button class="btn btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfPrograma" aria-expanded="false" aria-controls="pdfPrograma">Conference Programme (PDF)</button>
+          <button class="btn btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfResumos" aria-expanded="false" aria-controls="pdfResumos">Book of Abstracts (PDF)</button>
+        </div>
+        <div id="pdfDocs">
+          <div class="collapse pdf-collapse" id="pdfPrograma" data-bs-parent="#pdfDocs" style="margin-top: 0; margin-bottom: 2.5rem;">
+            <div class="pdf-wrapper">
+              <iframe src="documents/programa-coloquio-amor-2026.pdf?v=20261117" class="pdf-viewer" title="Conference Programme"></iframe>
+            </div>
+          </div>
+          <div class="collapse pdf-collapse" id="pdfResumos" data-bs-parent="#pdfDocs" style="margin-top: 0; margin-bottom: 2.5rem;">
+            <div class="pdf-wrapper">
+              <iframe src="documents/livro-resumos-coloquio-amor-2026.pdf?v=20261117" class="pdf-viewer" title="Book of Abstracts" loading="lazy"></iframe>
+            </div>
           </div>
         </div>
         
