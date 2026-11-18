@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colóquio Camilo em Texto e Música | Universidade do Minho</title>
+  <meta name="description" content="Colóquio &quot;Camilo em Texto e Música&quot;, integrado no projeto &quot;Camillo e a Música&quot;. Universidade do Minho, Edifício dos Congregados, Braga, 27 e 28 de novembro de 2026.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Colóquio Camilo em Texto e Música">
+  <meta property="og:description" content="Universidade do Minho · Edifício dos Congregados, Braga · 27 e 28 de novembro de 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:image" content="https://eventos.cehum.elach.uminho.pt/CamiloTextoMusica2026/images/cartaz-coloquio-camilo.jpg">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/cehum-evento.css">
+
+  <style>
+    :root {
+      --hero-image: url("../banners/banner_camilo.jpg"); /* = /assets/banners/banner_camilo.jpg (relativo a /assets/css/) */
+      --hero-fit: contain;
+      --hero-pos: top center;
+      --hero-bg: #f7f3e9;
+      --hero-ratio: 16 / 9;
+      --hero-max-h: 620px;
+      --hero-min-h: 180px;
+      margin-top: 3.5rem;
+    }
+
+    .section-inner { padding: 0 1rem; }
+
+    .subtitulo-evento {
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .info-evento p { margin-bottom: 0.35rem; }
+
+    .section-inner p { text-align: justify; hyphens: auto; }
+    .section-inner .info-evento p,
+    .section-inner .datas-grid p { text-align: left; }
+
+    /* ===== APRESENTAÇÃO COM CARTAZ ===== */
+    .apresentacao-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .cartaz-mini {
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .cartaz-mini:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .cartaz-mini img { width: 100%; height: auto; display: block; }
+    @media (max-width: 768px) {
+      .apresentacao-grid { grid-template-columns: 1fr; }
+      .apresentacao-grid aside { max-width: 320px; margin: 0 auto; }
+    }
+
+    /* ===== DATAS / DESTAQUES ===== */
+    .datas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .data-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .data-card .data {
+      display: block;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.35rem;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .data-card .desc { font-size: 0.9rem; color: #475569; }
+
+    /* ===== ORADORES ===== */
+    .oradores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .orador-card {
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .orador-card i { font-size: 2rem; color: var(--color-accent-soft); }
+    .orador-card h3 { margin-top: 0.5rem; margin-bottom: 0.35rem; }
+    .orador-card p { margin: 0; font-size: 0.9rem; color: #475569; text-align: center; }
+
+    /* ===== PROGRAMA ===== */
+    .dia-titulo {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin: 2rem 0 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .dia-local { color: #475569; font-size: 0.92rem; margin-bottom: 0.75rem; }
+    .tabela-programa td, .tabela-programa th { text-align: left !important; vertical-align: top; }
+    .tabela-programa td:first-child { font-family: "Oswald", sans-serif; font-weight: 600; color: var(--color-primary); white-space: nowrap; width: 80px; }
+    .tabela-programa .titulo-com { font-style: italic; }
+    .tabela-programa .nomes { font-weight: 600; }
+    .tabela-programa .nomes small { display: block; font-weight: 400; color: #475569; }
+    .tabela-programa tr.pausa td { background: #f1f5f9; color: #475569; font-style: italic; }
+    .tabela-programa tr.pausa td:first-child { font-style: normal; }
+    .tabela-programa tr.marco td { background: #eef5fb; }
+
+    /* ===== EXPOSIÇÃO ===== */
+    .eixos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .eixo-card {
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 12px;
+      padding: 0.8rem 1.1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .eixo-card h3 { margin: 0; line-height: 1.35; font-size: 0.95rem; }
+    .eixo-card h3 .num { color: var(--color-accent-soft); font-family: "Oswald", sans-serif; margin-right: .35rem; }
+    .eixo-card ul { margin: 0.35rem 0 0; padding-left: 1.1rem; font-size: 0.9rem; color: #334155; }
+
+    .galeria-expo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .galeria-expo figure { margin: 0; background: #fff; border: 1px solid rgba(148,163,184,.25); border-radius: 12px; padding: .6rem; box-shadow: 0 6px 18px rgba(0,0,0,.05); }
+    .galeria-expo img { width: 100%; height: 260px; object-fit: cover; object-position: center 25%; border-radius: 8px; }
+    .galeria-expo figcaption { font-size: .85rem; color: #475569; text-align: center; padding-top: .45rem; }
+
+    /* ===== COMISSÕES ===== */
+    .comissao-lista { list-style: none; padding-left: 0; }
+    .comissao-lista li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+    .comissao-lista li span { color: #475569; font-size: 0.92rem; }
+
+    .em-breve { color: #64748b; font-style: italic; }
+
+    /* ===== INSCRIÇÕES ===== */
+    .inscricao-destaque {
+      background: #ffffff;
+      border: 1px dashed var(--color-primary);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      margin: 1.25rem auto 0;
+      max-width: 640px;
+    }
+    .inscricao-destaque p { text-align: center !important; }
+    .btn-cehum-pdf.btn-inscricao { background-color: var(--color-primary); color: #ffffff; }
+    .btn-cehum-pdf.btn-inscricao:hover { background-color: var(--color-primary-light); border-color: var(--color-primary-light); color: #ffffff; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Colóquio Camilo em Texto e Música",
+    "startDate": "2026-11-27",
+    "endDate": "2026-11-28",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Universidade do Minho — Edifício dos Congregados",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Central, 100",
+        "addressLocality": "Braga",
+        "addressCountry": "PT"
+      }
+    },
+    "organizer": [
+      { "@type": "Organization", "name": "CEHUM — Centro de Estudos Humanísticos da Universidade do Minho" }
+    ],
+    "inLanguage": "pt"
+  }
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-main fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Camilo em Texto e Música</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="#apresentacao">Apresentação</a></li>
+        <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#conferencistas">Conferencistas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#inscricoes">Inscrições</a></li>
+        <li class="nav-item"><a class="nav-link" href="#exposicao">Exposição</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projeto">Projeto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organizacao">Organização</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-banner" aria-label="Colóquio Camilo em Texto e Música · 27 e 28 de novembro de 2026 · Universidade do Minho, Edifício dos Congregados"></section>
+
+<main>
+  <!-- ===================== APRESENTAÇÃO ===================== -->
+  <section id="apresentacao">
+    <div class="section-inner">
+      <h2>Apresentação</h2>
+      <p class="subtitulo-evento">Colóquio integrado no projeto "Camillo e a Música" · Bicentenário de Camilo Castelo Branco</p>
+
+      <div class="apresentacao-grid">
+        <div>
+          <div class="info-evento">
+            <p><strong>Colóquio</strong></p>
+            <p><strong>Datas:</strong> 27 e 28 de novembro de 2026</p>
+            <p><strong>Local:</strong> Universidade do Minho, Edifício dos Congregados (Av. Central, 100), Braga</p>
+            <p><strong>Organização:</strong> CEHUM · ELACH · Universidade do Minho</p>
+          </div>
+
+          <p class="mt-3">O Colóquio "Camilo em Texto e Música" é dedicado à relação entre o escritor português e a música e insere-se no projeto "Camillo e a Música" da Câmara Municipal de Braga, em parceria com a Câmara Municipal de Cabeceiras de Basto, a Câmara Municipal de Vila Real e a SUONART — Associação Cultural. Além do Colóquio, o projeto inclui uma exposição, vários concertos e tertúlias em torno de Camilo nas três cidades.</p>
+
+          <p>Camilo Castelo Branco, figura central da literatura portuguesa, estabeleceu um diálogo constante com a música. Para além de ter uma formação musical básica, tocava guitarra, era um apreciador de fados e exerceu a atividade de crítico musical, na qual imprimiu o seu testemunho e comentários sobre episódios do teatro lírico no contexto sociocultural portuense, a partir dos espetáculos levados à cena no Teatro de São João, entre 1849 e 1858.</p>
+
+          <p>Foi amigo do compositor e violinista virtuoso Francisco de Sá Noronha, que lhe dedicou uma Fantasia sobre temas da ópera <em>La Traviata</em>, de Verdi. Inspirados pela obra de Camilo, Alfredo Keil compôs a ópera <em>A Serrana</em> (1899) e João Arroio a ópera <em>Amor de Perdição</em> (1907). Os seus textos inspiraram diversos compositores, no decorrer dos séculos XIX e XX, e em tempos hodiernos, como António Emiliano e Fernando Lapa.</p>
+
+          <p>É essa estreita e rica relação de Camilo Castelo Branco com a música que será evidenciada neste Colóquio, através da participação de especialistas na área da Musicologia, da História e da Literatura.</p>
+        </div>
+
+        <aside>
+          <a class="cartaz-mini" href="documents/Cartaz_Coloquio_Camilo_em_Texto_e_Musica.pdf" target="_blank" rel="noopener">
+            <img src="images/cartaz-coloquio-camilo.jpg" alt="Cartaz do Colóquio Camilo em texto e música: gravura de Camilo de cartola, com guitarra às costas; 27 e 28 de novembro de 2026, Universidade do Minho, Edifício dos Congregados" width="1100" height="1556">
+          </a>
+          <a class="btn-cehum-pdf" href="documents/Cartaz_Coloquio_Camilo_em_Texto_e_Musica.pdf" target="_blank" rel="noopener" style="text-decoration:none;">
+            <i class="bi bi-file-earmark-pdf"></i> Ver cartaz
+          </a>
+          <a class="btn-cehum-pdf btn-inscricao" href="https://forms.cloud.microsoft/e/A6BRjkwrVv" target="_blank" rel="noopener" style="text-decoration:none;">
+            <i class="bi bi-pencil-square"></i> Inscrições
+          </a>
+        </aside>
+      </div>
+
+      <div class="datas-grid">
+        <div class="data-card">
+          <span class="data">27 nov. 2026</span>
+          <span class="desc">1.º dia do Colóquio · 11h00</span>
+        </div>
+        <div class="data-card">
+          <span class="data">28 nov. 2026</span>
+          <span class="desc">2.º dia do Colóquio · 10h00</span>
+        </div>
+        <div class="data-card">
+          <span class="data">27 nov. · 18h00</span>
+          <span class="desc">Inauguração da exposição · Casa dos Crivos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMA ===================== -->
+  <section id="programa">
+    <div class="section-inner">
+      <h2>Programa</h2>
+
+      <p class="dia-titulo">Sexta-feira, 27 de novembro de 2026</p>
+      <p class="dia-local"><i class="bi bi-geo-alt"></i> Universidade do Minho · Edifício dos Congregados</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle tabela-programa">
+          <thead class="table-light">
+            <tr><th>Hora</th><th>Conferencistas</th><th>Título</th><th>Moderação</th></tr>
+          </thead>
+          <tbody>
+            <tr class="marco">
+              <td>11:00</td>
+              <td class="nomes" colspan="3">Abertura<small>Vítor Moura (Diretor do CEHUM), Elisa Lessa, Vítor Matos (Departamento de Música), Catarina Miranda (Vereadora da Cultura)</small></td>
+            </tr>
+            <tr>
+              <td>11:30</td>
+              <td class="nomes">Cândido Oliveira Martins</td>
+              <td class="titulo-com">Música em Camilo Castelo Branco: práticas e comicidade no teatro social da ficção humorística</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr>
+              <td>12:15</td>
+              <td class="nomes">Mesa-redonda<small>Elisa Lessa, Rodrigo Teodoro de Paula, Rui Magno Pinto</small></td>
+              <td class="titulo-com">Camilo e a Música: um projeto em curso</td>
+              <td></td>
+            </tr>
+            <tr class="pausa"><td>13:00</td><td colspan="3">Pausa para almoço</td></tr>
+            <tr>
+              <td>15:00</td>
+              <td class="nomes">Luciene Pavanelo</td>
+              <td class="titulo-com">A quebra da catarse em "O Que Fazem Mulheres", de Camilo Castelo Branco</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr>
+              <td>15:30</td>
+              <td class="nomes">César Viana</td>
+              <td class="titulo-com">Cinco obras virtuosísticas para violino de Francisco de Sá Noronha: fontes, interpretação e orquestração</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+              <td class="nomes">Bárbara Carvalho<br>Manuel Deniz<br>Nicholas McNair<br>Cesário Costa</td>
+              <td class="titulo-com">Camilo no Teatro e no Cinema</td>
+              <td>Rui Magno Pinto</td>
+            </tr>
+            <tr class="pausa"><td>16:50</td><td colspan="3">Pausa para café</td></tr>
+            <tr>
+              <td>17:10</td>
+              <td class="nomes">Catarina Braga</td>
+              <td class="titulo-com">Camilo em cena: a música de João Rodrigues Cordeiro e José Maria de Carvalho para as comédias de Camilo Castelo Branco</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr>
+              <td>17:30</td>
+              <td class="nomes">Pedro Maia</td>
+              <td class="titulo-com">A propósito d'O Processo de Camilo — música para a peça de teatro "Camilo e Ana Augusta", de Artur Costa, por Pedro Junqueira Maia</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr class="pausa"><td>18:10</td><td colspan="3">Fim da sessão</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="dia-titulo">Sábado, 28 de novembro de 2026</p>
+      <p class="dia-local"><i class="bi bi-geo-alt"></i> Universidade do Minho · Edifício dos Congregados</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle tabela-programa">
+          <thead class="table-light">
+            <tr><th>Hora</th><th>Conferencista</th><th>Título</th><th>Moderação</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10:00</td>
+              <td class="nomes">Nuno Resende</td>
+              <td class="titulo-com">"Corografia sentimental": fontes, método e arquitectura de um dicionário camiliano</td>
+              <td>Elisa Lessa</td>
+            </tr>
+            <tr>
+              <td>10:40</td>
+              <td class="nomes">Luísa Cymbron</td>
+              <td class="titulo-com">O ambiente musical do Porto no tempo de Camilo</td>
+              <td>Rui Magno Pinto</td>
+            </tr>
+            <tr>
+              <td>11:20</td>
+              <td class="nomes">Pedro Couto Soares</td>
+              <td class="titulo-com">Música e teatro na obra de Camilo: entre o folhetim e a ficção</td>
+              <td>Rui Magno Pinto</td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+              <td class="nomes">Rui Vieira Nery</td>
+              <td class="titulo-com">A Ópera como espaço de sociabilidade da elite portuense: Camilo como crítico musical</td>
+              <td>Rodrigo Teodoro de Paula</td>
+            </tr>
+            <tr class="pausa"><td>12:40</td><td colspan="3">Encerramento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONFERENCISTAS ===================== -->
+  <section id="conferencistas">
+    <div class="section-inner">
+      <h2>Conferencistas</h2>
+      <div class="oradores-grid">
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Bárbara Carvalho</h3></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Cândido Oliveira Martins</h3><p>CEFH · Universidade Católica</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Catarina Braga</h3><p>CESEM · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>César Viana</h3><p>CEHUM · Universidade do Minho</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Cesário Costa</h3><p>CESEM · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Luciene Marie Pavanelo</h3><p>Universidade Estadual Paulista</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Luísa Cymbron</h3><p>CESEM · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Manuel Deniz Silva</h3><p>INET-md · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Nicholas McNair</h3><p>CESEM · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Nuno Resende</h3><p>Universidade do Porto</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Pedro Couto Soares</h3><p>CESEM · Universidade Nova</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Pedro Junqueira Maia</h3><p>Universidade do Minho</p></div>
+        <div class="orador-card"><i class="bi bi-mic"></i><h3>Rui Vieira Nery</h3><p>Universidade Nova · Fundação Gulbenkian</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSCRIÇÕES ===================== -->
+  <section id="inscricoes">
+    <div class="section-inner">
+      <h2>Inscrições</h2>
+      <p>A participação no Colóquio "Camilo em Texto e Música" requer inscrição prévia, através do formulário abaixo.</p>
+      <div class="inscricao-destaque">
+        <p class="mb-2"><i class="bi bi-calendar-event"></i> 27 e 28 de novembro de 2026 · Universidade do Minho, Edifício dos Congregados</p>
+        <a class="btn-cehum-pdf btn-inscricao" href="https://forms.cloud.microsoft/e/A6BRjkwrVv" target="_blank" rel="noopener" style="text-decoration:none;">
+          <i class="bi bi-pencil-square"></i> Preencher o formulário de inscrição
+        </a>
+        <p class="mt-3 mb-0 small text-muted">O formulário abre numa nova janela (Microsoft Forms).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPOSIÇÃO ===================== -->
+  <section id="exposicao">
+    <div class="section-inner">
+      <h2>Exposição "Camillo e a Música"</h2>
+      <p class="subtitulo-evento">Inauguração a 27 de novembro de 2026, às 18h00 · Casa dos Crivos, Rua de S. Marcos, Braga</p>
+
+      <p>Uma visita em torno da relação de Camilo Castelo Branco com a música do seu tempo, explorando a presença da arte musical na sua vida, na sua obra literária e no contexto cultural do século XIX. Os textos de Camilo constituem testemunhos relevantes da vida musical oitocentista, permitindo conhecer práticas, ambientes, repertórios e sensibilidades de uma época em que a música ocupava um lugar significativo na sociabilidade e na expressão artística.</p>
+
+      <p>A exposição dá igualmente a conhecer um conjunto significativo de repertório musical inspirado na obra e/ou na figura de Camilo Castelo Branco, evidenciando a vitalidade da sua criação literária enquanto fonte de inspiração para compositores. De modo particular, constrói uma narrativa que aproxima Camilo de três cidades — Braga, Cabeceiras de Basto e Vila Real —, articulando lugares, memórias, referências literárias e património musical.</p>
+
+      <div class="galeria-expo">
+        <figure>
+          <img src="images/fado-de-camilo-capa.jpg" alt="Capa da partitura &quot;Fado de Camilo&quot;, letra de Alberto Pimentel, música de Tomás Borba" loading="lazy">
+          <figcaption><em>Fado de Camilo</em> — Alberto Pimentel e Tomás Borba</figcaption>
+        </figure>
+        <figure>
+          <img src="images/camilo-gravura-cabanas.jpg" alt="Retrato de Camilo Castelo Branco em gravura a preto e branco" loading="lazy">
+          <figcaption>Retrato de Camilo — gravura de Manuel Cabanas</figcaption>
+        </figure>
+        <figure>
+          <img src="images/pintura-jose-teixeira.jpg" alt="Pintura de Camilo com pince-nez, em tons de rosa" loading="lazy">
+          <figcaption>"Declinações a cores" — José Teixeira</figcaption>
+        </figure>
+      </div>
+
+      <h3>Painéis</h3>
+      <div class="eixos-grid">
+        <div class="eixo-card"><h3><span class="num">I</span> O Fado de Camillo</h3></div>
+        <div class="eixo-card"><h3><span class="num">II</span> A Formação Musical de Camillo</h3></div>
+        <div class="eixo-card"><h3><span class="num">III</span> Em Casa de Camillo: Ecos Musicais de Seide</h3></div>
+        <div class="eixo-card"><h3><span class="num">IV</span> Crónicas Musicais de Camillo I</h3></div>
+        <div class="eixo-card"><h3><span class="num">V</span> Crónicas Musicais de Camillo II</h3></div>
+        <div class="eixo-card"><h3><span class="num">VI</span> A Amizade entre Camillo e Sá Noronha</h3></div>
+        <div class="eixo-card"><h3><span class="num">VII</span> Camillo em Canção I</h3></div>
+        <div class="eixo-card"><h3><span class="num">VIII</span> Camillo em Canção II</h3></div>
+        <div class="eixo-card"><h3><span class="num">IX</span> Camillo em Música. Obras Orquestrais</h3></div>
+        <div class="eixo-card"><h3><span class="num">X</span> Do Romance à Ópera I</h3></div>
+        <div class="eixo-card"><h3><span class="num">XI</span> Do Romance à Ópera II</h3></div>
+        <div class="eixo-card"><h3><span class="num">XII</span> A Música em Cena — Teatro e Cinema</h3></div>
+        <div class="eixo-card"><h3><span class="num">XIII</span> A Música na Literatura Camiliana I</h3></div>
+        <div class="eixo-card"><h3><span class="num">XIV</span> A Música na Literatura Camiliana II</h3></div>
+        <div class="eixo-card"><h3><span class="num">XV</span> Memórias de uma geografia musical</h3>
+          <ul><li>Braga</li><li>Cabeceiras de Basto</li><li>Vila Real</li></ul></div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-md-6">
+          <h3>Curadoria</h3>
+          <ul class="comissao-lista">
+            <li>Elisa Lessa, Rodrigo Teodoro de Paula e Rui Magno Pinto <br><span>Universidade do Minho</span></li>
+          </ul>
+          <h3>Colaboração</h3>
+          <ul class="comissao-lista">
+            <li>Inês Tavares <br><span>Doutoranda em Ciências da Cultura · ELACH, Universidade do Minho</span></li>
+            <li>Inês Rocha <br><span>Mestre em Música (Ciências Musicais) pela Universidade do Minho</span></li>
+            <li>Afonso Machado, Carolina Zueco, Cátia Pires, Clara Costa, Diana Silva, Israel Silveira, Luana Fonseca, Mariana Couto, Marta Parente e Pedro Meireles <br><span>Estudantes da Licenciatura em Música — Ciências Musicais · Departamento de Música, ELACH</span></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3>Artes visuais</h3>
+          <ul class="comissao-lista">
+            <li>José Teixeira <br><span>Pinturas "Declinações a cores" · ELACH, Universidade do Minho</span></li>
+            <li>Patrícia Ferreira <br><span>Ilustradora e artista plástica</span></li>
+            <li>Rui Mesquita, João Paulo Braga e António Lobato Costa <br><span>Desenhos em torno de Camilo e a Música</span></li>
+          </ul>
+          <h3>Agradecimentos</h3>
+          <ul class="comissao-lista">
+            <li>Conselho Cultural — Reitoria da Universidade do Minho <br><span>Manuela Ivone Cunha</span></li>
+            <li>Biblioteca Pública de Braga <br><span>Márcia Carolina Ferreira Oliveira · Elisabete Pinto Lago</span></li>
+            <li>Câmara Municipal de Vila Nova de Famalicão</li>
+            <li>Casa-Museu de Camilo — São Miguel de Seide <br><span>Sérgio Guimarães de Sousa, Diretor da Casa-Museu e Coordenador Científico do Centro de Estudos Camilianos</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJETO ===================== -->
+  <section id="projeto">
+    <div class="section-inner">
+      <h2>O projeto "Camillo e a Música"</h2>
+      <p>O projeto "Camillo e a Música" é uma iniciativa cultural que explora e valoriza a dimensão musical da vida e obra de Camilo Castelo Branco (1825–1890), no contexto das comemorações do seu bicentenário. Esta proposta multidisciplinar articula investigação académica, produção cultural e divulgação patrimonial, criando uma rede de cooperação entre três municípios com ligações históricas significativas ao escritor: Braga, Vila Real e Cabeceiras de Basto.</p>
+      <p>O projeto, coordenado pela Professora Elisa Lessa, tem como objetivo dar a conhecer a relação entre o escritor e a música, promovendo o conhecimento sobre esta dimensão da sua vida e obra, e contribuir para a valorização do património cultural português através de uma abordagem territorial integrada.</p>
+
+      <div class="datas-grid">
+        <div class="data-card"><span class="data">Braga</span><span class="desc">Colóquio e exposição</span></div>
+        <div class="data-card"><span class="data">Cabeceiras de Basto</span><span class="desc">Concertos e tertúlias</span></div>
+        <div class="data-card"><span class="data">Vila Real</span><span class="desc">Concertos e tertúlias</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ORGANIZAÇÃO ===================== -->
+  <section id="organizacao">
+    <div class="section-inner">
+      <h2>Organização</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3>Comissão Científica</h3>
+          <ul class="comissao-lista">
+            <li>Elisa Lessa <br><span>Coordenadora · CEHUM, Universidade do Minho</span></li>
+            <li>Rodrigo Teodoro de Paula <br><span>CESEM / CEHUM</span></li>
+            <li>Rui Magno Pinto <br><span>CESEM</span></li>
+          </ul>
+          <h3>Direção Artística do projeto</h3>
+          <ul class="comissao-lista">
+            <li>Miguel Simões <br><span>ELACH · Universidade do Minho</span></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3>Comissão Organizadora</h3>
+          <ul class="comissao-lista">
+            <li>Alexandre Gonçalves <br><span>Doutorando em Ciências da Cultura · CEHUM</span></li>
+            <li>Dora Rodrigues <br><span>Doutoranda em Ciências da Cultura · CEHUM</span></li>
+            <li>Inês Tavares <br><span>Doutoranda em Ciências da Cultura · CEHUM</span></li>
+            <li>Miguel Gomes <br><span>Doutorando em Ciências da Cultura · CEHUM</span></li>
+            <li>Rui Brito <br><span>Doutorando em Ciências da Cultura · CEHUM</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="mt-4">Parceiros</h3>
+      <p>Câmara Municipal de Braga · Câmara Municipal de Cabeceiras de Basto · Câmara Municipal de Vila Real · SUONART — Associação Cultural · Departamento de Música da ELACH</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="logos-grid">
+      <div class="logo-slot">
+        <img src="../assets/logos/elach.png" alt="ELACH">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/fct.png" alt="FCT">
+      </div>
+      <div class="logo-slot">
+        <img src="../assets/logos/cehum.png" alt="CEHUM">
+      </div>
+    </div>
+
+    <div class="row text-center justify-content-center">
+      <div class="col-md-5 mb-3">
+        <h6 class="text-uppercase fw-bold">Camilo em Texto e Música</h6>
+        <p class="mb-1">Colóquio · Projeto "Camillo e a Música"</p>
+        <p class="mb-0">Universidade do Minho · Edifício dos Congregados · Braga</p>
+        <p class="mb-0">27 e 28 de novembro de 2026</p>
+      </div>
+
+      <div class="col-md-4 footer-links">
+        <h6 class="text-uppercase fw-bold">Navegação</h6>
+        <a href="#apresentacao">Apresentação</a>
+        <a href="#programa">Programa</a>
+        <a href="#conferencistas">Conferencistas</a>
+        <a href="#inscricoes">Inscrições</a>
+        <a href="#exposicao">Exposição</a>
+        <a href="#projeto">Projeto</a>
+        <a href="#organizacao">Organização</a>
+      </div>
+    </div>
+
+    <p class="text-center mb-0 mt-3" style="font-size:0.78rem;color:#e5e7eb;opacity:.85;">Este trabalho é financiado por fundos nacionais através da FCT – Fundação para a Ciência e a Tecnologia, I.P., no âmbito do projeto UID/00305: Centro de Estudos Humanísticos da Universidade do Minho (CEHUM/UM).</p>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
