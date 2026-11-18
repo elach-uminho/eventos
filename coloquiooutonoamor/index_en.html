@@ -249,6 +249,21 @@
       .pdf-viewer { height: 60vh; }
     }
 
+    /* ====== BOTÕES DOS DOCUMENTOS (Programa + Livro de Resumos) ====== */
+    .doc-buttons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:2.5rem;
+    }
+
+    .doc-buttons .btn-cehum-pdf{
+      margin:0;
+      width:auto;
+    }
+
     /* ====== 2 BOTÕES LADO A LADO ====== */
     #fields .pdf-buttons{
       display:flex;
@@ -320,6 +335,23 @@
     <section id="narratives">
       <div class="section-inner">
         <h2 class="text-center">Transcultural Narratives and Representations of Love</h2>
+
+        <div class="doc-buttons">
+          <button class="btn btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfPrograma" aria-expanded="false" aria-controls="pdfPrograma">Conference Programme (PDF)</button>
+          <button class="btn btn-cehum-pdf" type="button" data-bs-toggle="collapse" data-bs-target="#pdfResumos" aria-expanded="false" aria-controls="pdfResumos">Book of Abstracts (PDF)</button>
+        </div>
+        <div id="pdfDocs">
+          <div class="collapse pdf-collapse" id="pdfPrograma" data-bs-parent="#pdfDocs" style="margin-top: 0; margin-bottom: 2.5rem;">
+            <div class="pdf-wrapper">
+              <iframe src="documents/programa-coloquio-amor-2026.pdf?v=20261117" class="pdf-viewer" title="Conference Programme"></iframe>
+            </div>
+          </div>
+          <div class="collapse pdf-collapse" id="pdfResumos" data-bs-parent="#pdfDocs" style="margin-top: 0; margin-bottom: 2.5rem;">
+            <div class="pdf-wrapper">
+              <iframe src="documents/livro-resumos-coloquio-amor-2026.pdf?v=20261117" class="pdf-viewer" title="Book of Abstracts" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
         
         <p>Recent studies have placed questions of affect and emotion back at the center of humanistic research. Studies on love, in particular, are now based on two complementary orientations — affect theory (which historicizes and politicizes sentiment) and affective science itself (which considers empirical, cognitive, and physiological dimensions) — and treat love both as an individual or intimate experience and as a socially mediated phenomenon.</p>
         
