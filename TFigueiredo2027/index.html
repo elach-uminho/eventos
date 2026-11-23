@@ -125,6 +125,15 @@
     }
 
     .orador-card i { font-size: 2rem; color: var(--color-accent-soft); }
+    .orador-avatar {
+      width: 110px; height: 110px; margin: 0 auto 0.5rem;
+      border-radius: 50%; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: #f1ebe6;
+    }
+    .orador-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .orador-avatar i { font-size: 2.4rem; }
+    .orador-card .foto-credito { margin-top: 0.4rem; font-size: 0.72rem; color: #94a3b8; }
     .orador-card h3 { margin-top: 0.5rem; margin-bottom: 0.35rem; }
     .orador-card p { margin: 0; font-size: 0.9rem; color: #475569; text-align: center; }
 
@@ -352,17 +361,18 @@
       <h3>Oradores confirmados</h3>
       <div class="oradores-grid">
         <div class="orador-card">
-          <i class="bi bi-mic"></i>
+          <div class="orador-avatar"><i class="bi bi-mic" aria-hidden="true"></i></div>
           <h3>Prof. Carlos Reis</h3>
           <p>CLP, Universidade de Coimbra</p>
         </div>
         <div class="orador-card">
-          <i class="bi bi-pen"></i>
+          <div class="orador-avatar"><img src="images/fotos/mario-claudio.jpg" alt="Mário Cláudio" width="110" height="110"></div>
           <h3>Mário Cláudio</h3>
           <p>Escritor</p>
+          <p class="foto-credito">Foto: Gonçalo Rosa da Silva</p>
         </div>
         <div class="orador-card">
-          <i class="bi bi-mic"></i>
+          <div class="orador-avatar"><i class="bi bi-mic" aria-hidden="true"></i></div>
           <h3>Prof. Sérgio Guimarães Sousa</h3>
           <p>Universidade de Macau</p>
         </div>
@@ -383,8 +393,8 @@
           <h3>Comissão Organizadora</h3>
           <ul class="comissao-lista">
             <li>Dr.ª Svera Dantas <br><span>PLP / CEHUM, Universidade do Minho</span></li>
-            <li>Dr.ª Emilia Cerdeira <br><span>C.M. dos Arcos de Valdevez; Vereadora do Pelouro da Cultura</span></li>
-            <li>Dr. Nuno Soares <br><span>C.M. dos Arcos de Valdevez; Dir. Casa das Artes</span></li>
+            <li>Dr.ª Emilia Cerdeira <br><span>Município de Arcos de Valdevez; Vereadora do Pelouro da Cultura</span></li>
+            <li>Dr. Nuno Soares <br><span>Município de Arcos de Valdevez; Chefe de Divisão</span></li>
             <li>Prof. Duarte Drumond Braga <br><span>Coord. PLP / CEHUM, Universidade do Minho</span></li>
             <li>Prof.ª Maria Helena Santana <br><span>Dir. CLP, Universidade de Coimbra</span></li>
             <li>Prof. Sérgio Guimarães Sousa <br><span>Universidade de Macau</span></li>
